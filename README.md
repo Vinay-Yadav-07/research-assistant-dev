@@ -418,5 +418,5 @@ Detailed technical documentation and design records are provided in the [`docs/`
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
-Developed as a BE Major Project at **Vidyalankar Institute of Technology**, Mumbai, under the guidance of **Dr. Rugved Deolekar**. We extend our gratitude to the open-source community, particularly the teams behind FastAPI, Next.js, LangGraph, Supabase, Sentence-Transformers, and PyMuPDF.
+Developed as a BE Major Project at **Vidyalankar Institute of Technology**, Mumbai. We extend our gratitude to the open-source community, particularly the teams behind FastAPI, Next.js, LangGraph, Supabase, Sentence-Transformers, and PyMuPDF.
 
