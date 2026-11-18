@@ -1,0 +1,230 @@
+{
+  "experiment": "retrieval_eval",
+  "date": "2026-10-03T19:13:14+00:00",
+  "git_commit": "7bd89989aef596cdece09b6f3e229cdd03fa9f51",
+  "git_dirty": true,
+  "models": {
+    "embedding": "BAAI/bge-small-en-v1.5",
+    "reranker": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "parser": "pymupdf4llm"
+  },
+  "settings": {
+    "embedding_provider": "sentence_transformers",
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "embedding_dimension": 384,
+    "embedding_batch_size": 16,
+    "reranker_provider": "cross_encoder",
+    "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "reranker_max_length": 512,
+    "reranker_batch_size": 16,
+    "nli_provider": "fake",
+    "nli_model": "cross-encoder/nli-deberta-v3-base",
+    "nli_max_length": 512,
+    "nli_batch_size": 16,
+    "parser_provider": "pymupdf4llm",
+    "dense_top_k": 30,
+    "lexical_top_k": 30,
+    "rrf_k": 60,
+    "rerank_candidates": 20,
+    "retrieval_top_k": 8,
+    "chunk_min_tokens": 350,
+    "chunk_max_tokens": 450,
+    "chunk_overlap_ratio": 0.12,
+    "chunk_merge_below_tokens": 80,
+    "chunk_hard_max_tokens": 510,
+    "compatibility_chunks": 4,
+    "compatibility_max_pages": 3,
+    "compatibility_threshold": 0.83,
+    "ingestion_concurrency": 1,
+    "local_inference_concurrency": 1
+  },
+  "parameters": {
+    "papers": 3,
+    "questions": 16
+  },
+  "dataset": "questions.json",
+  "hardware": {
+    "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "machine": "x86_64",
+    "processor": null,
+    "cpu_count": 16,
+    "python": "3.11.16",
+    "torch_threads": 8
+  },
+  "results": [
+    {
+      "paper": "plga",
+      "question": "What toughness did scaffolds reach with a 20% PLGA coating compared with uncoated ones?",
+      "gold_page": 12,
+      "rank_snippet": 1,
+      "rank_page": 1,
+      "total_ms": 2909.5,
+      "top_page": 12,
+      "top_section": "5.1. Mechanical properties"
+    },
+    {
+      "paper": "plga",
+      "question": "How much did the coating change the compressive strength relative to the bare scaffold?",
+      "gold_page": 12,
+      "rank_snippet": 1,
+      "rank_page": 1,
+      "total_ms": 2935.8,
+      "top_page": 12,
+      "top_section": "5.1. Mechanical properties"
+    },
+    {
+      "paper": "plga",
+      "question": "Which PLGA concentration gave the strongest scaffolds in compression?",
+      "gold_page": 13,
+      "rank_snippet": 2,
+      "rank_page": 1,
+      "total_ms": 2828.0,
+      "top_page": 12,
+      "top_section": "5.1. Mechanical properties"
+    },
+    {
+      "paper": "plga",
+      "question": "How much of each polymer coating had degraded after 32 weeks?",
+      "gold_page": 15,
+      "rank_snippet": 1,
+      "rank_page": 1,
+      "total_ms": 3007.1,
+      "top_page": 15,
+      "top_section": "5.2. Biodegradability"
+    },
+    {
+      "paper": "plga",
+      "question": "How quickly was the drug released from uncoated scaffolds?",
+      "gold_page": 24,
+      "rank_snippet": 2,
+      "rank_page": 1,
+      "total_ms": 3245.6,
+      "top_page": 24,
+      "top_section": "5.4. Molecular delivery"
+    },
+    {
+      "paper": "plga",
+      "question": "What is the glass transition temperature range of the PLGA copolymer?",
+      "gold_page": 6,
+      "rank_snippet": 1,
+      "rank_page": 1,
+      "total_ms": 2709.2,
+      "top_page": 6,
+      "top_section": "2. PLGA as a biomaterial"
+    },
+    {
+      "paper": "hollow",
+      "question": "How porous were scaffolds with hollow channels compared with solid scaffolds after sintering?",
+      "gold_page": 10,
+      "rank_snippet": 1,
+      "rank_page": 1,
+      "total_ms": 3289.7,
+      "top_page": 9,
+      "top_section": "3.2. Structural and elemental composition of scaffolds"
+    },
+    {
+      "paper": "hollow",
+      "question": "How much did the printed parts shrink vertically during sintering?",
+      "gold_page": 10,
+      "rank_snippet": 1,
+      "rank_page": 1,
+      "total_ms": 3018.4,
+      "top_page": 10,
+      "top_section": "3.2. Structural and elemental composition of scaffolds"
+    },
+    {
+      "paper": "hollow",
+      "question": "Which outer strut shapes gave the highest bending strength?",
+      "gold_page": 12,
+      "rank_snippet": 1,
+      "rank_page": 1,
+      "total_ms": 2571.8,
+      "top_page": 12,
+      "top_section": "3.3. Mechanical performance of scaffolds"
+    },
+    {
+      "paper": "hollow",
+      "question": "What were the diameters of the coaxial nozzle outlet and its mandrel?",
+      "gold_page": 3,
+      "rank_snippet": 1,
+      "rank_page": 1,
+      "total_ms": 3128.1,
+      "top_page": 3,
+      "top_section": "2.2. Design and production of extrusion nozzles"
+    },
+    {
+      "paper": "hollow",
+      "question": "At what strain does the ceramic paste stop behaving like a solid and start to flow?",
+      "gold_page": 8,
+      "rank_snippet": 3,
+      "rank_page": 1,
+      "total_ms": 2465.6,
+      "top_page": 8,
+      "top_section": "3.1. Slurry rheology"
+    },
+    {
+      "paper": "robocast",
+      "question": "How does the spacing between printed rods set the porosity and pore size?",
+      "gold_page": 9,
+      "rank_snippet": 3,
+      "rank_page": 2,
+      "total_ms": 2378.6,
+      "top_page": 6,
+      "top_section": "Physical, microstructural, and mechanical characterization"
+    },
+    {
+      "paper": "robocast",
+      "question": "Why must the printing speed stay within a limited range during robocasting?",
+      "gold_page": 7,
+      "rank_snippet": null,
+      "rank_page": 2,
+      "total_ms": 2823.0,
+      "top_page": 4,
+      "top_section": "MATERIALS AND METHODS Scaffolds fabrication"
+    },
+    {
+      "paper": "robocast",
+      "question": "What formed on the hybrid scaffolds after three weeks in simulated body fluid?",
+      "gold_page": 1,
+      "rank_snippet": 5,
+      "rank_page": 5,
+      "total_ms": 3217.6,
+      "top_page": 17,
+      "top_section": "Compression strengths"
+    },
+    {
+      "paper": "robocast",
+      "question": "Why is the polylactide used in the inks amorphous?",
+      "gold_page": 11,
+      "rank_snippet": null,
+      "rank_page": null,
+      "total_ms": 2551.1,
+      "top_page": 3,
+      "top_section": "INTRODUCTION"
+    },
+    {
+      "paper": "robocast",
+      "question": "How high can the ceramic content of the inks be, and how does that compare with bone?",
+      "gold_page": 7,
+      "rank_snippet": 1,
+      "rank_page": 1,
+      "total_ms": 2397.3,
+      "top_page": 7,
+      "top_section": "RESULTS AND DISCUSSION Physical and microstructural characterization of the printed samples"
+    }
+  ],
+  "summary": {
+    "snippet": {
+      "R@5": 0.875,
+      "R@8": 0.875,
+      "MRR": 0.6791666666666667
+    },
+    "page": {
+      "R@5": 0.9375,
+      "R@8": 0.9375,
+      "MRR": 0.825
+    },
+    "latency_p50_ms": 2868.75,
+    "latency_max_ms": 3289.7
+  }
+}

@@ -1,0 +1,170 @@
+name: CI
+
+on:
+  # Every branch (SRS §15.1: "on every push").
+  push:
+  # Also test the merge result against the target branch.
+  pull_request:
+    branches: [dev, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    name: backend
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
+        # Installs the uv version from [tool.uv] required-version in backend/pyproject.toml.
+        with:
+          working-directory: backend
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+          cache-python: true
+
+      # Reads backend/.python-version; uses uv-managed Python, not the runner's.
+      - name: Install Python
+        run: uv python install
+
+      # --locked fails if uv.lock is out of date with pyproject.toml. The eval group (Ragas)
+      # is needed by the eval unit tests; the Docker image leaves it out.
+      - name: Install dependencies
+        run: uv sync --locked --group eval
+
+      - name: Ruff check
+        run: uv run --no-sync ruff check .
+
+      - name: Ruff format check
+        run: uv run --no-sync ruff format --check .
+
+      - name: Mypy
+        run: uv run --no-sync mypy app
+
+      # pyproject addopts deselect integration tests.
+      - name: Unit tests
+        run: uv run --no-sync pytest
+
+  # Migrations against a throwaway database set up like Supabase (D-052): the full
+  # upgrade/downgrade round trip, plus the schema and repository tests, which need no secrets.
+  migrations:
+    name: migrations
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: backend
+    services:
+      postgres:
+        # Same pgvector version as Supabase (0.8.2).
+        image: pgvector/pgvector:0.8.2-pg17@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql+psycopg://postgres:postgres@localhost:5432/postgres
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
+        with:
+          working-directory: backend
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+          cache-python: true
+
+      - name: Install Python
+        run: uv python install
+
+      - name: Install dependencies
+        run: uv sync --locked
+
+      - name: Set up the database like Supabase
+        env:
+          PGPASSWORD: postgres
+        run: psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f tests/integration/supabase_baseline.sql
+
+      - name: Upgrade to head
+        run: uv run --no-sync alembic upgrade head
+
+      - name: Models match migrations
+        run: uv run --no-sync alembic check
+
+      - name: Downgrade to base
+        run: uv run --no-sync alembic downgrade base
+
+      - name: Upgrade to head again
+        run: uv run --no-sync alembic upgrade head
+
+      - name: Set up the checkpoint tables
+        run: uv run --no-sync python -m scripts.setup_checkpointer
+
+      - name: Schema and repository tests
+        run: uv run --no-sync pytest -m integration tests/integration/test_schema_db.py tests/integration/test_migrations_db.py tests/integration/test_workspaces_db.py tests/integration/test_documents_db.py tests/integration/test_retrieval_db.py tests/integration/test_topic_profiles_db.py tests/integration/test_conversations_db.py tests/integration/test_qa_checkpointer_db.py tests/integration/test_eval_runs_db.py tests/integration/test_research_db.py tests/integration/test_knowledge_graph_db.py
+
+  # Release PRs only: catches build-time failures (e.g. settings validation, dependency install)
+  # before the Space rebuilds the image. Skips the ~2.2 GB model download but still loads the
+  # settings in that step; the download itself and the container start are not covered.
+  docker-build:
+    name: docker-build
+    if: github.event_name == 'pull_request' && github.base_ref == 'main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # Same context as the Space (backend/); not pushed anywhere.
+      - name: Build backend image
+        run: docker build --build-arg DOWNLOAD_MODELS=false --tag research-assistant-backend:ci backend
+
+  frontend:
+    name: frontend
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # Reads frontend/.node-version.
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: frontend/.node-version
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      # ESLint + Prettier check.
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build

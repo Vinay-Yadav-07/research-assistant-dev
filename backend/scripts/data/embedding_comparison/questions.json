@@ -1,0 +1,26 @@
+{
+  "note": "Sanity set for D-048 (16 questions). PDFs are not committed; download each source_url into this folder as <file>.",
+  "papers": [
+    {"id": "plga", "file": "2602.00146.pdf", "source_url": "https://arxiv.org/pdf/2602.00146v1"},
+    {"id": "hollow", "file": "2303.11051.pdf", "source_url": "https://arxiv.org/pdf/2303.11051v1"},
+    {"id": "robocast", "file": "1804.02375.pdf", "source_url": "https://arxiv.org/pdf/1804.02375v1"}
+  ],
+  "questions": [
+    {"paper": "plga", "question": "What toughness did scaffolds reach with a 20% PLGA coating compared with uncoated ones?", "snippet": "the toughness goes up further from 0.94 to 1.73 and 2.18 MPa", "page": 12},
+    {"paper": "plga", "question": "How much did the coating change the compressive strength relative to the bare scaffold?", "snippet": "The compressive strength of the coated sample was 4.19 MPa", "page": 12},
+    {"paper": "plga", "question": "Which PLGA concentration gave the strongest scaffolds in compression?", "snippet": "samples coated with 12.5% PLGA enjoy the highest compressive strength", "page": 13},
+    {"paper": "plga", "question": "How much of each polymer coating had degraded after 32 weeks?", "snippet": "After 32 weeks, 100 wt% of the GEL, 94 wt% of PLLA", "page": 15},
+    {"paper": "plga", "question": "How quickly was the drug released from uncoated scaffolds?", "snippet": "94.7% of it is released during the first nine hours", "page": 24},
+    {"paper": "plga", "question": "What is the glass transition temperature range of the PLGA copolymer?", "snippet": "glass transition temperature from 40 °C to 60 °C", "page": 6},
+    {"paper": "hollow", "question": "How porous were scaffolds with hollow channels compared with solid scaffolds after sintering?", "snippet": "significantly higher porosity of approximately 84% compared to the solid scaffold (73%)", "page": 10},
+    {"paper": "hollow", "question": "How much did the printed parts shrink vertically during sintering?", "snippet": "while the shrinkage in the Z direction was 44.48", "page": 10},
+    {"paper": "hollow", "question": "Which outer strut shapes gave the highest bending strength?", "snippet": "Out-t and Out-s have relatively high bending strengths", "page": 12},
+    {"paper": "hollow", "question": "What were the diameters of the coaxial nozzle outlet and its mandrel?", "snippet": "round outlet (1.70 mm in diameter) and a round mandrel (0.65 mm in diameter)", "page": 3},
+    {"paper": "hollow", "question": "At what strain does the ceramic paste stop behaving like a solid and start to flow?", "snippet": "underwent a transition at around 5% shear strain from solid-like to liquid-like behavior", "page": 8},
+    {"paper": "robocast", "question": "How does the spacing between printed rods set the porosity and pore size?", "snippet": "rod spacing of 0.5 mm corresponds to a porosity of 55%", "page": 9},
+    {"paper": "robocast", "question": "Why must the printing speed stay within a limited range during robocasting?", "snippet": "the paste will dry up in the printing nozzle, thus clogging it", "page": 7},
+    {"paper": "robocast", "question": "What formed on the hybrid scaffolds after three weeks in simulated body fluid?", "snippet": "they developed an apatite layer on their surface", "page": 1},
+    {"paper": "robocast", "question": "Why is the polylactide used in the inks amorphous?", "snippet": "the as received PLA is amorphous since it contains 14% of D isomer", "page": 11},
+    {"paper": "robocast", "question": "How high can the ceramic content of the inks be, and how does that compare with bone?", "snippet": "very close to the mineral content of cortical bone", "page": 7}
+  ]
+}

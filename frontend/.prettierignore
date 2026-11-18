@@ -1,0 +1,8 @@
+.next/
+node_modules/
+openapi.json
+package-lock.json
+next-env.d.ts
+playwright-report/
+test-results/
+.impeccable/

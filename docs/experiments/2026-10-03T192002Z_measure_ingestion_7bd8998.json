@@ -1,0 +1,78 @@
+{
+  "experiment": "measure_ingestion",
+  "date": "2026-10-03T19:20:02+00:00",
+  "git_commit": "7bd89989aef596cdece09b6f3e229cdd03fa9f51",
+  "git_dirty": true,
+  "models": {
+    "embedding": "BAAI/bge-small-en-v1.5",
+    "source": "config defaults at this commit and Dockerfile providers, not read from the server"
+  },
+  "settings": {
+    "embedding_provider": "sentence_transformers",
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "embedding_dimension": 384,
+    "embedding_batch_size": 16,
+    "reranker_provider": "cross_encoder",
+    "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "reranker_max_length": 512,
+    "reranker_batch_size": 16,
+    "nli_provider": "cross_encoder",
+    "nli_model": "cross-encoder/nli-deberta-v3-base",
+    "nli_max_length": 512,
+    "nli_batch_size": 16,
+    "parser_provider": "pymupdf4llm",
+    "dense_top_k": 30,
+    "lexical_top_k": 30,
+    "rrf_k": 60,
+    "rerank_candidates": 20,
+    "retrieval_top_k": 8,
+    "chunk_min_tokens": 350,
+    "chunk_max_tokens": 450,
+    "chunk_overlap_ratio": 0.12,
+    "chunk_merge_below_tokens": 80,
+    "chunk_hard_max_tokens": 510,
+    "compatibility_chunks": 4,
+    "compatibility_max_pages": 3,
+    "compatibility_threshold": 0.83,
+    "ingestion_concurrency": 1,
+    "local_inference_concurrency": 1
+  },
+  "parameters": {
+    "base_url": "http://localhost:8077",
+    "poll_seconds": 0.5,
+    "timeout_seconds": 600.0
+  },
+  "dataset": "2303.11051.pdf",
+  "hardware": {
+    "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "machine": "x86_64",
+    "processor": null,
+    "cpu_count": 16,
+    "python": "3.11.16",
+    "torch_threads": null,
+    "measured_from": "client",
+    "server": "dev laptop i5-1240P, WSL2 (local uvicorn, battery)"
+  },
+  "results": [
+    {
+      "pdf": "2303.11051.pdf",
+      "bytes": 1884189,
+      "page_count": 20,
+      "final_status": "ready",
+      "error": null,
+      "upload_seconds": 2.2,
+      "stages_first_seen_seconds": {
+        "uploaded": 2.2,
+        "parsing": 3.02,
+        "embedding": 13.26,
+        "ready": 27.07
+      },
+      "polls": 38
+    }
+  ],
+  "summary": {
+    "total_seconds": 27.07,
+    "nfr_02_seconds": 90.0,
+    "within_nfr_02": true
+  }
+}

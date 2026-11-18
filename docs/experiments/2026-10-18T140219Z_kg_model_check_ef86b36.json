@@ -1,0 +1,477 @@
+{
+  "experiment": "kg_model_check",
+  "date": "2026-10-18T14:02:19+00:00",
+  "git_commit": "ef86b36ba53dd5c1ba0c82f4c1ac5d3fc43ec95b",
+  "git_dirty": true,
+  "models": {
+    "graph_llm": "gemini:gemma-4-26b-a4b-it",
+    "nli": "cross-encoder/nli-deberta-v3-xsmall"
+  },
+  "settings": {
+    "embedding_provider": "sentence_transformers",
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "embedding_dimension": 384,
+    "embedding_batch_size": 16,
+    "reranker_provider": "cross_encoder",
+    "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "reranker_max_length": 512,
+    "reranker_batch_size": 16,
+    "nli_provider": "cross_encoder",
+    "nli_model": "cross-encoder/nli-deberta-v3-xsmall",
+    "nli_max_length": 512,
+    "nli_batch_size": 16,
+    "parser_provider": "pymupdf4llm",
+    "dense_top_k": 30,
+    "lexical_top_k": 30,
+    "rrf_k": 60,
+    "rerank_candidates": 20,
+    "retrieval_top_k": 8,
+    "sufficiency_fast_pass_score": 0.97,
+    "sufficiency_check_chunks": 8,
+    "llm_strong_provider": "gemini",
+    "llm_strong_model": "gemini-3.5-flash-lite",
+    "chunk_min_tokens": 350,
+    "chunk_max_tokens": 450,
+    "chunk_overlap_ratio": 0.12,
+    "chunk_merge_below_tokens": 80,
+    "chunk_hard_max_tokens": 510,
+    "compatibility_chunks": 4,
+    "compatibility_max_pages": 3,
+    "compatibility_threshold": 0.83,
+    "ingestion_concurrency": 1,
+    "local_inference_concurrency": 1,
+    "eval_judge_provider": "fake",
+    "eval_judge_model": "openai/gpt-oss-120b",
+    "eval_answer_relevancy_strictness": 3,
+    "llm_graph_provider": "gemini",
+    "llm_graph_model": "gemma-4-26b-a4b-it",
+    "kg_min_chunk_words": 40,
+    "kg_max_chunks_per_paper": 60,
+    "kg_chunks_per_call": 4,
+    "kg_max_output_tokens": 3000,
+    "kg_relation_entailment_score": 0.9,
+    "kg_relation_contradiction_score": 0.5
+  },
+  "parameters": {
+    "batches": 20,
+    "extractor_version": "kg-extraction.v2+rules.v1"
+  },
+  "dataset": "Engineering Polymeric Hydrogels, Nanogels, and Microgels for Next-Generation Tissue Regeneration: Materials, Mechanisms, and Translational Perspectives; Research on Algorithmic Trading and Its Role in Pricing Efficiency in Chinese Stock Market; Geometric Signatures of Switching Behavior in Mechanobiology; Vision Based Game Development Using Human Computer Interaction",
+  "hardware": {
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "machine": "x86_64",
+    "processor": null,
+    "cpu_count": 16,
+    "python": "3.11.16",
+    "torch_threads": 8
+  },
+  "results": [
+    {
+      "batch": 0,
+      "document_id": "903b0c93-16bd-4f68-a8b3-630e22858c64",
+      "valid": true,
+      "seconds": 18.49,
+      "input_tokens": 2239,
+      "output_tokens": 792,
+      "entities_proposed": 12,
+      "relations_proposed": 8,
+      "entities_kept": 12,
+      "relations_kept": [],
+      "rejected": {
+        "type_not_allowed": 6,
+        "entity_not_in_quote": 2
+      }
+    },
+    {
+      "batch": 1,
+      "document_id": "903b0c93-16bd-4f68-a8b3-630e22858c64",
+      "valid": true,
+      "seconds": 17.52,
+      "input_tokens": 2135,
+      "output_tokens": 666,
+      "entities_proposed": 12,
+      "relations_proposed": 6,
+      "entities_kept": 12,
+      "relations_kept": [],
+      "rejected": {
+        "type_not_allowed": 1,
+        "entity_not_in_quote": 3,
+        "not_own_work": 1,
+        "quote_not_verbatim": 1
+      }
+    },
+    {
+      "batch": 2,
+      "document_id": "903b0c93-16bd-4f68-a8b3-630e22858c64",
+      "valid": true,
+      "seconds": 39.6,
+      "input_tokens": 2474,
+      "output_tokens": 675,
+      "entities_proposed": 10,
+      "relations_proposed": 6,
+      "entities_kept": 9,
+      "relations_kept": [],
+      "rejected": {
+        "not_own_work": 2,
+        "entity_not_in_quote": 4
+      }
+    },
+    {
+      "batch": 3,
+      "document_id": "903b0c93-16bd-4f68-a8b3-630e22858c64",
+      "valid": true,
+      "seconds": 17.44,
+      "input_tokens": 2389,
+      "output_tokens": 639,
+      "entities_proposed": 9,
+      "relations_proposed": 6,
+      "entities_kept": 7,
+      "relations_kept": [],
+      "rejected": {
+        "not_own_work": 3,
+        "entity_not_in_quote": 3
+      }
+    },
+    {
+      "batch": 4,
+      "document_id": "903b0c93-16bd-4f68-a8b3-630e22858c64",
+      "valid": true,
+      "seconds": 13.14,
+      "input_tokens": 2544,
+      "output_tokens": 573,
+      "entities_proposed": 9,
+      "relations_proposed": 6,
+      "entities_kept": 8,
+      "relations_kept": [
+        {
+          "type": "reports",
+          "source": "predict the mechanical and swelling properties of hydrogels",
+          "target": "machine learning models have been developed to predict the mechanical and swelling properties of hydrogels based on monomer composition.",
+          "quote": "machine learning models have been developed to predict the mechanical and swelling properties of hydrogels based on monomer composition.",
+          "entailment": 0.981
+        }
+      ],
+      "rejected": {
+        "quote_not_verbatim": 2,
+        "entity_not_in_quote": 3,
+        "entity_not_in_passage": 1
+      }
+    },
+    {
+      "batch": 5,
+      "document_id": "a454a7b1-97b9-4745-9d11-90be706cb253",
+      "valid": true,
+      "seconds": 13.96,
+      "input_tokens": 2629,
+      "output_tokens": 594,
+      "entities_proposed": 10,
+      "relations_proposed": 7,
+      "entities_kept": 9,
+      "relations_kept": [
+        {
+          "type": "addresses",
+          "source": "regression model",
+          "target": "pricing efficiency",
+          "quote": "In this paper, a regression model was built to investigate the relationship between stock pricing efficiency and algorithm trading system.",
+          "entailment": 0.979
+        }
+      ],
+      "rejected": {
+        "entity_not_in_quote": 2,
+        "type_not_allowed": 4
+      }
+    },
+    {
+      "batch": 6,
+      "document_id": "a454a7b1-97b9-4745-9d11-90be706cb253",
+      "valid": true,
+      "seconds": 11.49,
+      "input_tokens": 2595,
+      "output_tokens": 476,
+      "entities_proposed": 7,
+      "relations_proposed": 5,
+      "entities_kept": 6,
+      "relations_kept": [
+        {
+          "type": "uses",
+          "source": "mediation effect analysis",
+          "target": "pricing efficiency",
+          "quote": "It is also concluded through the mediation effect analysis that algorithmic trading mainly improves the stock market pricing efficiency by slowing down market volatility and investor belief heterogen…",
+          "entailment": 0.954
+        }
+      ],
+      "rejected": {
+        "type_not_allowed": 3,
+        "quote_not_verbatim": 1
+      }
+    },
+    {
+      "batch": 7,
+      "document_id": "a454a7b1-97b9-4745-9d11-90be706cb253",
+      "valid": true,
+      "seconds": 10.64,
+      "input_tokens": 2465,
+      "output_tokens": 441,
+      "entities_proposed": 7,
+      "relations_proposed": 4,
+      "entities_kept": 6,
+      "relations_kept": [],
+      "rejected": {
+        "entity_not_in_quote": 1,
+        "type_not_allowed": 3
+      }
+    },
+    {
+      "batch": 8,
+      "document_id": "a454a7b1-97b9-4745-9d11-90be706cb253",
+      "valid": true,
+      "seconds": 10.12,
+      "input_tokens": 2652,
+      "output_tokens": 411,
+      "entities_proposed": 6,
+      "relations_proposed": 5,
+      "entities_kept": 4,
+      "relations_kept": [],
+      "rejected": {
+        "type_not_allowed": 5,
+        "entity_not_in_passage": 1
+      }
+    },
+    {
+      "batch": 9,
+      "document_id": "a454a7b1-97b9-4745-9d11-90be706cb253",
+      "valid": true,
+      "seconds": 15.24,
+      "input_tokens": 1779,
+      "output_tokens": 9,
+      "entities_proposed": 0,
+      "relations_proposed": 0,
+      "entities_kept": 0,
+      "relations_kept": [],
+      "rejected": {}
+    },
+    {
+      "batch": 10,
+      "document_id": "10d7ad38-dbe6-433f-b728-ac626ee6affb",
+      "valid": true,
+      "seconds": 23.38,
+      "input_tokens": 2700,
+      "output_tokens": 450,
+      "entities_proposed": 8,
+      "relations_proposed": 4,
+      "entities_kept": 8,
+      "relations_kept": [
+        {
+          "type": "uses",
+          "source": "switch points",
+          "target": "singularities in the flow field",
+          "quote": "We discover geometric signatures of catch-slip and pathway switching behavior in the form of singularities in the flow field that describes force-induced deformation of minimum and saddle points. The…",
+          "entailment": 0.99
+        },
+        {
+          "type": "reports",
+          "source": "switch points",
+          "target": "Switch points provide a unified view of known switching mechanisms, and we show how established catch bond models can be understood using switch points.",
+          "quote": "Switch points provide a unified view of known switching mechanisms, and we show how established catch bond models can be understood using switch points.",
+          "entailment": 0.989
+        }
+      ],
+      "rejected": {
+        "type_not_allowed": 2
+      }
+    },
+    {
+      "batch": 11,
+      "document_id": "10d7ad38-dbe6-433f-b728-ac626ee6affb",
+      "valid": true,
+      "seconds": 15.42,
+      "input_tokens": 2501,
+      "output_tokens": 685,
+      "entities_proposed": 11,
+      "relations_proposed": 6,
+      "entities_kept": 6,
+      "relations_kept": [],
+      "rejected": {
+        "entity_not_in_quote": 1,
+        "quote_not_verbatim": 5,
+        "entity_not_in_passage": 5
+      }
+    },
+    {
+      "batch": 12,
+      "document_id": "10d7ad38-dbe6-433f-b728-ac626ee6affb",
+      "valid": true,
+      "seconds": 12.48,
+      "input_tokens": 2433,
+      "output_tokens": 530,
+      "entities_proposed": 8,
+      "relations_proposed": 7,
+      "entities_kept": 5,
+      "relations_kept": [
+        {
+          "type": "uses",
+          "source": "framework of switch points and switch lines",
+          "target": "switch points",
+          "quote": "The framework of switch points and switch lines reveals behaviors that would otherwise be ‘invisible’ from viewing the free energy landscape at any particular force.",
+          "entailment": 0.974
+        }
+      ],
+      "rejected": {
+        "quote_not_verbatim": 4,
+        "entity_not_in_quote": 1,
+        "not_entailed": 1,
+        "entity_not_in_passage": 3
+      }
+    },
+    {
+      "batch": 13,
+      "document_id": "10d7ad38-dbe6-433f-b728-ac626ee6affb",
+      "valid": true,
+      "seconds": 16.64,
+      "input_tokens": 2580,
+      "output_tokens": 482,
+      "entities_proposed": 8,
+      "relations_proposed": 4,
+      "entities_kept": 7,
+      "relations_kept": [
+        {
+          "type": "addresses",
+          "source": "geometric framework of switch points and switch lines",
+          "target": "catch-slip bond",
+          "quote": "To illustrate the utility of the geometric framework of switch points and switch lines, we develop a model of the catch-slip bond between P-Selectin and its glycoprotein ligand-1 (PSGL-1).",
+          "entailment": 0.981
+        }
+      ],
+      "rejected": {
+        "quote_not_verbatim": 1,
+        "not_entailed": 2
+      }
+    },
+    {
+      "batch": 14,
+      "document_id": "10d7ad38-dbe6-433f-b728-ac626ee6affb",
+      "valid": true,
+      "seconds": 11.99,
+      "input_tokens": 2902,
+      "output_tokens": 401,
+      "entities_proposed": 8,
+      "relations_proposed": 4,
+      "entities_kept": 6,
+      "relations_kept": [],
+      "rejected": {
+        "type_not_allowed": 1,
+        "entity_not_in_quote": 3,
+        "entity_not_in_passage": 1
+      }
+    },
+    {
+      "batch": 15,
+      "document_id": "69cbad42-66eb-4ca1-ba1d-206994b7c1ae",
+      "valid": true,
+      "seconds": 13.45,
+      "input_tokens": 2441,
+      "output_tokens": 431,
+      "entities_proposed": 8,
+      "relations_proposed": 5,
+      "entities_kept": 7,
+      "relations_kept": [],
+      "rejected": {
+        "entity_not_in_quote": 5
+      }
+    },
+    {
+      "batch": 16,
+      "document_id": "69cbad42-66eb-4ca1-ba1d-206994b7c1ae",
+      "valid": true,
+      "seconds": 20.22,
+      "input_tokens": 2390,
+      "output_tokens": 675,
+      "entities_proposed": 12,
+      "relations_proposed": 7,
+      "entities_kept": 12,
+      "relations_kept": [
+        {
+          "type": "uses",
+          "source": "real-time face detection algorithm",
+          "target": "Six-Segmented Rectangular (SSR) filter",
+          "quote": "In this module, we propose a real-time face detection algorithm using Six-Segmented Rectangular (SSR) filter, distance information, and template matching technique.",
+          "entailment": 0.994
+        },
+        {
+          "type": "uses",
+          "source": "real-time face detection algorithm",
+          "target": "template matching technique",
+          "quote": "In this module, we propose a real-time face detection algorithm using Six-Segmented Rectangular (SSR) filter, distance information, and template matching technique.",
+          "entailment": 0.981
+        },
+        {
+          "type": "uses",
+          "source": "SSR filter",
+          "target": "Between-the-Eyes",
+          "quote": "The proposed SSR filter, which is the rectangle divided into 6 segments, operates by using the concept of brightdark relation around Between-the-Eyes area.",
+          "entailment": 0.928
+        }
+      ],
+      "rejected": {
+        "entity_not_in_quote": 3,
+        "quote_not_verbatim": 1
+      }
+    },
+    {
+      "batch": 18,
+      "document_id": "69cbad42-66eb-4ca1-ba1d-206994b7c1ae",
+      "valid": true,
+      "seconds": 8.88,
+      "input_tokens": 2479,
+      "output_tokens": 329,
+      "entities_proposed": 6,
+      "relations_proposed": 4,
+      "entities_kept": 5,
+      "relations_kept": [
+        {
+          "type": "uses",
+          "source": "blink detection",
+          "target": "eye's ROI",
+          "quote": "We apply blink detection in the eye’s ROI before finding the eye’s new exact location.",
+          "entailment": 0.987
+        },
+        {
+          "type": "uses",
+          "source": "motion detection",
+          "target": "eye's ROI",
+          "quote": "To detect a blink we apply motion detection in the eye’s ROI",
+          "entailment": 0.978
+        }
+      ],
+      "rejected": {
+        "quote_not_verbatim": 1,
+        "entity_not_in_quote": 1
+      }
+    }
+  ],
+  "summary": {
+    "batches_sent": 18,
+    "valid_first_attempt": 18,
+    "passes_structured_output": true,
+    "stopped": null,
+    "batches_unavailable": 1,
+    "input_tokens": 44327,
+    "output_tokens": 9259,
+    "mean_tokens_per_call": 2977,
+    "median_seconds": 14.600000000000001,
+    "max_seconds": 39.6,
+    "relations_proposed": 94,
+    "relations_kept": 12,
+    "entities_kept": 129,
+    "rejected": {
+      "type_not_allowed": 25,
+      "entity_not_in_quote": 32,
+      "not_own_work": 6,
+      "quote_not_verbatim": 16,
+      "entity_not_in_passage": 11,
+      "not_entailed": 3
+    },
+    "mean_batches_per_paper": 5.8,
+    "estimated_calls_per_10_papers": 58
+  }
+}

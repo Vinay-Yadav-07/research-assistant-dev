@@ -1,0 +1,557 @@
+{
+  "experiment": "kg_judge_eval_provisional",
+  "date": "2026-10-20T06:54:28+00:00",
+  "git_commit": "3c016771a775a6e9af293711aac6e0666e10bf03",
+  "git_dirty": true,
+  "models": {
+    "judge_llm": "gemini:gemma-4-26b-a4b-it"
+  },
+  "settings": {
+    "embedding_provider": "sentence_transformers",
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "embedding_dimension": 384,
+    "embedding_batch_size": 16,
+    "reranker_provider": "cross_encoder",
+    "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "reranker_max_length": 512,
+    "reranker_batch_size": 16,
+    "nli_provider": "cross_encoder",
+    "nli_model": "cross-encoder/nli-deberta-v3-xsmall",
+    "nli_max_length": 512,
+    "nli_batch_size": 16,
+    "parser_provider": "pymupdf4llm",
+    "dense_top_k": 30,
+    "lexical_top_k": 30,
+    "rrf_k": 60,
+    "rerank_candidates": 20,
+    "retrieval_top_k": 8,
+    "sufficiency_fast_pass_score": 0.97,
+    "sufficiency_check_chunks": 8,
+    "llm_strong_provider": "gemini",
+    "llm_strong_model": "gemini-3.5-flash-lite",
+    "chunk_min_tokens": 350,
+    "chunk_max_tokens": 450,
+    "chunk_overlap_ratio": 0.12,
+    "chunk_merge_below_tokens": 80,
+    "chunk_hard_max_tokens": 510,
+    "compatibility_chunks": 4,
+    "compatibility_max_pages": 3,
+    "compatibility_threshold": 0.83,
+    "ingestion_concurrency": 1,
+    "local_inference_concurrency": 1,
+    "eval_judge_provider": "fake",
+    "eval_judge_model": "openai/gpt-oss-120b",
+    "eval_answer_relevancy_strictness": 3,
+    "llm_graph_provider": "gemini",
+    "llm_graph_model": "gemma-4-26b-a4b-it",
+    "kg_min_chunk_words": 40,
+    "kg_max_chunks_per_paper": 60,
+    "kg_chunks_per_call": 4,
+    "kg_max_output_tokens": 3000,
+    "kg_relation_entailment_score": 0.9,
+    "kg_relation_contradiction_score": 0.5
+  },
+  "parameters": {
+    "max_output_tokens": 3000,
+    "max_requests": 12,
+    "calls": [
+      {
+        "document_id": "903b0c93-16bd-4f68-a8b3-630e22858c64",
+        "candidates": 2,
+        "seconds": 3.21,
+        "calls": 1,
+        "failed_attempts": 0,
+        "input_tokens": 763,
+        "output_tokens": 88
+      },
+      {
+        "document_id": "a454a7b1-97b9-4745-9d11-90be706cb253",
+        "candidates": 12,
+        "seconds": 6.52,
+        "calls": 1,
+        "failed_attempts": 0,
+        "input_tokens": 1610,
+        "output_tokens": 256
+      },
+      {
+        "document_id": "69cbad42-66eb-4ca1-ba1d-206994b7c1ae",
+        "candidates": 13,
+        "seconds": 7.06,
+        "calls": 1,
+        "failed_attempts": 0,
+        "input_tokens": 2179,
+        "output_tokens": 288
+      },
+      {
+        "document_id": "10d7ad38-dbe6-433f-b728-ac626ee6affb",
+        "candidates": 4,
+        "seconds": 5.08,
+        "calls": 1,
+        "failed_attempts": 0,
+        "input_tokens": 910,
+        "output_tokens": 198
+      }
+    ]
+  },
+  "dataset": "kg_judge_v1.jsonl (31 candidates, draft-unverified (PROVISIONAL) labels)",
+  "hardware": {
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "machine": "x86_64",
+    "processor": null,
+    "cpu_count": 16,
+    "python": "3.11.16",
+    "torch_threads": null
+  },
+  "results": [
+    {
+      "id": "kgj-001",
+      "label": "other_work",
+      "verdict": "not_stated",
+      "reason": "no_verdict",
+      "borderline": false,
+      "quote": "In this study, the authors introduced a 3D bioprinting approach utilizing crosslinkable microgels to enhance mechanical stability and induce spontaneous microvascular networks composed of human umbil…"
+    },
+    {
+      "id": "kgj-002",
+      "label": "stated",
+      "verdict": "stated",
+      "reason": "stated",
+      "borderline": false,
+      "quote": "In this paper, a regression model was built to investigate the relationship between stock pricing efficiency and algorithm trading system."
+    },
+    {
+      "id": "kgj-003",
+      "label": "stated",
+      "verdict": "not_stated",
+      "reason": "no_verdict",
+      "borderline": false,
+      "quote": "The system presented here is a vision-based system for detection of long voluntary eye blinks and interpretation of blink patterns for communication between man and machine."
+    },
+    {
+      "id": "kgj-004",
+      "label": "stated",
+      "verdict": "not_stated",
+      "reason": "no_verdict",
+      "borderline": true,
+      "quote": "When we compare eye-based and mouse-based control it is found that using an eye tracker can increase the immersion and leads to a stronger feeling of being part of the game."
+    },
+    {
+      "id": "kgj-005",
+      "label": "stated",
+      "verdict": "not_stated",
+      "reason": "no_verdict",
+      "borderline": false,
+      "quote": "In this module, we propose a real-time face detection algorithm using Six-Segmented Rectangular (SSR) filter, distance information, and template matching technique."
+    },
+    {
+      "id": "kgj-006",
+      "label": "stated",
+      "verdict": "not_stated",
+      "reason": "no_verdict",
+      "borderline": false,
+      "quote": "In this module, we propose a real-time face detection algorithm using Six-Segmented Rectangular (SSR) filter, distance information, and template matching technique."
+    },
+    {
+      "id": "kgj-007",
+      "label": "stated",
+      "verdict": "not_stated",
+      "reason": "no_verdict",
+      "borderline": false,
+      "quote": "We apply blink detection in the eye’s ROI before finding the eye’s new exact location."
+    },
+    {
+      "id": "kgj-008",
+      "label": "stated",
+      "verdict": "not_stated",
+      "reason": "no_verdict",
+      "borderline": false,
+      "quote": "To detect a blink we apply motion detection in the eye’s ROI"
+    },
+    {
+      "id": "kgj-009",
+      "label": "other_work",
+      "verdict": "not_stated",
+      "reason": "no_verdict",
+      "borderline": false,
+      "quote": "machine learning models have been developed to predict the mechanical and swelling properties of hydrogels based on monomer composition."
+    },
+    {
+      "id": "kgj-010",
+      "label": "not_stated",
+      "verdict": "stated",
+      "reason": "stated",
+      "borderline": true,
+      "quote": "In this paper, a regression model was built to investigate the relationship between stock pricing efficiency and algorithm trading system."
+    },
+    {
+      "id": "kgj-011",
+      "label": "other_work",
+      "verdict": "stated",
+      "reason": "stated",
+      "borderline": false,
+      "quote": "It is also concluded through the mediation effect analysis that algorithmic trading mainly improves the stock market pricing efficiency by slowing down market volatility and investor belief heterogen…"
+    },
+    {
+      "id": "kgj-012",
+      "label": "not_stated",
+      "verdict": "not_stated",
+      "reason": "no_verdict",
+      "borderline": false,
+      "quote": "We discover geometric signatures of catch-slip and pathway switching behavior in the form of singularities in the flow field that describes force-induced deformation of minimum and saddle points. The…"
+    },
+    {
+      "id": "kgj-013",
+      "label": "stated",
+      "verdict": "not_stated",
+      "reason": "no_verdict",
+      "borderline": false,
+      "quote": "Switch points provide a unified view of known switching mechanisms, and we show how established catch bond models can be understood using switch points."
+    },
+    {
+      "id": "kgj-014",
+      "label": "not_stated",
+      "verdict": "not_stated",
+      "reason": "no_verdict",
+      "borderline": true,
+      "quote": "The framework of switch points and switch lines reveals behaviors that would otherwise be ‘invisible’ from viewing the free energy landscape at any particular force."
+    },
+    {
+      "id": "kgj-015",
+      "label": "stated",
+      "verdict": "not_stated",
+      "reason": "no_verdict",
+      "borderline": true,
+      "quote": "To illustrate the utility of the geometric framework of switch points and switch lines, we develop a model of the catch-slip bond between P-Selectin and its glycoprotein ligand-1 (PSGL-1)."
+    },
+    {
+      "id": "kgj-016",
+      "label": "stated",
+      "verdict": "not_stated",
+      "reason": "no_verdict",
+      "borderline": true,
+      "quote": "The proposed SSR filter, which is the rectangle divided into 6 segments, operates by using the concept of brightdark relation around Between-the-Eyes area."
+    },
+    {
+      "id": "kgj-017",
+      "label": "stated",
+      "verdict": "stated",
+      "reason": "stated",
+      "borderline": false,
+      "quote": "Empirical results show that algorithmic trading can effectively improve the pricing efficiency of Chinese stock market."
+    },
+    {
+      "id": "kgj-018",
+      "label": "other_work",
+      "verdict": "stated",
+      "reason": "stated",
+      "borderline": false,
+      "quote": "It is also concluded through the mediation effect analysis that algorithmic trading mainly improves the stock market pricing efficiency by slowing down market volatility and investor belief heterogen…"
+    },
+    {
+      "id": "kgj-019",
+      "label": "other_work",
+      "verdict": "not_stated",
+      "reason": "co_mention",
+      "borderline": false,
+      "quote": "It is also concluded through the mediation effect analysis that algorithmic trading mainly improves the stock market pricing efficiency by slowing down market volatility and investor belief heterogen…"
+    },
+    {
+      "id": "kgj-020",
+      "label": "not_stated",
+      "verdict": "stated",
+      "reason": "stated",
+      "borderline": false,
+      "quote": "algorithmic trading can effectively improve the pricing efficiency of my country's stock market."
+    },
+    {
+      "id": "kgj-021",
+      "label": "stated",
+      "verdict": "stated",
+      "reason": "stated",
+      "borderline": false,
+      "quote": "algorithmic trading can effectively improve the pricing efficiency of my country's stock market."
+    },
+    {
+      "id": "kgj-022",
+      "label": "other_work",
+      "verdict": "not_stated",
+      "reason": "inconsistent",
+      "borderline": false,
+      "quote": "AI strategies outperformed other hedge fund strategies in the long term, with the highest annualized rate and Sharpe ratio."
+    },
+    {
+      "id": "kgj-023",
+      "label": "other_work",
+      "verdict": "not_stated",
+      "reason": "inconsistent",
+      "borderline": false,
+      "quote": "AI strategies outperformed other hedge fund strategies in the long term, with the highest annualized rate and Sharpe ratio."
+    },
+    {
+      "id": "kgj-024",
+      "label": "stated",
+      "verdict": "not_stated",
+      "reason": "no_verdict",
+      "borderline": false,
+      "quote": "A Human Computer Interface (HCI) System for playing games is designed here"
+    },
+    {
+      "id": "kgj-025",
+      "label": "not_stated",
+      "verdict": "not_stated",
+      "reason": "no_verdict",
+      "borderline": false,
+      "quote": "In this module, we propose a real-time face detection algorithm using Six-Segmented Rectangular (SSR) filter, distance information, and template matching technique."
+    },
+    {
+      "id": "kgj-026",
+      "label": "not_stated",
+      "verdict": "not_stated",
+      "reason": "no_verdict",
+      "borderline": false,
+      "quote": "In this module, we propose a real-time face detection algorithm using Six-Segmented Rectangular (SSR) filter, distance information, and template matching technique."
+    },
+    {
+      "id": "kgj-027",
+      "label": "not_stated",
+      "verdict": "not_stated",
+      "reason": "no_verdict",
+      "borderline": false,
+      "quote": "In this module, we propose a real-time face detection algorithm using Six-Segmented Rectangular (SSR) filter, distance information, and template matching technique."
+    },
+    {
+      "id": "kgj-028",
+      "label": "not_stated",
+      "verdict": "not_stated",
+      "reason": "no_verdict",
+      "borderline": false,
+      "quote": "In this module, we propose a real-time face detection algorithm using Six-Segmented Rectangular (SSR) filter, distance information, and template matching technique."
+    },
+    {
+      "id": "kgj-029",
+      "label": "other_work",
+      "verdict": "stated",
+      "reason": "stated",
+      "borderline": false,
+      "quote": "AI strategies outperformed other hedge fund strategies in the long term, with the highest annualized rate and Sharpe ratio."
+    },
+    {
+      "id": "kgj-030",
+      "label": "not_stated",
+      "verdict": "not_stated",
+      "reason": "no_verdict",
+      "borderline": false,
+      "quote": "The system presented here is a vision-based system for detection of long voluntary eye blinks and interpretation of blink patterns for communication between man and machine."
+    },
+    {
+      "id": "kgj-031",
+      "label": "not_stated",
+      "verdict": "stated",
+      "reason": "stated",
+      "borderline": false,
+      "quote": "algorithmic trading can effectively improve the pricing efficiency of my country's stock market."
+    }
+  ],
+  "summary": {
+    "labels": "draft-unverified (PROVISIONAL)",
+    "skipped_for_budget": [],
+    "all": {
+      "candidates": 31,
+      "kept": 9,
+      "precision": 0.333,
+      "recall": 0.231,
+      "verdict_accuracy": 0.323,
+      "other_work_caught": 0.0,
+      "false_positives": [
+        "kgj-010",
+        "kgj-011",
+        "kgj-018",
+        "kgj-020",
+        "kgj-029",
+        "kgj-031"
+      ],
+      "false_negatives": [
+        "kgj-003",
+        "kgj-004",
+        "kgj-005",
+        "kgj-006",
+        "kgj-007",
+        "kgj-008",
+        "kgj-013",
+        "kgj-015",
+        "kgj-016",
+        "kgj-024"
+      ],
+      "disagreements": [
+        "kgj-001: other_work->not_stated",
+        "kgj-003: stated->not_stated",
+        "kgj-004: stated->not_stated",
+        "kgj-005: stated->not_stated",
+        "kgj-006: stated->not_stated",
+        "kgj-007: stated->not_stated",
+        "kgj-008: stated->not_stated",
+        "kgj-009: other_work->not_stated",
+        "kgj-010: not_stated->stated",
+        "kgj-011: other_work->stated",
+        "kgj-013: stated->not_stated",
+        "kgj-015: stated->not_stated",
+        "kgj-016: stated->not_stated",
+        "kgj-018: other_work->stated",
+        "kgj-019: other_work->not_stated",
+        "kgj-020: not_stated->stated",
+        "kgj-022: other_work->not_stated",
+        "kgj-023: other_work->not_stated",
+        "kgj-024: stated->not_stated",
+        "kgj-029: other_work->stated",
+        "kgj-031: not_stated->stated"
+      ],
+      "confusion": {
+        "not_stated->not_stated": 7,
+        "not_stated->stated": 3,
+        "other_work->not_stated": 5,
+        "other_work->stated": 3,
+        "stated->not_stated": 10,
+        "stated->stated": 3
+      },
+      "by_relation_type": {
+        "addresses": {
+          "right": 1,
+          "wrong": 5
+        },
+        "compared_with": {
+          "right": 3
+        },
+        "evaluated_on": {
+          "wrong": 1
+        },
+        "measured_by": {
+          "wrong": 1
+        },
+        "reports": {
+          "right": 6,
+          "wrong": 3
+        },
+        "uses": {
+          "wrong": 6,
+          "right": 5
+        }
+      }
+    },
+    "without_borderline": {
+      "candidates": 26,
+      "kept": 8,
+      "precision": 0.375,
+      "recall": 0.3,
+      "verdict_accuracy": 0.346,
+      "other_work_caught": 0.0,
+      "false_positives": [
+        "kgj-011",
+        "kgj-018",
+        "kgj-020",
+        "kgj-029",
+        "kgj-031"
+      ],
+      "false_negatives": [
+        "kgj-003",
+        "kgj-005",
+        "kgj-006",
+        "kgj-007",
+        "kgj-008",
+        "kgj-013",
+        "kgj-024"
+      ],
+      "disagreements": [
+        "kgj-001: other_work->not_stated",
+        "kgj-003: stated->not_stated",
+        "kgj-005: stated->not_stated",
+        "kgj-006: stated->not_stated",
+        "kgj-007: stated->not_stated",
+        "kgj-008: stated->not_stated",
+        "kgj-009: other_work->not_stated",
+        "kgj-011: other_work->stated",
+        "kgj-013: stated->not_stated",
+        "kgj-018: other_work->stated",
+        "kgj-019: other_work->not_stated",
+        "kgj-020: not_stated->stated",
+        "kgj-022: other_work->not_stated",
+        "kgj-023: other_work->not_stated",
+        "kgj-024: stated->not_stated",
+        "kgj-029: other_work->stated",
+        "kgj-031: not_stated->stated"
+      ],
+      "confusion": {
+        "not_stated->not_stated": 6,
+        "not_stated->stated": 2,
+        "other_work->not_stated": 5,
+        "other_work->stated": 3,
+        "stated->not_stated": 7,
+        "stated->stated": 3
+      },
+      "by_relation_type": {
+        "addresses": {
+          "right": 1,
+          "wrong": 3
+        },
+        "compared_with": {
+          "right": 3
+        },
+        "evaluated_on": {
+          "wrong": 1
+        },
+        "measured_by": {
+          "wrong": 1
+        },
+        "reports": {
+          "right": 6,
+          "wrong": 2
+        },
+        "uses": {
+          "wrong": 5,
+          "right": 4
+        }
+      }
+    },
+    "borderline_only": {
+      "candidates": 5,
+      "kept": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "verdict_accuracy": 0.2,
+      "other_work_caught": null,
+      "false_positives": [
+        "kgj-010"
+      ],
+      "false_negatives": [
+        "kgj-004",
+        "kgj-015",
+        "kgj-016"
+      ],
+      "disagreements": [
+        "kgj-004: stated->not_stated",
+        "kgj-010: not_stated->stated",
+        "kgj-015: stated->not_stated",
+        "kgj-016: stated->not_stated"
+      ],
+      "confusion": {
+        "not_stated->not_stated": 1,
+        "not_stated->stated": 1,
+        "stated->not_stated": 3
+      },
+      "by_relation_type": {
+        "addresses": {
+          "wrong": 2
+        },
+        "reports": {
+          "wrong": 1
+        },
+        "uses": {
+          "right": 1,
+          "wrong": 1
+        }
+      }
+    },
+    "requests": 4,
+    "input_tokens": 5462,
+    "output_tokens": 830
+  }
+}

@@ -1,0 +1,369 @@
+{
+  "experiment": "compare_embeddings",
+  "date": "2026-10-03T18:47:39+00:00",
+  "git_commit": "7bd89989aef596cdece09b6f3e229cdd03fa9f51",
+  "git_dirty": true,
+  "models": {
+    "embedding": [
+      "BAAI/bge-small-en-v1.5",
+      "BAAI/bge-base-en-v1.5"
+    ]
+  },
+  "settings": {
+    "embedding_provider": "fake",
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "embedding_dimension": 384,
+    "embedding_batch_size": 16,
+    "reranker_provider": "fake",
+    "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "reranker_max_length": 512,
+    "reranker_batch_size": 16,
+    "nli_provider": "fake",
+    "nli_model": "cross-encoder/nli-deberta-v3-base",
+    "nli_max_length": 512,
+    "nli_batch_size": 16,
+    "parser_provider": "fake",
+    "dense_top_k": 30,
+    "lexical_top_k": 30,
+    "rrf_k": 60,
+    "rerank_candidates": 20,
+    "retrieval_top_k": 8,
+    "chunk_min_tokens": 350,
+    "chunk_max_tokens": 450,
+    "chunk_overlap_ratio": 0.12,
+    "chunk_merge_below_tokens": 80,
+    "chunk_hard_max_tokens": 510,
+    "compatibility_chunks": 4,
+    "compatibility_max_pages": 3,
+    "compatibility_threshold": 0.83,
+    "ingestion_concurrency": 1,
+    "local_inference_concurrency": 1
+  },
+  "parameters": {
+    "target_tokens": 400,
+    "overlap": 0.12,
+    "top_k": [
+      1,
+      5,
+      10
+    ],
+    "papers": 3,
+    "chunks": 128,
+    "questions": 17
+  },
+  "dataset": "embedding_check_v1.jsonl",
+  "hardware": {
+    "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "machine": "x86_64",
+    "processor": null,
+    "cpu_count": 16,
+    "python": "3.11.16",
+    "torch_threads": 8
+  },
+  "results": [
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "paper": "Advancements_in_Surface_Modification.pdf",
+      "question": "What share of ePTFE and polyester vascular grafts fail within a decade, and why?",
+      "gold_page": 5,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "paper": "Advancements_in_Surface_Modification.pdf",
+      "question": "Why do children with synthetic vascular grafts eventually need another operation?",
+      "gold_page": 4,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "paper": "Advancements_in_Surface_Modification.pdf",
+      "question": "Which blood protein usually sticks to an implant surface first?",
+      "gold_page": 7,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "paper": "Advancements_in_Surface_Modification.pdf",
+      "question": "How common was mineral deposition in failed PTFE bypass grafts shortly after implantation?",
+      "gold_page": 7,
+      "rank_snippet": 4,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "paper": "Advancements_in_Surface_Modification.pdf",
+      "question": "Why are polyethylene glycol coatings unsuitable for long-term implants?",
+      "gold_page": 12,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "paper": "Advancements_in_Surface_Modification.pdf",
+      "question": "How much did a phosphorylcholine polymer coating reduce platelet attachment in rat aortic grafts?",
+      "gold_page": 12,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "paper": "Advancements_in_Surface_Modification.pdf",
+      "question": "Which silanization method gave lubricant-infused catheters better clot resistance, vapor or liquid phase?",
+      "gold_page": 16,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "paper": "Advancements_in_Surface_Modification.pdf",
+      "question": "What effect did lubricant-infused ePTFE grafts have on bacterial attachment in rats?",
+      "gold_page": 17,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "paper": "Hydrogels_for_Biomedical_Applications.pdf",
+      "question": "Under which pH conditions do norbornene-chitosan hydrogels absorb the most water?",
+      "gold_page": 4,
+      "rank_snippet": 8,
+      "rank_page": 5
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "paper": "Hydrogels_for_Biomedical_Applications.pdf",
+      "question": "What internal pore structure did SEM reveal in the chitosan hydrogels?",
+      "gold_page": 5,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "paper": "Hydrogels_for_Biomedical_Applications.pdf",
+      "question": "Which thiol crosslinker produced the stiffest chitosan gels?",
+      "gold_page": 6,
+      "rank_snippet": 8,
+      "rank_page": 3
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "paper": "Hydrogels_for_Biomedical_Applications.pdf",
+      "question": "Can the chitosan gel be formed directly on skin and stay attached?",
+      "gold_page": 10,
+      "rank_snippet": 2,
+      "rank_page": 2
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "paper": "Hydrogels_for_Biomedical_Applications.pdf",
+      "question": "How did adding a small amount of collagen change fibroblast survival on the gels?",
+      "gold_page": 11,
+      "rank_snippet": 2,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "paper": "Tissue_Regeneration.pdf",
+      "question": "What is the typical size range of microgels?",
+      "gold_page": 6,
+      "rank_snippet": 2,
+      "rank_page": 2
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "paper": "Tissue_Regeneration.pdf",
+      "question": "How long was VEGF released from the hyaluronic acid hydrogel for ischemic heart tissue?",
+      "gold_page": 10,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "paper": "Tissue_Regeneration.pdf",
+      "question": "What is a major drawback of nanogels once injected into the body?",
+      "gold_page": 10,
+      "rank_snippet": 8,
+      "rank_page": 8
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "paper": "Tissue_Regeneration.pdf",
+      "question": "How well did osteogenic microgels heal critical-sized skull defects in mice?",
+      "gold_page": 18,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "paper": "Advancements_in_Surface_Modification.pdf",
+      "question": "What share of ePTFE and polyester vascular grafts fail within a decade, and why?",
+      "gold_page": 5,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "paper": "Advancements_in_Surface_Modification.pdf",
+      "question": "Why do children with synthetic vascular grafts eventually need another operation?",
+      "gold_page": 4,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "paper": "Advancements_in_Surface_Modification.pdf",
+      "question": "Which blood protein usually sticks to an implant surface first?",
+      "gold_page": 7,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "paper": "Advancements_in_Surface_Modification.pdf",
+      "question": "How common was mineral deposition in failed PTFE bypass grafts shortly after implantation?",
+      "gold_page": 7,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "paper": "Advancements_in_Surface_Modification.pdf",
+      "question": "Why are polyethylene glycol coatings unsuitable for long-term implants?",
+      "gold_page": 12,
+      "rank_snippet": 4,
+      "rank_page": 2
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "paper": "Advancements_in_Surface_Modification.pdf",
+      "question": "How much did a phosphorylcholine polymer coating reduce platelet attachment in rat aortic grafts?",
+      "gold_page": 12,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "paper": "Advancements_in_Surface_Modification.pdf",
+      "question": "Which silanization method gave lubricant-infused catheters better clot resistance, vapor or liquid phase?",
+      "gold_page": 16,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "paper": "Advancements_in_Surface_Modification.pdf",
+      "question": "What effect did lubricant-infused ePTFE grafts have on bacterial attachment in rats?",
+      "gold_page": 17,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "paper": "Hydrogels_for_Biomedical_Applications.pdf",
+      "question": "Under which pH conditions do norbornene-chitosan hydrogels absorb the most water?",
+      "gold_page": 4,
+      "rank_snippet": 5,
+      "rank_page": 2
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "paper": "Hydrogels_for_Biomedical_Applications.pdf",
+      "question": "What internal pore structure did SEM reveal in the chitosan hydrogels?",
+      "gold_page": 5,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "paper": "Hydrogels_for_Biomedical_Applications.pdf",
+      "question": "Which thiol crosslinker produced the stiffest chitosan gels?",
+      "gold_page": 6,
+      "rank_snippet": 5,
+      "rank_page": 2
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "paper": "Hydrogels_for_Biomedical_Applications.pdf",
+      "question": "Can the chitosan gel be formed directly on skin and stay attached?",
+      "gold_page": 10,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "paper": "Hydrogels_for_Biomedical_Applications.pdf",
+      "question": "How did adding a small amount of collagen change fibroblast survival on the gels?",
+      "gold_page": 11,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "paper": "Tissue_Regeneration.pdf",
+      "question": "What is the typical size range of microgels?",
+      "gold_page": 6,
+      "rank_snippet": 2,
+      "rank_page": 2
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "paper": "Tissue_Regeneration.pdf",
+      "question": "How long was VEGF released from the hyaluronic acid hydrogel for ischemic heart tissue?",
+      "gold_page": 10,
+      "rank_snippet": 1,
+      "rank_page": 1
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "paper": "Tissue_Regeneration.pdf",
+      "question": "What is a major drawback of nanogels once injected into the body?",
+      "gold_page": 10,
+      "rank_snippet": null,
+      "rank_page": null
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "paper": "Tissue_Regeneration.pdf",
+      "question": "How well did osteogenic microgels heal critical-sized skull defects in mice?",
+      "gold_page": 18,
+      "rank_snippet": 1,
+      "rank_page": 1
+    }
+  ],
+  "summary": {
+    "BAAI/bge-small-en-v1.5": {
+      "snippet": {
+        "R@1": 0.5882352941176471,
+        "R@5": 0.8235294117647058,
+        "R@10": 1.0,
+        "MRR": 0.7132352941176471
+      },
+      "page": {
+        "R@1": 0.7058823529411765,
+        "R@5": 0.9411764705882353,
+        "R@10": 1.0,
+        "MRR": 0.8034313725490196
+      },
+      "embed_seconds": 17.01
+    },
+    "BAAI/bge-base-en-v1.5": {
+      "snippet": {
+        "R@1": 0.7058823529411765,
+        "R@5": 0.9411764705882353,
+        "R@10": 0.9411764705882353,
+        "MRR": 0.7735294117647058
+      },
+      "page": {
+        "R@1": 0.7058823529411765,
+        "R@5": 0.9411764705882353,
+        "R@10": 0.9411764705882353,
+        "MRR": 0.8235294117647058
+      },
+      "embed_seconds": 49.9
+    }
+  }
+}

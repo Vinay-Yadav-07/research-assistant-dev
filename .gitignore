@@ -1,0 +1,58 @@
+.env
+.env.*
+!.env.example
+# Python caches and environments
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node / Frontend dependencies and build artifacts
+node_modules/
+.next/
+out/
+build/
+dist/
+.vercel/
+*.tsbuildinfo
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+*:Zone.Identifier
+
+# Benchmark PDFs are downloaded locally, never committed.
+backend/scripts/data/**/*.pdf
+backend/scripts/data/papers/
+
+.claude/settings.local.json
+
+# impeccable-ignore-start
+**/.impeccable/config.local.json
+**/.impeccable/hook.cache.json
+**/.impeccable/hook.pending.json
+**/.impeccable/*.png
+**/.impeccable/review/
+**/.impeccable/questions/
+**/.impeccable/live/server.json
+**/.impeccable/live/sessions/
+**/.impeccable/live/previews/
+**/.impeccable/live/annotations/
+**/.impeccable/live/cache/
+**/.impeccable/live/manual-edit-apply-transaction.json
+**/.impeccable/live/manual-edit-events.jsonl
+**/.impeccable/live/manual-edit-evidence/
+**/.impeccable/live/pending-manual-edits.json
+**/.impeccable/live/deferred-svelte-component-accepts.json
+**/.impeccable/live/*.png
+# impeccable-ignore-end
+
+# E2E: downloaded paper and Playwright output.
+frontend/e2e/.data/
+frontend/test-results/
+frontend/playwright-report/

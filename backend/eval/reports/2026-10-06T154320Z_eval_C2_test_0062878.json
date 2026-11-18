@@ -1,0 +1,4804 @@
+{
+  "experiment": "eval_C2_test",
+  "date": "2026-10-06T15:43:20+00:00",
+  "git_commit": "0062878ca22b182260df45071da62a131f928a12",
+  "git_dirty": true,
+  "models": {
+    "generation": "gemini-3.5-flash-lite",
+    "judge": "openai/gpt-oss-120b"
+  },
+  "settings": {
+    "embedding_provider": "sentence_transformers",
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "embedding_dimension": 384,
+    "embedding_batch_size": 16,
+    "reranker_provider": "fake",
+    "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "reranker_max_length": 512,
+    "reranker_batch_size": 16,
+    "nli_provider": "fake",
+    "nli_model": "cross-encoder/nli-deberta-v3-xsmall",
+    "nli_max_length": 512,
+    "nli_batch_size": 16,
+    "parser_provider": "pymupdf4llm",
+    "dense_top_k": 30,
+    "lexical_top_k": 30,
+    "rrf_k": 60,
+    "rerank_candidates": 20,
+    "retrieval_top_k": 8,
+    "sufficiency_fast_pass_score": 0.97,
+    "sufficiency_check_chunks": 8,
+    "llm_strong_provider": "gemini",
+    "llm_strong_model": "gemini-3.5-flash-lite",
+    "chunk_min_tokens": 350,
+    "chunk_max_tokens": 450,
+    "chunk_overlap_ratio": 0.12,
+    "chunk_merge_below_tokens": 80,
+    "chunk_hard_max_tokens": 510,
+    "compatibility_chunks": 4,
+    "compatibility_max_pages": 3,
+    "compatibility_threshold": 0.83,
+    "ingestion_concurrency": 1,
+    "local_inference_concurrency": 1,
+    "eval_judge_provider": "groq",
+    "eval_judge_model": "openai/gpt-oss-120b",
+    "eval_answer_relevancy_strictness": 3
+  },
+  "parameters": {
+    "condition": "C2",
+    "split": "test",
+    "limit": null,
+    "corpora": null,
+    "items": 54,
+    "generation_model": "gemini-3.5-flash-lite",
+    "prompt_version": "v1",
+    "retrieval": "dense",
+    "top_k": 8,
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "ragas": true,
+    "judge_model": "openai/gpt-oss-120b",
+    "answer_relevancy_strictness": 3
+  },
+  "dataset": "benchmark_v1 (test split)",
+  "hardware": {
+    "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "machine": "x86_64",
+    "processor": null,
+    "cpu_count": 16,
+    "python": "3.11.16",
+    "torch_threads": 8
+  },
+  "results": [
+    {
+      "id": "test-001",
+      "output": {
+        "question": "Which proteins make up most of the protein layer that first forms on a blood-contacting implant?",
+        "answer": "The main contributors to the formation of the non-specific protein adsorbed layer on a blood-contacting implant are fibrinogen, albumin, and immunoglobulins.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "5aa3b85d-23aa-4756-91bf-0c33881f9d10",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 7,
+            "page_end": 7,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "3236eafe-44d0-4279-bc50-2f1eddfd7535",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 1,
+            "page_end": 1,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "29301f3e-9dc3-4b18-9749-5e2672affec5",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 5,
+            "page_end": 6,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "61a52f80-3bcd-41d6-95e2-61d0a524cc4f",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 3,
+            "page_end": 3,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "4cf95fb0-56c5-4aa4-840c-38660de11d97",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 1,
+            "page_end": 1,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "b428c05e-b9a5-49b8-9911-73f7cb5ae179",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 14,
+            "page_end": 15,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "15fa86eb-499e-4618-aec8-f6221d59baa9",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 15,
+            "page_end": 15,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "f31d0729-eadb-483c-99ec-4f31ccd0902e",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 8,
+            "page_end": 9,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2130.1,
+        "retrieval_ms": 565.9,
+        "llm_calls": 1,
+        "input_tokens": 2424,
+        "output_tokens": 48,
+        "snippet_ranks": [
+          1
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.8910280682298133,
+        "judge_calls": 5,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-002",
+      "output": {
+        "question": "Why is covalent attachment the preferred way to immobilize heparin on graft surfaces?",
+        "answer": "Covalent attachment of heparin is the preferred method because each heparin molecule possesses several free carboxyl groups that enable covalent bonds with functional groups on the biomaterial such as amino or hydroxyl groups.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "8a238015-5586-45fd-bfd4-ef09b6ff7e83",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 10,
+            "page_end": 11,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "a8375765-0763-4a3e-b0ae-587d3fda5d0d",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 11,
+            "page_end": 11,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "5aa3b85d-23aa-4756-91bf-0c33881f9d10",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 7,
+            "page_end": 7,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "b428c05e-b9a5-49b8-9911-73f7cb5ae179",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 14,
+            "page_end": 15,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "55cb292b-0dff-4c15-9db1-0afa3c57159e",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 24,
+            "page_end": 25,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "bb297046-984f-4654-b974-e4cf98ad5e42",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 17,
+            "page_end": 18,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "15fa86eb-499e-4618-aec8-f6221d59baa9",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 15,
+            "page_end": 15,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "a703937b-2d24-4404-a3b6-a348c4dd4eb4",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 9,
+            "page_end": 10,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2427.7,
+        "retrieval_ms": 388.6,
+        "llm_calls": 1,
+        "input_tokens": 2840,
+        "output_tokens": 52,
+        "snippet_ranks": [
+          1
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.9169790613930043,
+        "judge_calls": 5,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-003",
+      "output": {
+        "question": "What happened to polyurethane grafts releasing nitric oxide in the sheep arteriovenous bridge-graft model?",
+        "answer": "When a polyurethane vascular graft coated with a polymer containing a nitric oxide donor was evaluated in a sheep arteriovenous bridge-graft model, there was no platelet adhesion or thrombus formation after 21 days.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "8cff46e7-4a81-41f4-9b16-9310d18d4251",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 11,
+            "page_end": 11,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "4a5f9fee-169b-4439-be25-5bd5f83e23bd",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 13,
+            "page_end": 13,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "55cb292b-0dff-4c15-9db1-0afa3c57159e",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 24,
+            "page_end": 25,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "00f1be1d-7951-4b40-a5eb-e72b833df926",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 12,
+            "page_end": 12,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "a703937b-2d24-4404-a3b6-a348c4dd4eb4",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 9,
+            "page_end": 10,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "f73f4794-622b-4142-a61f-c6e25cb7aeaf",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 13,
+            "page_end": 14,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "d5d3d443-48da-4ccb-984a-18ba59d2dd6d",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 10,
+            "page_end": 11,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "d5782bdb-be6c-476e-b912-a4503d9a8186",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 24,
+            "page_end": 24,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 3154.4,
+        "retrieval_ms": 540.3,
+        "llm_calls": 1,
+        "input_tokens": 2714,
+        "output_tokens": 59,
+        "snippet_ranks": [
+          1
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.803043218210519,
+        "judge_calls": 5,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-004",
+      "output": {
+        "question": "Did heparin or sulfonated poly(ethylene oxide) coatings stop vascular graft calcification for good?",
+        "answer": "No, both heparin and sulfonated poly(ethylene oxide) coatings were associated with increasing calcium deposition over time, which indicates that these coatings only delayed but did not abolish the calcification process.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "a703937b-2d24-4404-a3b6-a348c4dd4eb4",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 9,
+            "page_end": 10,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "55cb292b-0dff-4c15-9db1-0afa3c57159e",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 24,
+            "page_end": 25,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "8a238015-5586-45fd-bfd4-ef09b6ff7e83",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 10,
+            "page_end": 11,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "a8375765-0763-4a3e-b0ae-587d3fda5d0d",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 11,
+            "page_end": 11,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "06975409-5f44-4395-a4f7-071ce40ac833",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 10,
+            "page_end": 10,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "cd09f1e6-7b35-4c95-a2b6-8db6cb734946",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 7,
+            "page_end": 8,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "8fb31d1c-2222-421a-a98c-e8e0ad08ac55",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 13,
+            "page_end": 13,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "8cff46e7-4a81-41f4-9b16-9310d18d4251",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 11,
+            "page_end": 11,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2549.5,
+        "retrieval_ms": 417.7,
+        "llm_calls": 1,
+        "input_tokens": 2262,
+        "output_tokens": 54,
+        "snippet_ranks": [
+          1
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.9017031341596805,
+        "judge_calls": 5,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-005",
+      "output": {
+        "question": "How much less biofilm formed on a Krytox-103 lubricant-infused PTFE coating than on a PEG coating?",
+        "answer": "A PTFE-based lubricant-infused surface coating infiltrated with Krytox-103 revealed a 35-fold reduction in biofilm formation compared with a PEG-coating.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "4ef01cbe-c468-4f02-957d-8b521d61eafa",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 16,
+            "page_end": 17,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "7728fef0-c56f-4df5-bd9e-3015457cd502",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "247eab92-b8d5-4fad-adb4-94ebe8f22012",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 16,
+            "page_end": 16,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "bb297046-984f-4654-b974-e4cf98ad5e42",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 17,
+            "page_end": 18,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "4a889729-371c-4f94-83a4-871cf4bc7047",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 28,
+            "page_end": 28,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "0002d228-86e4-4fdb-9f7a-abe45e894c38",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 18,
+            "page_end": 18,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "7c416a66-930f-4673-b4b3-0c40d1eff3d6",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 26,
+            "page_end": 27,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "61a52f80-3bcd-41d6-95e2-61d0a524cc4f",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 3,
+            "page_end": 3,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2122.3,
+        "retrieval_ms": 416.4,
+        "llm_calls": 1,
+        "input_tokens": 2868,
+        "output_tokens": 51,
+        "snippet_ranks": [
+          1
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.9694778495544699,
+        "judge_calls": 5,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-006",
+      "output": {
+        "question": "Which ISO guideline must blood-contacting implants meet for hemocompatibility before implantation?",
+        "answer": "Prior to implantation, blood-contacting implants must meet the guidelines developed by the International Organization for Standardization (ISO 10993-4) for hemocompatibility.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "4cf95fb0-56c5-4aa4-840c-38660de11d97",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 1,
+            "page_end": 1,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "61a52f80-3bcd-41d6-95e2-61d0a524cc4f",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 3,
+            "page_end": 3,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "29301f3e-9dc3-4b18-9749-5e2672affec5",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 5,
+            "page_end": 6,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "3975cf99-78ef-45f8-b7ee-a51215b165e1",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 18,
+            "page_end": 19,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "3236eafe-44d0-4279-bc50-2f1eddfd7535",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 1,
+            "page_end": 1,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "0aca12dc-f028-48ba-a0d6-996b6a996c9b",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 19,
+            "page_end": 20,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "5ee26ac3-7376-4631-ba5c-2120467721c9",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 23,
+            "page_end": 24,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "f31d0729-eadb-483c-99ec-4f31ccd0902e",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 8,
+            "page_end": 9,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 1945.0,
+        "retrieval_ms": 362.5,
+        "llm_calls": 1,
+        "input_tokens": 2633,
+        "output_tokens": 52,
+        "snippet_ranks": [
+          4
+        ],
+        "page_ranks": [
+          4
+        ],
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.9586519857781405,
+        "judge_calls": 5,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-007",
+      "output": {
+        "question": "What minimum chitosan concentration was needed to form the norbornene-chitosan hydrogels, and how quickly did they gel?",
+        "answer": "The provided context does not contain information about the minimum chitosan concentration needed to form the norbornene-chitosan hydrogels or how quickly they gel.",
+        "abstained": true,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "7d36454b-040e-49d7-a7d9-201958c1368d",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 2,
+            "page_end": 2,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "a04d69c7-f327-4ea5-8d9f-7ae35c91fd2f",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 1,
+            "page_end": 1,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "eb43c4de-71e3-4896-b907-6b8ab07813f5",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 16,
+            "page_end": 16,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "938dc673-5ec9-40bb-a435-b9f84bceed55",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 3,
+            "page_end": 3,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "68bbb48e-f54a-4db1-8863-c288febb68f4",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 16,
+            "page_end": 17,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "62dd271c-914a-4d61-a0e4-80c46185da1a",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 5,
+            "page_end": 6,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "2f7a81ad-79d7-4e70-8b5e-89f6f17c95e5",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 16,
+            "page_end": 16,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "9283b720-aa4a-427d-a5a8-fecdfbf0bee7",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 4,
+            "page_end": 5,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 1968.8,
+        "retrieval_ms": 397.3,
+        "llm_calls": 1,
+        "input_tokens": 3401,
+        "output_tokens": 46,
+        "snippet_ranks": [
+          null
+        ],
+        "page_ranks": [
+          4
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-008",
+      "output": {
+        "question": "Why is norbornene-functionalised chitosan more water-soluble than native chitosan?",
+        "answer": "Norbornene-functionalised chitosan presents improved water solubility compared to native chitosan due to the concomitant introduction of a carboxylate moiety acting as a solubilising group.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "a04d69c7-f327-4ea5-8d9f-7ae35c91fd2f",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 1,
+            "page_end": 1,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "7d36454b-040e-49d7-a7d9-201958c1368d",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 2,
+            "page_end": 2,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "938dc673-5ec9-40bb-a435-b9f84bceed55",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 3,
+            "page_end": 3,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "2f7a81ad-79d7-4e70-8b5e-89f6f17c95e5",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 16,
+            "page_end": 16,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "1e3f1968-22d6-4872-a74b-63915e192f06",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 15,
+            "page_end": 15,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "fc20241d-807c-4dba-a873-6748c1df453f",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 2,
+            "page_end": 3,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "66d729ed-c9cc-44b6-b554-35bc57a07ea6",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 15,
+            "page_end": 15,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "8bf5526b-5615-460d-af15-94dc9189008b",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 17,
+            "page_end": 17,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 1892.6,
+        "retrieval_ms": 405.2,
+        "llm_calls": 1,
+        "input_tokens": 3377,
+        "output_tokens": 49,
+        "snippet_ranks": [
+          3
+        ],
+        "page_ranks": [
+          3
+        ],
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.96450809038432,
+        "judge_calls": 5,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-009",
+      "output": {
+        "question": "How did the SANS mesh size of the 2% hydrogels change as crosslinking increased from Rs 1:2 to 1:1?",
+        "answer": "The context does not contain the answer regarding how the SANS mesh size of the 2% hydrogels changed as crosslinking increased from Rs 1:2 to 1:1.",
+        "abstained": true,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "c0853757-3f3f-41a3-96ed-c9d14ba96286",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 9,
+            "page_end": 9,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "2f20c4f4-6b76-456f-93fa-a5a6169e69bb",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 8,
+            "page_end": 8,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "a3b0ff17-6e97-49f7-aadc-7b49481834f5",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 6,
+            "page_end": 6,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "a826a9f4-64fb-497f-9db3-3524374491a2",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "6195b213-4b8c-40d6-a26f-4d5d6dc66765",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 6,
+            "page_end": 7,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "62dd271c-914a-4d61-a0e4-80c46185da1a",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 5,
+            "page_end": 6,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "9283b720-aa4a-427d-a5a8-fecdfbf0bee7",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 4,
+            "page_end": 5,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "f1cd9b15-191e-42bb-9797-c7eda982d209",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 12,
+            "page_end": 13,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2088.0,
+        "retrieval_ms": 395.3,
+        "llm_calls": 1,
+        "input_tokens": 3576,
+        "output_tokens": 54,
+        "snippet_ranks": [
+          null
+        ],
+        "page_ranks": [
+          2
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-010",
+      "output": {
+        "question": "What happened when the chitosan precursor was injected into PBS with the UV light switched off?",
+        "answer": "When the UV source was switched off, chitosan (CS) precipitation occurred upon injection into PBS due to its low solubility under physiological conditions.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "0f37a133-7dab-4828-ac10-ce6a28c55de4",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 15,
+            "page_end": 16,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "1c082884-c658-4291-89a2-07d55cfec4ab",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 10,
+            "page_end": 10,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "7d36454b-040e-49d7-a7d9-201958c1368d",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 2,
+            "page_end": 2,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "66d729ed-c9cc-44b6-b554-35bc57a07ea6",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 15,
+            "page_end": 15,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "fc20241d-807c-4dba-a873-6748c1df453f",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 2,
+            "page_end": 3,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "68bbb48e-f54a-4db1-8863-c288febb68f4",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 16,
+            "page_end": 17,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "a04d69c7-f327-4ea5-8d9f-7ae35c91fd2f",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 1,
+            "page_end": 1,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "938dc673-5ec9-40bb-a435-b9f84bceed55",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 3,
+            "page_end": 3,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 1880.6,
+        "retrieval_ms": 421.3,
+        "llm_calls": 1,
+        "input_tokens": 3261,
+        "output_tokens": 43,
+        "snippet_ranks": [
+          2
+        ],
+        "page_ranks": [
+          2
+        ],
+        "faithfulness": 0.5,
+        "answer_relevancy": 0.9331055693251796,
+        "judge_calls": 5,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-011",
+      "output": {
+        "question": "How metabolically active were skin fibroblasts on the softest 2% chitosan gels compared with BeWo cells?",
+        "answer": "The metabolic activity measured using Alamar Blue reagent was between 60 and 80 % for BeWo compared to ~ 20 – 35 % for HDF on the softest substrates (2 w:v%).",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "2575cbed-2610-4e68-88b6-547ee76b0052",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 11,
+            "page_end": 11,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "68bbb48e-f54a-4db1-8863-c288febb68f4",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 16,
+            "page_end": 17,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "b8d7bde2-6565-4762-80c2-65b3ffaa27b1",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 17,
+            "page_end": 17,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "66d729ed-c9cc-44b6-b554-35bc57a07ea6",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 15,
+            "page_end": 15,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "fc20241d-807c-4dba-a873-6748c1df453f",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 2,
+            "page_end": 3,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "7d36454b-040e-49d7-a7d9-201958c1368d",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 2,
+            "page_end": 2,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "781a920b-c2b6-4f65-b58e-ea411ae3357a",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 10,
+            "page_end": 11,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "a04d69c7-f327-4ea5-8d9f-7ae35c91fd2f",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 1,
+            "page_end": 1,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2400.4,
+        "retrieval_ms": 436.1,
+        "llm_calls": 1,
+        "input_tokens": 3238,
+        "output_tokens": 64,
+        "snippet_ranks": [
+          1
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.7305639785755562,
+        "judge_calls": 5,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-012",
+      "output": {
+        "question": "Which model compound was used to show that the chitosan hydrogels release encapsulated molecules?",
+        "answer": "The context mentions that the materials can be loaded with small molecules that are released over time, but it does not specify a particular model compound used for this demonstration.",
+        "abstained": true,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "fc20241d-807c-4dba-a873-6748c1df453f",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 2,
+            "page_end": 3,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "eb43c4de-71e3-4896-b907-6b8ab07813f5",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 16,
+            "page_end": 16,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "7d36454b-040e-49d7-a7d9-201958c1368d",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 2,
+            "page_end": 2,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "2f7a81ad-79d7-4e70-8b5e-89f6f17c95e5",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 16,
+            "page_end": 16,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "68bbb48e-f54a-4db1-8863-c288febb68f4",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 16,
+            "page_end": 17,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "0f37a133-7dab-4828-ac10-ce6a28c55de4",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 15,
+            "page_end": 16,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "a04d69c7-f327-4ea5-8d9f-7ae35c91fd2f",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 1,
+            "page_end": 1,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "a3bd23ad-cf09-4c33-a4b9-91ee1478f3ab",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 28,
+            "page_end": 29,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2067.7,
+        "retrieval_ms": 376.2,
+        "llm_calls": 1,
+        "input_tokens": 3486,
+        "output_tokens": 48,
+        "snippet_ranks": [
+          null
+        ],
+        "page_ranks": [
+          null
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-013",
+      "output": {
+        "question": "What is the typical size range of nanogels?",
+        "answer": "The context does not state the typical size range of nanogels.",
+        "abstained": true,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "2f20c4f4-6b76-456f-93fa-a5a6169e69bb",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 8,
+            "page_end": 8,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "9ac69a47-009b-4bc0-9abf-4bb23c1f1905",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 22,
+            "page_end": 23,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "c0853757-3f3f-41a3-96ed-c9d14ba96286",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 9,
+            "page_end": 9,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "9283b720-aa4a-427d-a5a8-fecdfbf0bee7",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 4,
+            "page_end": 5,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "6195b213-4b8c-40d6-a26f-4d5d6dc66765",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 6,
+            "page_end": 7,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "3bf0bc3e-0133-4b34-8c9c-bf7f261e2b9b",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 6,
+            "page_end": 6,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "0e08978b-2c5b-4617-ad8b-14263a8dd5c7",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 4,
+            "page_end": 4,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "4a12d807-627b-49fe-82bc-9566ea359f32",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 24,
+            "page_end": 24,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2515.2,
+        "retrieval_ms": 464.1,
+        "llm_calls": 1,
+        "input_tokens": 3591,
+        "output_tokens": 30,
+        "snippet_ranks": [
+          null
+        ],
+        "page_ranks": [
+          null
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-014",
+      "output": {
+        "question": "What did methacrylated tropoelastin (MeTro) hydrogels allow cardiomyocytes to do under electrical stimulation?",
+        "answer": "The MeTro hydrogels supported synchronous beating of cardiomyocytes in response to electrical stimulation.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "daff2426-46eb-4390-9ecd-dece0b1f1e76",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 9,
+            "page_end": 9,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "920a3ef1-38fd-442c-a912-b215cb798184",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 20,
+            "page_end": 20,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "d77d005b-84ff-4bb8-a0ce-b1a6259319e4",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 22,
+            "page_end": 22,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "0e08978b-2c5b-4617-ad8b-14263a8dd5c7",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 4,
+            "page_end": 4,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "577a61b1-b78e-4f1c-8158-6f4da0a77a5c",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 20,
+            "page_end": 21,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "333458ce-484f-475e-b888-b3c6b7bc7eca",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 12,
+            "page_end": 12,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "219e3281-2013-4105-adf4-a86c352e2555",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 23,
+            "page_end": 23,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "736c2df9-8a81-4d35-a353-eca6e990fc95",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 1,
+            "page_end": 2,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2353.5,
+        "retrieval_ms": 560.8,
+        "llm_calls": 1,
+        "input_tokens": 3190,
+        "output_tokens": 32,
+        "snippet_ranks": [
+          1
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.903451914890026,
+        "judge_calls": 5,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-015",
+      "output": {
+        "question": "How did H2O2-responsive nanogels carrying VEGF and NGF genes affect mice with hindlimb ischemia?",
+        "answer": "In a mouse model of hindlimb ischemia, intramuscular injections of H2O2-responsive nanogels carrying VEGF and NGF genes significantly enhanced blood flow recovery over 28 days. Histological analyses also showed improved muscle fiber morphology and increased capillary density, indicating effective angiogenesis and tissue regeneration.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "d5d3d443-48da-4ccb-984a-18ba59d2dd6d",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 10,
+            "page_end": 11,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "600ea5d3-28aa-4298-be1d-d5b27e0889d3",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "16c16100-6692-4c91-9f08-286ab26ebde8",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 9,
+            "page_end": 10,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "6e618774-d31a-462a-8d97-976eb0e0aef0",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 27,
+            "page_end": 27,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "875ba0bd-8c59-48d7-a399-96a22b07bac3",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 27,
+            "page_end": 27,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "2e412d98-2027-4f71-a046-6d86b68f2b18",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 26,
+            "page_end": 27,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "333458ce-484f-475e-b888-b3c6b7bc7eca",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 12,
+            "page_end": 12,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "e1f1394e-a650-43b7-b3bb-6caab302dd83",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 18,
+            "page_end": 19,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2237.2,
+        "retrieval_ms": 410.9,
+        "llm_calls": 1,
+        "input_tokens": 3601,
+        "output_tokens": 74,
+        "snippet_ranks": [
+          1
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.9717881052907597,
+        "judge_calls": 5,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-016",
+      "output": {
+        "question": "Did passing cell-laden microgels through a needle reduce the viability of endothelial cells and MSCs?",
+        "answer": "No, passing cell-laden microgels through a 16 gauge needle did not reduce their viability; the viability of endothelial cells and MSCs measured 1 and 24 hours post-injection showed no significant change compared to non-injected controls.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "53b7d986-beb1-4113-8ddb-b630e19a2e2f",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 16,
+            "page_end": 18,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "333458ce-484f-475e-b888-b3c6b7bc7eca",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 12,
+            "page_end": 12,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "20be03bd-a1da-40f3-ab92-93d3599081cd",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 15,
+            "page_end": 16,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "875ba0bd-8c59-48d7-a399-96a22b07bac3",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 27,
+            "page_end": 27,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "5ee26ac3-7376-4631-ba5c-2120467721c9",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 23,
+            "page_end": 24,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "781a920b-c2b6-4f65-b58e-ea411ae3357a",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 10,
+            "page_end": 11,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "daff2426-46eb-4390-9ecd-dece0b1f1e76",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 9,
+            "page_end": 9,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "6e618774-d31a-462a-8d97-976eb0e0aef0",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 27,
+            "page_end": 27,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2855.1,
+        "retrieval_ms": 431.6,
+        "llm_calls": 1,
+        "input_tokens": 3685,
+        "output_tokens": 68,
+        "snippet_ranks": [
+          1
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.9915153016943076,
+        "judge_calls": 5,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-017",
+      "output": {
+        "question": "How did PEG-based microgels influence macrophages in Griffin et al.'s work?",
+        "answer": "Griffin et al. showed that PEG-based microgels could skew macrophages toward a regenerative M2 phenotype.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "2707ad7b-511f-4b27-a9bb-9799b29f56ec",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 25,
+            "page_end": 26,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "d77d005b-84ff-4bb8-a0ce-b1a6259319e4",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 22,
+            "page_end": 22,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "0491f500-56a2-4260-b60f-fee69527a334",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 16,
+            "page_end": 16,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "e477c739-3375-4aa1-80fc-6608193dbb20",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 25,
+            "page_end": 25,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "9ac69a47-009b-4bc0-9abf-4bb23c1f1905",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 22,
+            "page_end": 23,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "f208c11d-a78f-4de1-8a74-df04aa477b0d",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 29,
+            "page_end": 29,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "b710d827-6265-4e82-8bbd-5130c8ccd58c",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 3,
+            "page_end": 3,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "0e08978b-2c5b-4617-ad8b-14263a8dd5c7",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 4,
+            "page_end": 4,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2272.9,
+        "retrieval_ms": 367.0,
+        "llm_calls": 1,
+        "input_tokens": 3533,
+        "output_tokens": 38,
+        "snippet_ranks": [
+          2
+        ],
+        "page_ranks": [
+          2
+        ],
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.9678693160557247,
+        "judge_calls": 5,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-018",
+      "output": {
+        "question": "Which kind of crosslink lets injectable hydrogels self-heal on demand after injection?",
+        "answer": "Injectable hydrogels can self-heal on-demand post-injection when they are crosslinked via dynamic boronate–ester bonds.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "577a61b1-b78e-4f1c-8158-6f4da0a77a5c",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 20,
+            "page_end": 21,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "b8d7bde2-6565-4762-80c2-65b3ffaa27b1",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 17,
+            "page_end": 17,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "7d36454b-040e-49d7-a7d9-201958c1368d",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 2,
+            "page_end": 2,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "875ba0bd-8c59-48d7-a399-96a22b07bac3",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 27,
+            "page_end": 27,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "736c2df9-8a81-4d35-a353-eca6e990fc95",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 1,
+            "page_end": 2,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "333458ce-484f-475e-b888-b3c6b7bc7eca",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 12,
+            "page_end": 12,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "90c886da-7fa9-4d53-8e76-d91ff85710a6",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 5,
+            "page_end": 5,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "fd483fb8-9cfa-4773-90ed-b8fdd8b32517",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 14,
+            "page_end": 15,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2320.8,
+        "retrieval_ms": 406.1,
+        "llm_calls": 1,
+        "input_tokens": 3532,
+        "output_tokens": 43,
+        "snippet_ranks": [
+          1
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.9761910926455649,
+        "judge_calls": 5,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-042",
+      "output": {
+        "question": "How are hyaluronic acid hydrogels or microgels used in vascular grafts and injectable gel systems?",
+        "answer": "Decellularized tissue-engineered vascular grafts have been coated with hyaluronic acid hydrogels, which provide antithrombogenic protection and promote endothelium by protecting the underlying collagen layer. Additionally, hyaluronic acid microgels are utilized in composite hydrogel systems combined with supramolecular matrices, providing shear-thinning and self-healing properties that facilitate minimally invasive delivery and therapeutic encapsulation.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "333458ce-484f-475e-b888-b3c6b7bc7eca",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 12,
+            "page_end": 12,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "fd483fb8-9cfa-4773-90ed-b8fdd8b32517",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 14,
+            "page_end": 15,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "8fb31d1c-2222-421a-a98c-e8e0ad08ac55",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 13,
+            "page_end": 13,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "875ba0bd-8c59-48d7-a399-96a22b07bac3",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 27,
+            "page_end": 27,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "6e618774-d31a-462a-8d97-976eb0e0aef0",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 27,
+            "page_end": 27,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "e1f1394e-a650-43b7-b3bb-6caab302dd83",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 18,
+            "page_end": 19,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "53b7d986-beb1-4113-8ddb-b630e19a2e2f",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 16,
+            "page_end": 18,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "16c16100-6692-4c91-9f08-286ab26ebde8",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 9,
+            "page_end": 10,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "multi",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2114.4,
+        "retrieval_ms": 486.7,
+        "llm_calls": 1,
+        "input_tokens": 3453,
+        "output_tokens": 89,
+        "snippet_ranks": [
+          3,
+          2
+        ],
+        "page_ranks": [
+          3,
+          2
+        ],
+        "faithfulness": 0.8888888888888888,
+        "answer_relevancy": 0.8574130768072257,
+        "judge_calls": 5,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-043",
+      "output": {
+        "question": "How has thiol-ene chemistry been used to make hydrogels?",
+        "answer": "Thiol-ene reactions have been utilized to create hydrogels with tunable modulus and degradation rates suitable for soft tissue engineering. It has also been used in photo-click crosslinking methods—such as with norbornene-functionalized chitosan and thiolated crosslinkers—to form hydrogels with modulated structures and physicochemical properties for biomedical applications.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "0f37a133-7dab-4828-ac10-ce6a28c55de4",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 15,
+            "page_end": 16,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "90c886da-7fa9-4d53-8e76-d91ff85710a6",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 5,
+            "page_end": 5,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "eb43c4de-71e3-4896-b907-6b8ab07813f5",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 16,
+            "page_end": 16,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "938dc673-5ec9-40bb-a435-b9f84bceed55",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 3,
+            "page_end": 3,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "6144f723-b961-4690-af9a-9434ac3090f1",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 3,
+            "page_end": 4,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "0e08978b-2c5b-4617-ad8b-14263a8dd5c7",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 4,
+            "page_end": 4,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "a3b0ff17-6e97-49f7-aadc-7b49481834f5",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 6,
+            "page_end": 6,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "db58313c-c419-45b7-8833-78c7d9236807",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 1,
+            "page_end": 1,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "multi",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2794.8,
+        "retrieval_ms": 387.5,
+        "llm_calls": 1,
+        "input_tokens": 3502,
+        "output_tokens": 84,
+        "snippet_ranks": [
+          4,
+          2
+        ],
+        "page_ranks": [
+          4,
+          2
+        ],
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.946042933787032,
+        "judge_calls": 5,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-044",
+      "output": {
+        "question": "How is the RGD peptide used in these papers, and what drawback does it have?",
+        "answer": "The RGD peptide (Arg–Gly–Asp) is used as an active peptide to coat biomaterial surfaces and hydrogels to promote endothelial cell adhesion and rapid proliferation. However, a drawback is that it also promotes the adhesion of platelets.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "15fa86eb-499e-4618-aec8-f6221d59baa9",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 15,
+            "page_end": 15,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "f1cd9b15-191e-42bb-9797-c7eda982d209",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 12,
+            "page_end": 13,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "b428c05e-b9a5-49b8-9911-73f7cb5ae179",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 14,
+            "page_end": 15,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "a826a9f4-64fb-497f-9db3-3524374491a2",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "2575cbed-2610-4e68-88b6-547ee76b0052",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 11,
+            "page_end": 11,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "16c16100-6692-4c91-9f08-286ab26ebde8",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 9,
+            "page_end": 10,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "d5d3d443-48da-4ccb-984a-18ba59d2dd6d",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 10,
+            "page_end": 11,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "7728fef0-c56f-4df5-bd9e-3015457cd502",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "multi",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2284.6,
+        "retrieval_ms": 418.1,
+        "llm_calls": 1,
+        "input_tokens": 3311,
+        "output_tokens": 64,
+        "snippet_ranks": [
+          1,
+          5,
+          null
+        ],
+        "page_ranks": [
+          1,
+          4,
+          null
+        ],
+        "faithfulness": 0.8,
+        "answer_relevancy": 0.8586225367725825,
+        "judge_calls": 5,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-045",
+      "output": {
+        "question": "What burst pressure did the lubricant-infused ePTFE vascular grafts withstand?",
+        "answer": "The context does not provide information about the burst pressure that the lubricant-infused ePTFE vascular grafts withstood.",
+        "abstained": true,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "bb297046-984f-4654-b974-e4cf98ad5e42",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 17,
+            "page_end": 18,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "0aca12dc-f028-48ba-a0d6-996b6a996c9b",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 19,
+            "page_end": 20,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "4ef01cbe-c468-4f02-957d-8b521d61eafa",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 16,
+            "page_end": 17,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "4b8dab4c-3029-40e8-b1a6-36d16f678ff8",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 4,
+            "page_end": 5,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "0002d228-86e4-4fdb-9f7a-abe45e894c38",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 18,
+            "page_end": 18,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "122bbfb2-30e6-4a3b-8043-6f9279e001f9",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 20,
+            "page_end": 21,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "8cff46e7-4a81-41f4-9b16-9310d18d4251",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 11,
+            "page_end": 11,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "61a52f80-3bcd-41d6-95e2-61d0a524cc4f",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 3,
+            "page_end": 3,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "unanswerable",
+        "answerable": false,
+        "verified": false,
+        "latency_ms": 1964.6,
+        "retrieval_ms": 429.0,
+        "llm_calls": 1,
+        "input_tokens": 2311,
+        "output_tokens": 38,
+        "snippet_ranks": null,
+        "page_ranks": null,
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-046",
+      "output": {
+        "question": "How long did the norbornene-chitosan hydrogels take to degrade completely in lysozyme solution?",
+        "answer": "The context does not contain information about how long the norbornene-chitosan hydrogels took to degrade completely in lysozyme solution.",
+        "abstained": true,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "a04d69c7-f327-4ea5-8d9f-7ae35c91fd2f",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 1,
+            "page_end": 1,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "7d36454b-040e-49d7-a7d9-201958c1368d",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 2,
+            "page_end": 2,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "938dc673-5ec9-40bb-a435-b9f84bceed55",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 3,
+            "page_end": 3,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "62dd271c-914a-4d61-a0e4-80c46185da1a",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 5,
+            "page_end": 6,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "0491f500-56a2-4260-b60f-fee69527a334",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 16,
+            "page_end": 16,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "fc20241d-807c-4dba-a873-6748c1df453f",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 2,
+            "page_end": 3,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "cf781383-5d24-4b09-b3f5-ab913ac1c848",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 7,
+            "page_end": 8,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "68bbb48e-f54a-4db1-8863-c288febb68f4",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 16,
+            "page_end": 17,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "unanswerable",
+        "answerable": false,
+        "verified": false,
+        "latency_ms": 2188.4,
+        "retrieval_ms": 393.9,
+        "llm_calls": 1,
+        "input_tokens": 3310,
+        "output_tokens": 44,
+        "snippet_ranks": null,
+        "page_ranks": null,
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-047",
+      "output": {
+        "question": "What compressive modulus did the chitosan hydrogels show in unconfined compression tests?",
+        "answer": "The context does not contain information about the compressive modulus of the chitosan hydrogels in unconfined compression tests.",
+        "abstained": true,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "62dd271c-914a-4d61-a0e4-80c46185da1a",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 5,
+            "page_end": 6,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "7d36454b-040e-49d7-a7d9-201958c1368d",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 2,
+            "page_end": 2,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "fc20241d-807c-4dba-a873-6748c1df453f",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 2,
+            "page_end": 3,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "68bbb48e-f54a-4db1-8863-c288febb68f4",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 16,
+            "page_end": 17,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "2f7a81ad-79d7-4e70-8b5e-89f6f17c95e5",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 16,
+            "page_end": 16,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "c0853757-3f3f-41a3-96ed-c9d14ba96286",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 9,
+            "page_end": 9,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "9283b720-aa4a-427d-a5a8-fecdfbf0bee7",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 4,
+            "page_end": 5,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "2f20c4f4-6b76-456f-93fa-a5a6169e69bb",
+            "document_id": "45890fb6-aa78-4600-a77f-4e11b79a3d2e",
+            "page_start": 8,
+            "page_end": 8,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "unanswerable",
+        "answerable": false,
+        "verified": false,
+        "latency_ms": 2056.3,
+        "retrieval_ms": 407.4,
+        "llm_calls": 1,
+        "input_tokens": 3565,
+        "output_tokens": 37,
+        "snippet_ranks": null,
+        "page_ranks": null,
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-048",
+      "output": {
+        "question": "Which microgel size gave the best cartilage repair in sheep or goat models?",
+        "answer": "The provided context does not contain information about which microgel size gave the best cartilage repair in sheep or goat models.",
+        "abstained": true,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "e1f1394e-a650-43b7-b3bb-6caab302dd83",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 18,
+            "page_end": 19,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "333458ce-484f-475e-b888-b3c6b7bc7eca",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 12,
+            "page_end": 12,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "9179d6c9-d1e1-4c63-89d0-c8f222fe83e5",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 21,
+            "page_end": 22,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "fd483fb8-9cfa-4773-90ed-b8fdd8b32517",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 14,
+            "page_end": 15,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "736c2df9-8a81-4d35-a353-eca6e990fc95",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 1,
+            "page_end": 2,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "c3162808-eb59-44a2-a0e7-c5745f70d8bb",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 4,
+            "page_end": 5,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "b710d827-6265-4e82-8bbd-5130c8ccd58c",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 3,
+            "page_end": 3,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "6e1d3940-e802-4b1b-be65-73590a221753",
+            "document_id": "4b681f2d-d2ef-469b-9fca-1cecba8bf9c8",
+            "page_start": 12,
+            "page_end": 14,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "unanswerable",
+        "answerable": false,
+        "verified": false,
+        "latency_ms": 2470.9,
+        "retrieval_ms": 367.1,
+        "llm_calls": 1,
+        "input_tokens": 3195,
+        "output_tokens": 39,
+        "snippet_ranks": null,
+        "page_ranks": null,
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-049",
+      "output": {
+        "question": "By how much did anti-CD34 antibody coatings reduce graft occlusion in human clinical trials?",
+        "answer": "The provided context does not contain information about human clinical trials or the specific reduction in graft occlusion achieved by anti-CD34 antibody coatings.",
+        "abstained": true,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "8fb31d1c-2222-421a-a98c-e8e0ad08ac55",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 13,
+            "page_end": 13,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "7728fef0-c56f-4df5-bd9e-3015457cd502",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "f73f4794-622b-4142-a61f-c6e25cb7aeaf",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 13,
+            "page_end": 14,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "0aca12dc-f028-48ba-a0d6-996b6a996c9b",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 19,
+            "page_end": 20,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "8cff46e7-4a81-41f4-9b16-9310d18d4251",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 11,
+            "page_end": 11,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "06975409-5f44-4395-a4f7-071ce40ac833",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 10,
+            "page_end": 10,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "bb297046-984f-4654-b974-e4cf98ad5e42",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 17,
+            "page_end": 18,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "b428c05e-b9a5-49b8-9911-73f7cb5ae179",
+            "document_id": "4d38ebc4-820f-41eb-9ae0-b2ab67e56ae9",
+            "page_start": 14,
+            "page_end": 15,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "unanswerable",
+        "answerable": false,
+        "verified": false,
+        "latency_ms": 2262.8,
+        "retrieval_ms": 497.4,
+        "llm_calls": 1,
+        "input_tokens": 2550,
+        "output_tokens": 44,
+        "snippet_ranks": null,
+        "page_ranks": null,
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-019",
+      "output": {
+        "question": "What are the two typical methods for coating tissue engineering scaffolds with PLGA?",
+        "answer": "The two typical approaches to coat scaffolds with PLGA are dip-coating and electrospinning.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "04182d8f-4537-4d51-b991-86a75c01cdb3",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 29,
+            "page_end": 29,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "64bb82ba-5c66-4dbb-beec-82937aef20c9",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 1,
+            "page_end": 2,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "f934a863-95f9-43c0-972c-6cebaae1ab80",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 11,
+            "page_end": 11,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "2abedffe-d374-418b-80fe-a67e73293c2a",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 17,
+            "page_end": 17,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "446495e8-57ab-455b-9278-73cefe85f707",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 7,
+            "page_end": 7,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "daca6d46-cbd4-49f5-90d1-f584687604b4",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 7,
+            "page_end": 8,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "6cb8d424-ef13-404a-8db3-0d708ea03c49",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "497b434f-51d8-445f-870a-45355309985d",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 4,
+            "page_end": 4,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2102.8,
+        "retrieval_ms": 552.3,
+        "llm_calls": 1,
+        "input_tokens": 2260,
+        "output_tokens": 34,
+        "snippet_ranks": [
+          6
+        ],
+        "page_ranks": [
+          6
+        ],
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.9145615038972954,
+        "judge_calls": 5,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-020",
+      "output": {
+        "question": "How does the lactide-to-glycolide ratio affect how fast PLGA degrades?",
+        "answer": "The period required for the biodegradation of PLGA is associated with the ratio of the monomers utilized: the higher the level of glycolide in the polymer network, the higher the degradability compared to lactides.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "5e3687af-f6b2-4819-a4d5-0e37323e05e3",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 6,
+            "page_end": 6,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "0dc443bc-49f6-4ce4-8512-2bb9dcf2129b",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 16,
+            "page_end": 17,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "2abedffe-d374-418b-80fe-a67e73293c2a",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 17,
+            "page_end": 17,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "ab94bda3-8392-49df-8c86-3459651c8d95",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 15,
+            "page_end": 16,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "34f8828f-8f30-4079-9c3e-cb26338886a7",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 23,
+            "page_end": 24,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "497b434f-51d8-445f-870a-45355309985d",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 4,
+            "page_end": 4,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "4366a884-005e-41c9-a85d-d312d3acac11",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 24,
+            "page_end": 25,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "64282ce3-106b-46e0-af18-f96d5cae4568",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 16,
+            "page_end": 17,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2322.3,
+        "retrieval_ms": 410.3,
+        "llm_calls": 1,
+        "input_tokens": 3068,
+        "output_tokens": 57,
+        "snippet_ranks": [
+          1
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.8555388982888003,
+        "judge_calls": 5,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-021",
+      "output": {
+        "question": "Why are PLGA films applied to metallic implants such as titanium alloys?",
+        "answer": "Introducing PLGA films as a surface modification on metallic implants like titanium alloys reinforces their corrosion resistance and provides a more favorable tissue-implant interface.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "446495e8-57ab-455b-9278-73cefe85f707",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 7,
+            "page_end": 7,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "b3567699-bfe6-454c-9abd-92d6d56352d5",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 6,
+            "page_end": 7,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "2cf47b10-72eb-44a4-b001-8dc3f675ad14",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 28,
+            "page_end": 28,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "3812c862-5794-4134-82a4-7bd6d06554b5",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 29,
+            "page_end": 29,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "b5fa4d7a-0f4d-4c8f-9228-bf5e0a528881",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 2,
+            "page_end": 2,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "cb7a3234-a626-4948-8e2d-b3a0b01dd4f9",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 28,
+            "page_end": 29,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "6cb8d424-ef13-404a-8db3-0d708ea03c49",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "f934a863-95f9-43c0-972c-6cebaae1ab80",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 11,
+            "page_end": 11,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2931.6,
+        "retrieval_ms": 664.9,
+        "llm_calls": 1,
+        "input_tokens": 2459,
+        "output_tokens": 45,
+        "snippet_ranks": [
+          1
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 2,
+        "judge_error": "LLMQuotaExceededError: The language model's daily request quota is used up. Try again later or configure another model."
+      }
+    },
+    {
+      "id": "test-022",
+      "output": {
+        "question": "How much did a PLGA coating raise the bending strength of beta-TCP scaffolds in Kang et al.'s study?",
+        "answer": "In Kang et al.'s study, the bending strength of beta-TCP scaffolds increased from 1.46 MPa to 2.41 MPa as a result of the PLGA coating.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "53c08881-c423-4441-9dbe-bba15e04a46a",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 12,
+            "page_end": 13,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "6cb8d424-ef13-404a-8db3-0d708ea03c49",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "9e53d166-179b-4f2c-a97e-5d8b32721da4",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 14,
+            "page_end": 15,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "9028bd45-df33-44df-a0f9-788b2adeba99",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 13,
+            "page_end": 14,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "a6d0841e-777d-4418-bb6a-d050a045a725",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 23,
+            "page_end": 24,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "0dc443bc-49f6-4ce4-8512-2bb9dcf2129b",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 16,
+            "page_end": 17,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "a0432be3-5712-4b2a-b79f-be90645363e4",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 12,
+            "page_end": 13,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "9ae3f49b-79a0-4747-863c-32a7cfad811e",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 31,
+            "page_end": 32,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2918.6,
+        "retrieval_ms": 616.5,
+        "llm_calls": 1,
+        "input_tokens": 3706,
+        "output_tokens": 56,
+        "snippet_ranks": [
+          1
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": "LLMQuotaExceededError: The language model's daily request quota is used up. Try again later or configure another model."
+      }
+    },
+    {
+      "id": "test-023",
+      "output": {
+        "question": "Which polymer coating best preserved the mechanical behaviour of hydroxyapatite nanowire scaffolds early in immersion, and which was worst?",
+        "answer": "Gelatin best preserved the mechanical behavior of hydroxyapatite nanowire scaffolds early in immersion, while PCL was the worst.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "53c08881-c423-4441-9dbe-bba15e04a46a",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 12,
+            "page_end": 13,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "ab94bda3-8392-49df-8c86-3459651c8d95",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 15,
+            "page_end": 16,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "9e53d166-179b-4f2c-a97e-5d8b32721da4",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 14,
+            "page_end": 15,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "a0432be3-5712-4b2a-b79f-be90645363e4",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 12,
+            "page_end": 13,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "6cb8d424-ef13-404a-8db3-0d708ea03c49",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "9ae3f49b-79a0-4747-863c-32a7cfad811e",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 31,
+            "page_end": 32,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "9028bd45-df33-44df-a0f9-788b2adeba99",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 13,
+            "page_end": 14,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "64282ce3-106b-46e0-af18-f96d5cae4568",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 16,
+            "page_end": 17,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2732.6,
+        "retrieval_ms": 799.4,
+        "llm_calls": 1,
+        "input_tokens": 3742,
+        "output_tokens": 41,
+        "snippet_ranks": [
+          4
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": "LLMQuotaExceededError: The language model's daily request quota is used up. Try again later or configure another model."
+      }
+    },
+    {
+      "id": "test-024",
+      "output": {
+        "question": "Which PLGA-coated, vancomycin-loaded Mg-Ca silicate microspheres were the most cytocompatible?",
+        "answer": "The akermanite substance exhibits the highest cytocompatibility due to a compromise of metabolic alkalosis, drug release, and beneficial ions release.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "540c3538-14fd-47cb-a6af-9147b2775d6c",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 20,
+            "page_end": 21,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "34f8828f-8f30-4079-9c3e-cb26338886a7",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 23,
+            "page_end": 24,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "ab9ab7b3-d915-4e63-b958-62750f1f8f7c",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 21,
+            "page_end": 21,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "c7483953-fc83-48d4-8676-5c97c38ff786",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 21,
+            "page_end": 22,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "7288af89-cdb6-4d40-990a-2e8d0c52d9e2",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 36,
+            "page_end": 36,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "4366a884-005e-41c9-a85d-d312d3acac11",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 24,
+            "page_end": 25,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "a308ce30-5537-4bdd-8275-dce5c266d273",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 34,
+            "page_end": 35,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "b1ff27ba-f37f-4664-a4a9-1874421b3de1",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 18,
+            "page_end": 18,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2258.6,
+        "retrieval_ms": 910.6,
+        "llm_calls": 1,
+        "input_tokens": 3543,
+        "output_tokens": 44,
+        "snippet_ranks": [
+          3
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": "LLMQuotaExceededError: The language model's daily request quota is used up. Try again later or configure another model."
+      }
+    },
+    {
+      "id": "test-025",
+      "output": {
+        "question": "How much magnesium was replaced by copper in the diopside used for the hollow-strut scaffolds?",
+        "answer": "The diopside used for the hollow-strut scaffolds had a 1 at.% substitution of magnesium by copper.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "cb8593c5-25af-44a4-be1b-9862fb21e772",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 16,
+            "page_end": 16,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "4c8ee2f1-1ed9-46ef-a29e-6b9e7ae44823",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 18,
+            "page_end": 18,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "3e9f7a67-628d-423d-8d09-9104dde17f87",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 3,
+            "page_end": 3,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "db57bd8d-61a2-456d-ae35-e9ba6445ab86",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 5,
+            "page_end": 6,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "089b4d46-d2fe-491f-80f3-23d5c31b5c98",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 9,
+            "page_end": 10,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "9c22a69a-fc1e-494d-978e-550212217990",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 17,
+            "page_end": 18,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "9c981e9d-b965-42dc-b424-c9bc5d8c63c4",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 12,
+            "page_end": 12,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "531047b9-2662-4f99-9d30-f231530b1fbe",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2280.3,
+        "retrieval_ms": 932.4,
+        "llm_calls": 1,
+        "input_tokens": 3288,
+        "output_tokens": 40,
+        "snippet_ranks": [
+          3
+        ],
+        "page_ranks": [
+          3
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": "LLMQuotaExceededError: The language model's daily request quota is used up. Try again later or configure another model."
+      }
+    },
+    {
+      "id": "test-026",
+      "output": {
+        "question": "How did the transverse compressive strength of the Out-s hollow-strut scaffold compare with the solid scaffold?",
+        "answer": "The Out-s hollow-strut scaffold (corresponding to a square external cross-section with a circular channel) showed the highest compressive strength in the transverse direction, which was 1.2 times higher than that of the solid scaffold, despite having a lower density.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "9c981e9d-b965-42dc-b424-c9bc5d8c63c4",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 12,
+            "page_end": 12,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "531047b9-2662-4f99-9d30-f231530b1fbe",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "9c22a69a-fc1e-494d-978e-550212217990",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 17,
+            "page_end": 18,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "6bc46c5c-d8fc-42a2-91c9-098e0e5ccf74",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 12,
+            "page_end": 13,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "87e3d13a-ff6a-49a1-a94e-70e6726be183",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 2,
+            "page_end": 3,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "32087026-f87e-4cf9-bc10-69bc75f696de",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 15,
+            "page_end": 16,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "b30d4036-f12b-4b64-bb1f-4aa2c2ce6036",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 1,
+            "page_end": 2,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "538178c0-8fc4-4aba-b98c-c71c1437b061",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 18,
+            "page_end": 18,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2223.1,
+        "retrieval_ms": 626.1,
+        "llm_calls": 1,
+        "input_tokens": 3511,
+        "output_tokens": 70,
+        "snippet_ranks": [
+          2
+        ],
+        "page_ranks": [
+          2
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": "LLMQuotaExceededError: The language model's daily request quota is used up. Try again later or configure another model."
+      }
+    },
+    {
+      "id": "test-027",
+      "output": {
+        "question": "Which hollow-strut geometry had the lowest compressive strength?",
+        "answer": "In-t scaffolds, having a triangular channel in a circular strut, showed the lowest compressive strengths in both orientations for hollow-strut scaffolds with nonsquare outer geometry.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "9c981e9d-b965-42dc-b424-c9bc5d8c63c4",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 12,
+            "page_end": 12,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "531047b9-2662-4f99-9d30-f231530b1fbe",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "9c22a69a-fc1e-494d-978e-550212217990",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 17,
+            "page_end": 18,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "6bc46c5c-d8fc-42a2-91c9-098e0e5ccf74",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 12,
+            "page_end": 13,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "87e3d13a-ff6a-49a1-a94e-70e6726be183",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 2,
+            "page_end": 3,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "1992ff5f-0f1b-4dd2-89a3-9618c3ac8d13",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 13,
+            "page_end": 13,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "477aeec4-72e6-45fa-b25e-9f365530c46e",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 6,
+            "page_end": 6,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "cb8593c5-25af-44a4-be1b-9862fb21e772",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 16,
+            "page_end": 16,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 1825.8,
+        "retrieval_ms": 687.7,
+        "llm_calls": 1,
+        "input_tokens": 3327,
+        "output_tokens": 50,
+        "snippet_ranks": [
+          1
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": "LLMQuotaExceededError: The language model's daily request quota is used up. Try again later or configure another model."
+      }
+    },
+    {
+      "id": "test-028",
+      "output": {
+        "question": "Did copper-doped diopside extract change CD31 expression in HUVECs?",
+        "answer": "Yes, the copper-doped diopside (Cu-DIO) extract increased CD31 expression in HUVECs, as the Cu-DIO group exhibited a higher expression level than the control group at day 3.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "1ed43e90-016b-4ee8-b284-8770d3e66e0e",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 13,
+            "page_end": 14,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "01bdf462-dd88-4a00-95c1-327d74bd2022",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 7,
+            "page_end": 7,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "0b48dd34-19e1-490b-ba3c-a4b51c8cb5c4",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 6,
+            "page_end": 7,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "d1d796c3-e844-4048-aa87-bfcf4330c136",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 7,
+            "page_end": 7,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "3a73406c-1b98-45c6-95ed-8ff8e2867521",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 14,
+            "page_end": 15,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "ffcb7647-6afe-4cf8-9adf-540cbcbba828",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 3,
+            "page_end": 3,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "6fc626d2-49d5-4119-a59b-9e811a7561b8",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 19,
+            "page_end": 19,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "cb8593c5-25af-44a4-be1b-9862fb21e772",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 16,
+            "page_end": 16,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2897.5,
+        "retrieval_ms": 663.6,
+        "llm_calls": 1,
+        "input_tokens": 3486,
+        "output_tokens": 61,
+        "snippet_ranks": [
+          1
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": "LLMQuotaExceededError: The language model's daily request quota is used up. Try again later or configure another model."
+      }
+    },
+    {
+      "id": "test-029",
+      "output": {
+        "question": "How much weight did copper-doped diopside lose after 8 weeks in Tris buffer?",
+        "answer": "The weight loss of copper-doped diopside (Cu-DIO) after 8 weeks of immersion in Tris buffer was about 10.4%.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "477aeec4-72e6-45fa-b25e-9f365530c46e",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 6,
+            "page_end": 6,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "cb8593c5-25af-44a4-be1b-9862fb21e772",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 16,
+            "page_end": 16,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "ffcb7647-6afe-4cf8-9adf-540cbcbba828",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 3,
+            "page_end": 3,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "db57bd8d-61a2-456d-ae35-e9ba6445ab86",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 5,
+            "page_end": 6,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "089b4d46-d2fe-491f-80f3-23d5c31b5c98",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 9,
+            "page_end": 10,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "4c8ee2f1-1ed9-46ef-a29e-6b9e7ae44823",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 18,
+            "page_end": 18,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "6fc626d2-49d5-4119-a59b-9e811a7561b8",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 19,
+            "page_end": 19,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "3afa1cd9-e7cb-4588-93d4-6430748bb891",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 6,
+            "page_end": 6,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2169.0,
+        "retrieval_ms": 691.1,
+        "llm_calls": 1,
+        "input_tokens": 3332,
+        "output_tokens": 49,
+        "snippet_ranks": [
+          2
+        ],
+        "page_ranks": [
+          2
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": "LLMQuotaExceededError: The language model's daily request quota is used up. Try again later or configure another model."
+      }
+    },
+    {
+      "id": "test-030",
+      "output": {
+        "question": "What median particle size did the copper-doped diopside powder have?",
+        "answer": "The median particle size measured by particle size analysis for the copper-doped diopside powder was 8.1 \\u03bcm.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "ffcb7647-6afe-4cf8-9adf-540cbcbba828",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 3,
+            "page_end": 3,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "db57bd8d-61a2-456d-ae35-e9ba6445ab86",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 5,
+            "page_end": 6,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "4c8ee2f1-1ed9-46ef-a29e-6b9e7ae44823",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 18,
+            "page_end": 18,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "089b4d46-d2fe-491f-80f3-23d5c31b5c98",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 9,
+            "page_end": 10,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "c78667ca-6c47-4f78-9880-220a2a69a300",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 3,
+            "page_end": 4,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "6fc626d2-49d5-4119-a59b-9e811a7561b8",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 19,
+            "page_end": 19,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "d87e5483-1bc6-4262-b587-4d0a6f075c45",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 10,
+            "page_end": 10,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "cb8593c5-25af-44a4-be1b-9862fb21e772",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 16,
+            "page_end": 16,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 125761.4,
+        "retrieval_ms": 769.6,
+        "llm_calls": 1,
+        "input_tokens": 3485,
+        "output_tokens": 46,
+        "snippet_ranks": [
+          7
+        ],
+        "page_ranks": [
+          4
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": "LLMQuotaExceededError: The language model's daily request quota is used up. Try again later or configure another model."
+      }
+    },
+    {
+      "id": "test-031",
+      "output": {
+        "question": "Why could no printable ink be made with Hench's 45S5 Bioglass?",
+        "answer": "It was not possible to successfully prepare a printable ink containing Hench's 45S5 Bioglass due to its highly hygroscopic nature, which is related to its high bioactivity and promotes fast reactions with small amounts of water in the environment or in the ink.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "f8a14f20-9f18-4999-8ed8-c632add069be",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 8,
+            "page_end": 9,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "c78667ca-6c47-4f78-9880-220a2a69a300",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 3,
+            "page_end": 4,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "16bb4fbc-64df-4b7b-8523-96ba6c74e9dc",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 3,
+            "page_end": 3,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "cb9aa0f9-88a2-4829-9dff-cb7896986ad7",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 2,
+            "page_end": 3,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "b537f5ef-80b9-4a14-9f31-bfcd63ec63aa",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 7,
+            "page_end": 8,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "d2aa2bbd-2502-43ae-b552-813e9b50825f",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 7,
+            "page_end": 7,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "b22d7047-24b6-458f-90bf-46876d81b583",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 4,
+            "page_end": 5,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "d69b0edf-0d4c-48b8-9806-4820ea38fd38",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 19,
+            "page_end": 20,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2307.7,
+        "retrieval_ms": 619.6,
+        "llm_calls": 1,
+        "input_tokens": 3424,
+        "output_tokens": 72,
+        "snippet_ranks": [
+          1
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": "LLMQuotaExceededError: The language model's daily request quota is used up. Try again later or configure another model."
+      }
+    },
+    {
+      "id": "test-032",
+      "output": {
+        "question": "How did scaffolds containing 6P53B glass change the pH of simulated body fluid?",
+        "answer": "The presence of 6P53B glass caused the pH of the simulated body fluid solution to increase and reach 7.8 after 20 days of immersion.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "c608a33a-f891-4e4b-a405-0e040248f785",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 6,
+            "page_end": 6,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "a29cd9ee-2ae3-4cfe-9e71-f84b4e454c6a",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 13,
+            "page_end": 14,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "0d974fc9-a5d2-4627-b25c-8f4db5e06e67",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 11,
+            "page_end": 13,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "d71f321c-7072-458e-bfa4-94042d7efd70",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "210f1b00-c8ea-42a0-9fdf-dbcb7466e4d8",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 1,
+            "page_end": 1,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "83c4c2e6-2957-4486-88e5-1b4eb34577e9",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 17,
+            "page_end": 18,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "f8a14f20-9f18-4999-8ed8-c632add069be",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 8,
+            "page_end": 9,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "836951f5-9d8f-4289-bca9-cc454c3179de",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 27,
+            "page_end": 28,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2370.2,
+        "retrieval_ms": 618.2,
+        "llm_calls": 1,
+        "input_tokens": 3546,
+        "output_tokens": 51,
+        "snippet_ranks": [
+          3
+        ],
+        "page_ranks": [
+          2
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": "LLMQuotaExceededError: The language model's daily request quota is used up. Try again later or configure another model."
+      }
+    },
+    {
+      "id": "test-033",
+      "output": {
+        "question": "What happened to the glass transition temperature of PLA after 20 days at 37 °C in simulated body fluid?",
+        "answer": "After 20 days at 37 C in simulated body fluid, the glass transition temperature of PLA increased to 60.8 C.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "a96e7745-d5a5-41e4-a8f9-1d41428c2fd3",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 6,
+            "page_end": 7,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "d71f321c-7072-458e-bfa4-94042d7efd70",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "0d974fc9-a5d2-4627-b25c-8f4db5e06e67",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 11,
+            "page_end": 13,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "83c4c2e6-2957-4486-88e5-1b4eb34577e9",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 17,
+            "page_end": 18,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "e58f1cea-a574-40c5-b94d-b5aca6499cb4",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 18,
+            "page_end": 18,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "4e9b1768-a042-4da4-8f45-61e81249d432",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 14,
+            "page_end": 15,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "5e3687af-f6b2-4819-a4d5-0e37323e05e3",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 6,
+            "page_end": 6,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "a29cd9ee-2ae3-4cfe-9e71-f84b4e454c6a",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 13,
+            "page_end": 14,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2262.4,
+        "retrieval_ms": 617.6,
+        "llm_calls": 1,
+        "input_tokens": 2677,
+        "output_tokens": 58,
+        "snippet_ranks": [
+          2
+        ],
+        "page_ranks": [
+          2
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": "LLMQuotaExceededError: The language model's daily request quota is used up. Try again later or configure another model."
+      }
+    },
+    {
+      "id": "test-034",
+      "output": {
+        "question": "What appeared on the surface of pure PLA scaffolds after 20 days in simulated body fluid?",
+        "answer": "After 20 days in simulated body fluid, microporosity with a pore size from 0.5 to 1 Γ ̹m developed on the surface of pure PLA scaffolds.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "0d974fc9-a5d2-4627-b25c-8f4db5e06e67",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 11,
+            "page_end": 13,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "d71f321c-7072-458e-bfa4-94042d7efd70",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "e58f1cea-a574-40c5-b94d-b5aca6499cb4",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 18,
+            "page_end": 18,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "83c4c2e6-2957-4486-88e5-1b4eb34577e9",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 17,
+            "page_end": 18,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "c608a33a-f891-4e4b-a405-0e040248f785",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 6,
+            "page_end": 6,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "daca6d46-cbd4-49f5-90d1-f584687604b4",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 7,
+            "page_end": 8,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "c7483953-fc83-48d4-8676-5c97c38ff786",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 21,
+            "page_end": 22,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "210f1b00-c8ea-42a0-9fdf-dbcb7466e4d8",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 1,
+            "page_end": 1,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2390.4,
+        "retrieval_ms": 729.2,
+        "llm_calls": 1,
+        "input_tokens": 3359,
+        "output_tokens": 69,
+        "snippet_ranks": [
+          2
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": "LLMQuotaExceededError: The language model's daily request quota is used up. Try again later or configure another model."
+      }
+    },
+    {
+      "id": "test-035",
+      "output": {
+        "question": "How did PCL-based scaffolds change as they degraded in simulated body fluid?",
+        "answer": "As PCL-based scaffolds (with or without hydroxyapatite) degraded in simulated body fluid, their surface became rougher and a network of polymer fibers formed between the printed lines.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "0d974fc9-a5d2-4627-b25c-8f4db5e06e67",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 11,
+            "page_end": 13,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "d71f321c-7072-458e-bfa4-94042d7efd70",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "c608a33a-f891-4e4b-a405-0e040248f785",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 6,
+            "page_end": 6,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "915b952d-0bbc-46c6-9a49-6aa8b8004615",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 8,
+            "page_end": 8,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "f9009216-67f5-473b-90f7-449c0fdb53f8",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 2,
+            "page_end": 3,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "ab94bda3-8392-49df-8c86-3459651c8d95",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 15,
+            "page_end": 16,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "64282ce3-106b-46e0-af18-f96d5cae4568",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 16,
+            "page_end": 17,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "83c4c2e6-2957-4486-88e5-1b4eb34577e9",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 17,
+            "page_end": 18,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2472.0,
+        "retrieval_ms": 728.1,
+        "llm_calls": 1,
+        "input_tokens": 3560,
+        "output_tokens": 53,
+        "snippet_ranks": [
+          2
+        ],
+        "page_ranks": [
+          1
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": "LLMQuotaExceededError: The language model's daily request quota is used up. Try again later or configure another model."
+      }
+    },
+    {
+      "id": "test-036",
+      "output": {
+        "question": "Which robocast scaffolds showed a stress maximum in compression, and at what stress?",
+        "answer": "The provided context does not contain information about which specific robocast scaffolds showed a stress maximum in compression or the exact stress at which it occurred.",
+        "abstained": true,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "170288e7-a99c-4318-9e7c-4902dc8c0a34",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 4,
+            "page_end": 5,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "3afa1cd9-e7cb-4588-93d4-6430748bb891",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 6,
+            "page_end": 6,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "1992ff5f-0f1b-4dd2-89a3-9618c3ac8d13",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 13,
+            "page_end": 13,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "3b75dca6-c7ef-401b-b2fb-bd917dae077d",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 5,
+            "page_end": 5,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "9c22a69a-fc1e-494d-978e-550212217990",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 17,
+            "page_end": 18,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "c5c8a3b1-e652-417d-8da1-160c0e741cd5",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 8,
+            "page_end": 9,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "477aeec4-72e6-45fa-b25e-9f365530c46e",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 6,
+            "page_end": 6,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "b3547810-dc9f-4ce7-843c-3a8e16c1d3d4",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 21,
+            "page_end": 21,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "single",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2583.2,
+        "retrieval_ms": 724.3,
+        "llm_calls": 1,
+        "input_tokens": 3245,
+        "output_tokens": 45,
+        "snippet_ranks": [
+          null
+        ],
+        "page_ranks": [
+          null
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-037",
+      "output": {
+        "question": "How was polycaprolactone used to fill the hollow-strut diopside scaffolds and the robocast PLA/HA scaffolds?",
+        "answer": "To fill the hollow-strut scaffold, polycaprolactone (PCL, Mn 80000) was dissolved in a toluene solution at a concentration of 20 vol% at 60 oC, manually injected into each strut until it was entirely filled using a 30G fine needle, and then left at room temperature for 24 h to ensure adequate evaporation of the toluene solvent. The context does not mention robocast PLA/HA scaffolds.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "4c8ee2f1-1ed9-46ef-a29e-6b9e7ae44823",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 18,
+            "page_end": 18,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "3e9f7a67-628d-423d-8d09-9104dde17f87",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 3,
+            "page_end": 3,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "170288e7-a99c-4318-9e7c-4902dc8c0a34",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 4,
+            "page_end": 5,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "915b952d-0bbc-46c6-9a49-6aa8b8004615",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 8,
+            "page_end": 8,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "cb8593c5-25af-44a4-be1b-9862fb21e772",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 16,
+            "page_end": 16,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "9c22a69a-fc1e-494d-978e-550212217990",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 17,
+            "page_end": 18,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "32087026-f87e-4cf9-bc10-69bc75f696de",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 15,
+            "page_end": 16,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "b30d4036-f12b-4b64-bb1f-4aa2c2ce6036",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 1,
+            "page_end": 2,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "multi",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2505.5,
+        "retrieval_ms": 693.4,
+        "llm_calls": 1,
+        "input_tokens": 3153,
+        "output_tokens": 115,
+        "snippet_ranks": [
+          4,
+          null
+        ],
+        "page_ranks": [
+          4,
+          null
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 1,
+        "judge_error": "LLMQuotaExceededError: The language model's daily request quota is used up. Try again later or configure another model."
+      }
+    },
+    {
+      "id": "test-038",
+      "output": {
+        "question": "Compare the processing temperatures of the copper-doped diopside scaffolds and the robocast polymer/ceramic hybrid scaffolds.",
+        "answer": "The copper-doped diopside scaffolds were sintered at a temperature of 1250 degrees C. In contrast, the robocast organic/inorganic hybrid scaffolds were built using robotic assisted deposition at room temperature.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "089b4d46-d2fe-491f-80f3-23d5c31b5c98",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 9,
+            "page_end": 10,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "170288e7-a99c-4318-9e7c-4902dc8c0a34",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 4,
+            "page_end": 5,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "4c8ee2f1-1ed9-46ef-a29e-6b9e7ae44823",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 18,
+            "page_end": 18,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "210f1b00-c8ea-42a0-9fdf-dbcb7466e4d8",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 1,
+            "page_end": 1,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "6fc626d2-49d5-4119-a59b-9e811a7561b8",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 19,
+            "page_end": 19,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "cb8593c5-25af-44a4-be1b-9862fb21e772",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 16,
+            "page_end": 16,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "3e9f7a67-628d-423d-8d09-9104dde17f87",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 3,
+            "page_end": 3,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "db57bd8d-61a2-456d-ae35-e9ba6445ab86",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 5,
+            "page_end": 6,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "comparison",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2145.3,
+        "retrieval_ms": 720.3,
+        "llm_calls": 1,
+        "input_tokens": 3444,
+        "output_tokens": 61,
+        "snippet_ranks": [
+          null,
+          null
+        ],
+        "page_ranks": [
+          2,
+          null
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": "LLMQuotaExceededError: The language model's daily request quota is used up. Try again later or configure another model."
+      }
+    },
+    {
+      "id": "test-039",
+      "output": {
+        "question": "How can the acidic products of polymer degradation be buffered in coated or hybrid scaffolds?",
+        "answer": "The release of acidic products can be buffered by adding various calcium phosphates to the polymer.",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "64282ce3-106b-46e0-af18-f96d5cae4568",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 16,
+            "page_end": 17,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "0dc443bc-49f6-4ce4-8512-2bb9dcf2129b",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 16,
+            "page_end": 17,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "ab94bda3-8392-49df-8c86-3459651c8d95",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 15,
+            "page_end": 16,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "2abedffe-d374-418b-80fe-a67e73293c2a",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 17,
+            "page_end": 17,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "0a36d8b6-5037-4bd9-992b-3275295e40e1",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 22,
+            "page_end": 23,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "0d974fc9-a5d2-4627-b25c-8f4db5e06e67",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 11,
+            "page_end": 13,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "497b434f-51d8-445f-870a-45355309985d",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 4,
+            "page_end": 4,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "d02072e8-6b76-40d7-9709-c5b99f57be19",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 36,
+            "page_end": 36,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "multi",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2301.1,
+        "retrieval_ms": 657.1,
+        "llm_calls": 1,
+        "input_tokens": 3161,
+        "output_tokens": 33,
+        "snippet_ranks": [
+          2,
+          null
+        ],
+        "page_ranks": [
+          1,
+          6
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": "LLMQuotaExceededError: The language model's daily request quota is used up. Try again later or configure another model."
+      }
+    },
+    {
+      "id": "test-040",
+      "output": {
+        "question": "Which cell types were used to test the hollow-strut scaffolds and the PLGA-coated beta-TCP scaffolds?",
+        "answer": "The hollow-strut scaffolds were tested using HUVECs and Saos-2 cells, while the PLGA-coated beta-TCP (TCP) scaffolds were tested using rat bone marrow stromal cells (rBMSCs).",
+        "abstained": false,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "32087026-f87e-4cf9-bc10-69bc75f696de",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 15,
+            "page_end": 16,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "53c08881-c423-4441-9dbe-bba15e04a46a",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 12,
+            "page_end": 13,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "a6d0841e-777d-4418-bb6a-d050a045a725",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 23,
+            "page_end": 24,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "87e3d13a-ff6a-49a1-a94e-70e6726be183",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 2,
+            "page_end": 3,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "b1ff27ba-f37f-4664-a4a9-1874421b3de1",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 18,
+            "page_end": 18,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "6cb8d424-ef13-404a-8db3-0d708ea03c49",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "28eaf087-1a69-4ec4-8193-7d9884f27691",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 15,
+            "page_end": 15,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "b30d4036-f12b-4b64-bb1f-4aa2c2ce6036",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 1,
+            "page_end": 2,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "comparison",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2199.8,
+        "retrieval_ms": 703.7,
+        "llm_calls": 1,
+        "input_tokens": 3018,
+        "output_tokens": 63,
+        "snippet_ranks": [
+          null,
+          null
+        ],
+        "page_ranks": [
+          null,
+          5
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": "LLMQuotaExceededError: The language model's daily request quota is used up. Try again later or configure another model."
+      }
+    },
+    {
+      "id": "test-041",
+      "output": {
+        "question": "Compare how the pH of the immersion medium changed for PLGA-coated bredigite scaffolds and for robocast PLA and PLA/HA scaffolds.",
+        "answer": "The context does not contain information about robocast PLA and PLA/HA scaffolds to compare with PLGA-coated bredigite scaffolds.",
+        "abstained": true,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "a0432be3-5712-4b2a-b79f-be90645363e4",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 12,
+            "page_end": 13,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "0dc443bc-49f6-4ce4-8512-2bb9dcf2129b",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 16,
+            "page_end": 17,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "64282ce3-106b-46e0-af18-f96d5cae4568",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 16,
+            "page_end": 17,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "497b434f-51d8-445f-870a-45355309985d",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 4,
+            "page_end": 4,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "9028bd45-df33-44df-a0f9-788b2adeba99",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 13,
+            "page_end": 14,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "9ae3f49b-79a0-4747-863c-32a7cfad811e",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 31,
+            "page_end": 32,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "836951f5-9d8f-4289-bca9-cc454c3179de",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 27,
+            "page_end": 28,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "64a9fd95-943d-4590-98f8-ac47e9891347",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 19,
+            "page_end": 20,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "comparison",
+        "answerable": true,
+        "verified": false,
+        "latency_ms": 2738.4,
+        "retrieval_ms": 1232.8,
+        "llm_calls": 1,
+        "input_tokens": 3562,
+        "output_tokens": 44,
+        "snippet_ranks": [
+          2,
+          null
+        ],
+        "page_ranks": [
+          2,
+          null
+        ],
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-050",
+      "output": {
+        "question": "What fatigue life did PLGA-coated beta-TCP scaffolds reach under cyclic compressive loading?",
+        "answer": "The context does not contain information about the fatigue life of PLGA-coated beta-TCP scaffolds under cyclic compressive loading.",
+        "abstained": true,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "53c08881-c423-4441-9dbe-bba15e04a46a",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 12,
+            "page_end": 13,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "6cb8d424-ef13-404a-8db3-0d708ea03c49",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "c7483953-fc83-48d4-8676-5c97c38ff786",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 21,
+            "page_end": 22,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "a6d0841e-777d-4418-bb6a-d050a045a725",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 23,
+            "page_end": 24,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "9e53d166-179b-4f2c-a97e-5d8b32721da4",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 14,
+            "page_end": 15,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "477aeec4-72e6-45fa-b25e-9f365530c46e",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 6,
+            "page_end": 6,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "2abedffe-d374-418b-80fe-a67e73293c2a",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 17,
+            "page_end": 17,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "f671e994-3822-4864-ba3d-d31629e35f27",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 35,
+            "page_end": 35,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "unanswerable",
+        "answerable": false,
+        "verified": false,
+        "latency_ms": 2203.7,
+        "retrieval_ms": 658.7,
+        "llm_calls": 1,
+        "input_tokens": 3324,
+        "output_tokens": 40,
+        "snippet_ranks": null,
+        "page_ranks": null,
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-051",
+      "output": {
+        "question": "How much copper did the copper-doped diopside scaffolds release per day in culture medium?",
+        "answer": "The provided context does not contain information about how much copper the copper-doped diopside scaffolds released per day.",
+        "abstained": true,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "0b48dd34-19e1-490b-ba3c-a4b51c8cb5c4",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 6,
+            "page_end": 7,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "cb8593c5-25af-44a4-be1b-9862fb21e772",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 16,
+            "page_end": 16,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "db57bd8d-61a2-456d-ae35-e9ba6445ab86",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 5,
+            "page_end": 6,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "4c8ee2f1-1ed9-46ef-a29e-6b9e7ae44823",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 18,
+            "page_end": 18,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "477aeec4-72e6-45fa-b25e-9f365530c46e",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 6,
+            "page_end": 6,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "089b4d46-d2fe-491f-80f3-23d5c31b5c98",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 9,
+            "page_end": 10,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "6fc626d2-49d5-4119-a59b-9e811a7561b8",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 19,
+            "page_end": 19,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "ffcb7647-6afe-4cf8-9adf-540cbcbba828",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 3,
+            "page_end": 3,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "unanswerable",
+        "answerable": false,
+        "verified": false,
+        "latency_ms": 2592.6,
+        "retrieval_ms": 730.0,
+        "llm_calls": 1,
+        "input_tokens": 3336,
+        "output_tokens": 39,
+        "snippet_ranks": null,
+        "page_ranks": null,
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-052",
+      "output": {
+        "question": "How much new bone grew into PLA/6P53B glass scaffolds implanted in rat calvarial defects?",
+        "answer": "The context does not contain information about how much new bone grew into PLA/6P53B glass scaffolds implanted in rat calvarial defects.",
+        "abstained": true,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "927586e5-9777-47ba-84f2-c7d37c092cd7",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 19,
+            "page_end": 20,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "83c4c2e6-2957-4486-88e5-1b4eb34577e9",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 17,
+            "page_end": 18,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "d71f321c-7072-458e-bfa4-94042d7efd70",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "a29cd9ee-2ae3-4cfe-9e71-f84b4e454c6a",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 13,
+            "page_end": 14,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "73c133dc-ded1-4dc9-97a7-ff600a47f024",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 2,
+            "page_end": 2,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "210f1b00-c8ea-42a0-9fdf-dbcb7466e4d8",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 1,
+            "page_end": 1,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "836951f5-9d8f-4289-bca9-cc454c3179de",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 27,
+            "page_end": 28,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "0d974fc9-a5d2-4627-b25c-8f4db5e06e67",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 11,
+            "page_end": 13,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "unanswerable",
+        "answerable": false,
+        "verified": false,
+        "latency_ms": 2316.5,
+        "retrieval_ms": 694.7,
+        "llm_calls": 1,
+        "input_tokens": 3721,
+        "output_tokens": 46,
+        "snippet_ranks": null,
+        "page_ranks": null,
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-053",
+      "output": {
+        "question": "How long do robocast PLA/hydroxyapatite scaffolds take to resorb completely in vivo?",
+        "answer": "The context does not contain information about how long robocast PLA/hydroxyapatite scaffolds take to resorb completely in vivo.",
+        "abstained": true,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "83c4c2e6-2957-4486-88e5-1b4eb34577e9",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 17,
+            "page_end": 18,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "210f1b00-c8ea-42a0-9fdf-dbcb7466e4d8",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 1,
+            "page_end": 1,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "0d974fc9-a5d2-4627-b25c-8f4db5e06e67",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 11,
+            "page_end": 13,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "b3547810-dc9f-4ce7-843c-3a8e16c1d3d4",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 21,
+            "page_end": 21,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "d71f321c-7072-458e-bfa4-94042d7efd70",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "3b75dca6-c7ef-401b-b2fb-bd917dae077d",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 5,
+            "page_end": 5,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "b7f66d76-6662-4038-810a-64177153b36e",
+            "document_id": "c1967f38-2839-464e-80a9-000a97c2ce0e",
+            "page_start": 16,
+            "page_end": 17,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "c5c8a3b1-e652-417d-8da1-160c0e741cd5",
+            "document_id": "3df032bf-7d74-4d4a-a045-4b734d08d783",
+            "page_start": 8,
+            "page_end": 9,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "unanswerable",
+        "answerable": false,
+        "verified": false,
+        "latency_ms": 2610.2,
+        "retrieval_ms": 869.1,
+        "llm_calls": 1,
+        "input_tokens": 3685,
+        "output_tokens": 42,
+        "snippet_ranks": null,
+        "page_ranks": null,
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": null
+      }
+    },
+    {
+      "id": "test-054",
+      "output": {
+        "question": "What tensile strength do electrospun PLGA coatings on bioceramic scaffolds have?",
+        "answer": "The provided context does not contain information about the tensile strength of electrospun PLGA coatings on bioceramic scaffolds.",
+        "abstained": true,
+        "error": null,
+        "contexts": [
+          {
+            "chunk_id": "b3567699-bfe6-454c-9abd-92d6d56352d5",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 6,
+            "page_end": 7,
+            "dense_rank": 1
+          },
+          {
+            "chunk_id": "6cb8d424-ef13-404a-8db3-0d708ea03c49",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 11,
+            "page_end": 12,
+            "dense_rank": 2
+          },
+          {
+            "chunk_id": "9028bd45-df33-44df-a0f9-788b2adeba99",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 13,
+            "page_end": 14,
+            "dense_rank": 3
+          },
+          {
+            "chunk_id": "b32fe23c-854e-4e66-808f-908c5e218636",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 10,
+            "page_end": 11,
+            "dense_rank": 4
+          },
+          {
+            "chunk_id": "9e53d166-179b-4f2c-a97e-5d8b32721da4",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 14,
+            "page_end": 15,
+            "dense_rank": 5
+          },
+          {
+            "chunk_id": "53c08881-c423-4441-9dbe-bba15e04a46a",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 12,
+            "page_end": 13,
+            "dense_rank": 6
+          },
+          {
+            "chunk_id": "04182d8f-4537-4d51-b991-86a75c01cdb3",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 29,
+            "page_end": 29,
+            "dense_rank": 7
+          },
+          {
+            "chunk_id": "446495e8-57ab-455b-9278-73cefe85f707",
+            "document_id": "d5ac3031-6163-44fa-b529-24d284063059",
+            "page_start": 7,
+            "page_end": 7,
+            "dense_rank": 8
+          }
+        ]
+      },
+      "scores": {
+        "type": "unanswerable",
+        "answerable": false,
+        "verified": false,
+        "latency_ms": 2195.0,
+        "retrieval_ms": 766.3,
+        "llm_calls": 1,
+        "input_tokens": 3092,
+        "output_tokens": 39,
+        "snippet_ranks": null,
+        "page_ranks": null,
+        "faithfulness": null,
+        "answer_relevancy": null,
+        "judge_calls": 0,
+        "judge_error": null
+      }
+    }
+  ],
+  "summary": {
+    "verified": null,
+    "all": {
+      "questions": 54,
+      "failed": 0,
+      "verified": 0,
+      "drafted_by": {
+        "claude": 54
+      },
+      "by_type": {
+        "comparison": 3,
+        "multi": 5,
+        "single": 36,
+        "unanswerable": 10
+      },
+      "abstention": {
+        "answerable": 44,
+        "false_abstentions": 6,
+        "false_abstention_rate": 0.1364,
+        "unanswerable": 10,
+        "correct_abstentions": 10,
+        "abstention_accuracy": 1.0
+      },
+      "retrieval": {
+        "questions": 44,
+        "snippet": {
+          "R@5": 0.7538,
+          "R@8": 0.7992,
+          "MRR": 0.5657
+        },
+        "page": {
+          "R@5": 0.8447,
+          "R@8": 0.8788,
+          "MRR": 0.6712
+        }
+      },
+      "ragas": {
+        "faithfulness": 0.9573,
+        "faithfulness_scored": 19,
+        "answer_relevancy": 0.9112,
+        "answer_relevancy_scored": 19,
+        "judge_errors": 19
+      },
+      "system": {
+        "latency_ms_mean": 4628.4481,
+        "latency_ms_p50": 2292.85,
+        "latency_ms_p95": 2918.6,
+        "llm_calls_mean": 1.0,
+        "input_tokens_mean": 3239.3148,
+        "output_tokens_mean": 51.9815,
+        "judge_calls_total": 98,
+        "judge_tokens_total": 155867
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+name: Deploy backend
+
+# Uploads backend/ to the Hugging Face Docker Space, which then rebuilds the image.
+# Setup (Space, HF_TOKEN secret, HF_SPACE_ID variable): docs/SETUP.md.
+on:
+  push:
+    branches: [main]
+    paths:
+      - backend/**
+      - .github/workflows/deploy-backend.yml
+  # Manual runs may pick any branch ("Use workflow from"), e.g. to benchmark it (docs/SETUP.md).
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Never run two uploads at once; a newer push waits for the running one.
+concurrency:
+  group: deploy-backend
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
+        with:
+          working-directory: backend
+
+      # --delete "*" removes Space files that no longer exist in backend/ (.gitattributes is kept).
+      - name: Upload backend/ to the Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_SPACE_ID: ${{ vars.HF_SPACE_ID }}
+        run: >
+          uvx --from huggingface_hub==2.1.1 hf upload "$HF_SPACE_ID" backend .
+          --repo-type space
+          --delete "*"
+          --commit-message "Deploy ${GITHUB_SHA::7} (${GITHUB_REF_NAME}) from GitHub"

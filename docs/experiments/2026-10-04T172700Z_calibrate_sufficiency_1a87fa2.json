@@ -1,0 +1,606 @@
+{
+  "experiment": "calibrate_sufficiency",
+  "date": "2026-10-04T17:27:00+00:00",
+  "git_commit": "1a87fa216d53b20e4e24888c082d2b0e8630fbb3",
+  "git_dirty": false,
+  "models": {
+    "embedding": "BAAI/bge-small-en-v1.5",
+    "reranker": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "parser": "pymupdf4llm"
+  },
+  "settings": {
+    "embedding_provider": "sentence_transformers",
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "embedding_dimension": 384,
+    "embedding_batch_size": 16,
+    "reranker_provider": "cross_encoder",
+    "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "reranker_max_length": 512,
+    "reranker_batch_size": 16,
+    "nli_provider": "fake",
+    "nli_model": "cross-encoder/nli-deberta-v3-base",
+    "nli_max_length": 512,
+    "nli_batch_size": 16,
+    "parser_provider": "pymupdf4llm",
+    "dense_top_k": 30,
+    "lexical_top_k": 30,
+    "rrf_k": 60,
+    "rerank_candidates": 20,
+    "retrieval_top_k": 8,
+    "sufficiency_threshold": 0.5,
+    "chunk_min_tokens": 350,
+    "chunk_max_tokens": 450,
+    "chunk_overlap_ratio": 0.12,
+    "chunk_merge_below_tokens": 80,
+    "chunk_hard_max_tokens": 510,
+    "compatibility_chunks": 4,
+    "compatibility_max_pages": 3,
+    "compatibility_threshold": 0.83,
+    "ingestion_concurrency": 1,
+    "local_inference_concurrency": 1
+  },
+  "parameters": {
+    "corpora": [
+      "scaffolds",
+      "tissue"
+    ],
+    "answerable": 33,
+    "unanswerable": 20,
+    "human_verified": 0
+  },
+  "dataset": "benchmark_v1.jsonl (calibration split)",
+  "hardware": {
+    "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "machine": "x86_64",
+    "processor": null,
+    "cpu_count": 16,
+    "python": "3.11.16",
+    "torch_threads": 8
+  },
+  "results": [
+    {
+      "id": "cal-001",
+      "corpus": "tissue",
+      "question": "What share of ePTFE and polyester vascular grafts fail within a decade, and why?",
+      "answerable": true,
+      "top_score": 0.9238634313733282,
+      "configured_decision": "sufficient",
+      "top_page": 4,
+      "top_text": "Synthetic blood vessels must be sufficiently elastic and compliant to prevent mechanical mismatch and resistance to long-term fatigue. In addition, they must have sufficient suture retention strength…"
+    },
+    {
+      "id": "cal-002",
+      "corpus": "tissue",
+      "question": "Why do children with synthetic vascular grafts eventually need another operation?",
+      "answerable": true,
+      "top_score": 0.1910002296127114,
+      "configured_decision": "insufficient",
+      "top_page": 4,
+      "top_text": "Synthetic blood vessels must be sufficiently elastic and compliant to prevent mechanical mismatch and resistance to long-term fatigue. In addition, they must have sufficient suture retention strength…"
+    },
+    {
+      "id": "cal-003",
+      "corpus": "tissue",
+      "question": "Which blood protein usually sticks to an implant surface first?",
+      "answerable": true,
+      "top_score": 0.9370673910003889,
+      "configured_decision": "sufficient",
+      "top_page": 7,
+      "top_text": "Nonspecific protein adsorption is the initial event at the interface between the surface of the implant and human blood, wherein the dynamics of protein adsorptions are governed by kinetic and thermo…"
+    },
+    {
+      "id": "cal-004",
+      "corpus": "tissue",
+      "question": "How common was mineral deposition in failed PTFE bypass grafts shortly after implantation?",
+      "answerable": true,
+      "top_score": 0.9973595604678499,
+      "configured_decision": "sufficient",
+      "top_page": 7,
+      "top_text": "Calcification of prosthetic vascular conduits is a frequent complication of inadequate biocompatibility. A study reported that of 40 failed PTFE bypass grafts, 68% revealed calcifications within 1 mo…"
+    },
+    {
+      "id": "cal-005",
+      "corpus": "tissue",
+      "question": "Why are polyethylene glycol coatings unsuitable for long-term implants?",
+      "answerable": true,
+      "top_score": 0.502666239500182,
+      "configured_decision": "sufficient",
+      "top_page": 11,
+      "top_text": "Bioinert polymer coatings resist nonspecific adhesion of proteins and cells by binding water molecules to form a hydration layer that attenuates thrombosis. Among different hydrophilic\n\npolymers such…"
+    },
+    {
+      "id": "cal-006",
+      "corpus": "tissue",
+      "question": "How much did a phosphorylcholine polymer coating reduce platelet attachment in rat aortic grafts?",
+      "answerable": true,
+      "top_score": 0.6587920668239792,
+      "configured_decision": "sufficient",
+      "top_page": 11,
+      "top_text": "Bioinert polymer coatings resist nonspecific adhesion of proteins and cells by binding water molecules to form a hydration layer that attenuates thrombosis. Among different hydrophilic\n\npolymers such…"
+    },
+    {
+      "id": "cal-007",
+      "corpus": "tissue",
+      "question": "Which silanization method gave lubricant-infused catheters better clot resistance, vapor or liquid phase?",
+      "answerable": true,
+      "top_score": 0.9823073362075142,
+      "configured_decision": "sufficient",
+      "top_page": 16,
+      "top_text": "However, the results of studies with slippery lubricant-infused coronary catheters modified using LPD or CVD techniques suggest that CVD treatment provides better resistance against thrombosis than L…"
+    },
+    {
+      "id": "cal-008",
+      "corpus": "tissue",
+      "question": "What effect did lubricant-infused ePTFE grafts have on bacterial attachment in rats?",
+      "answerable": true,
+      "top_score": 0.9374874149170742,
+      "configured_decision": "sufficient",
+      "top_page": 16,
+      "top_text": "However, the results of studies with slippery lubricant-infused coronary catheters modified using LPD or CVD techniques suggest that CVD treatment provides better resistance against thrombosis than L…"
+    },
+    {
+      "id": "cal-009",
+      "corpus": "tissue",
+      "question": "Under which pH conditions do norbornene-chitosan hydrogels absorb the most water?",
+      "answerable": true,
+      "top_score": 0.8230814107926054,
+      "configured_decision": "sufficient",
+      "top_page": 16,
+      "top_text": "24. Qu, X.; Wirsén, A.; Albertsson, A. C., Novel pH-sensitive chitosan hydrogels: swelling behavior and states of water. _Polymer_ **2000,** _41_ (12), 4589-4598.\n\n25. Zhu, L.; Bratlie, K. M., pH sen…"
+    },
+    {
+      "id": "cal-010",
+      "corpus": "tissue",
+      "question": "What internal pore structure did SEM reveal in the chitosan hydrogels?",
+      "answerable": true,
+      "top_score": 0.8933779877626428,
+      "configured_decision": "sufficient",
+      "top_page": 5,
+      "top_text": "All hydrogels presented similar honeycomb-like structures with highly polydisperse pores of dimensions varying between ~ 20 and up to ~ 120 µm, as evidenced by SEM ( **Figure 2** ). It is worth notin…"
+    },
+    {
+      "id": "cal-011",
+      "corpus": "tissue",
+      "question": "Which thiol crosslinker produced the stiffest chitosan gels?",
+      "answerable": true,
+      "top_score": 0.924403930596208,
+      "configured_decision": "sufficient",
+      "top_page": 1,
+      "top_text": "Access to biocompatible hydrogels with tuneable properties is of great interest. Here we report the practical synthesis and characterisation of a series of photo-crosslinked chitosan hydrogels from n…"
+    },
+    {
+      "id": "cal-012",
+      "corpus": "tissue",
+      "question": "Can the chitosan gel be formed directly on skin and stay attached?",
+      "answerable": true,
+      "top_score": 0.010907496330392247,
+      "configured_decision": "insufficient",
+      "top_page": 15,
+      "top_text": "sustained release. This composite system demonstrated improved injectability and therapeutic delivery, highlighting its potential for minimally invasive applications. Engineered injectable nanogel–mi…"
+    },
+    {
+      "id": "cal-013",
+      "corpus": "tissue",
+      "question": "How did adding a small amount of collagen change fibroblast survival on the gels?",
+      "answerable": true,
+      "top_score": 0.008179414507612054,
+      "configured_decision": "insufficient",
+      "top_page": 16,
+      "top_text": "The endothelial cells exhibit a\n\ntypical ‘cobblestone’ monolayer pattern (left and center), which was changed when seeded with fibroblasts (right). ( **B** ) Corresponding scanning electron micrograp…"
+    },
+    {
+      "id": "cal-014",
+      "corpus": "tissue",
+      "question": "What is the typical size range of microgels?",
+      "answerable": true,
+      "top_score": 0.782686973452957,
+      "configured_decision": "sufficient",
+      "top_page": 6,
+      "top_text": "providing highly uniform particles for controlled release ( _Xu et al._ ).<sup>24</sup> <u>Post-Polymerization Crosslinking: Post-synthesis modification has also been explored. For</u> example, Xiao …"
+    },
+    {
+      "id": "cal-015",
+      "corpus": "tissue",
+      "question": "How long was VEGF released from the hyaluronic acid hydrogel for ischemic heart tissue?",
+      "answerable": true,
+      "top_score": 0.9921926188964111,
+      "configured_decision": "sufficient",
+      "top_page": 9,
+      "top_text": "factor (VEGF) can be developed, which can be released in a controlled fashion to promote angiogenesis in ischemic tissues.<sup>48</sup> In this regard, O'Dwyer et al. (2020) demonstrated the synthesi…"
+    },
+    {
+      "id": "cal-016",
+      "corpus": "tissue",
+      "question": "What is a major drawback of nanogels once injected into the body?",
+      "answerable": true,
+      "top_score": 0.08877816002101616,
+      "configured_decision": "insufficient",
+      "top_page": 10,
+      "top_text": "This nano-system was designed to respond to the oxidative environment of ischemic tissues, ensuring targeted and sustained release of the therapeutic genes. In a mouse model of hindlimb ischemia, int…"
+    },
+    {
+      "id": "cal-017",
+      "corpus": "tissue",
+      "question": "How well did osteogenic microgels heal critical-sized skull defects in mice?",
+      "answerable": true,
+      "top_score": 0.7795367636037989,
+      "configured_decision": "sufficient",
+      "top_page": 18,
+      "top_text": "(Parts of the figure were drawn by using pictures from Servier Medical Art. Servier Medical Art by Servier is licensed under a Creative Commons Attribution 3.0 Unported License (https://creativecommo…"
+    },
+    {
+      "id": "cal-034",
+      "corpus": "tissue",
+      "question": "What five-year patency did heparin-bonded ePTFE grafts reach in randomized clinical trials?",
+      "answerable": false,
+      "top_score": 0.04947133921126942,
+      "configured_decision": "insufficient",
+      "top_page": 10,
+      "top_text": "Various anticoagulants have been used to improve the hemocompatibility of vascular grafts such as heparin, corn trypsin inhibitor, as well as direct thrombin inhibitors such as hirudin, bivalirudin, …"
+    },
+    {
+      "id": "cal-035",
+      "corpus": "tissue",
+      "question": "How long do the chitosan hydrogels stay stable when stored at 4 °C?",
+      "answerable": false,
+      "top_score": 0.7463363601832204,
+      "configured_decision": "sufficient",
+      "top_page": 1,
+      "top_text": "Access to biocompatible hydrogels with tuneable properties is of great interest. Here we report the practical synthesis and characterisation of a series of photo-crosslinked chitosan hydrogels from n…"
+    },
+    {
+      "id": "cal-036",
+      "corpus": "tissue",
+      "question": "What endotoxin levels were measured in the chitosan hydrogels before the cell tests?",
+      "answerable": false,
+      "top_score": 0.06780199908745749,
+      "configured_decision": "insufficient",
+      "top_page": 1,
+      "top_text": "Access to biocompatible hydrogels with tuneable properties is of great interest. Here we report the practical synthesis and characterisation of a series of photo-crosslinked chitosan hydrogels from n…"
+    },
+    {
+      "id": "cal-037",
+      "corpus": "tissue",
+      "question": "What does it cost to produce norbornene-functionalised chitosan at industrial scale?",
+      "answerable": false,
+      "top_score": 0.24738966571610096,
+      "configured_decision": "insufficient",
+      "top_page": 1,
+      "top_text": "Access to biocompatible hydrogels with tuneable properties is of great interest. Here we report the practical synthesis and characterisation of a series of photo-crosslinked chitosan hydrogels from n…"
+    },
+    {
+      "id": "cal-038",
+      "corpus": "tissue",
+      "question": "Which microgel products for cartilage repair have received FDA approval, and when?",
+      "answerable": false,
+      "top_score": 0.7066203922534581,
+      "configured_decision": "sufficient",
+      "top_page": 12,
+      "top_text": "Feng et al. (2019) developed injectable gelatin/hyaluronic acid hybrid microgels loaded with stem cells, which promoted cartilage repair in vivo. While the primary focus was on gelatin and hyaluronic…"
+    },
+    {
+      "id": "cal-039",
+      "corpus": "tissue",
+      "question": "How did zwitterionic polymer coatings perform in human clinical trials of central venous catheters?",
+      "answerable": false,
+      "top_score": 0.5858209160661457,
+      "configured_decision": "sufficient",
+      "top_page": 11,
+      "top_text": "Bioinert polymer coatings resist nonspecific adhesion of proteins and cells by binding water molecules to form a hydration layer that attenuates thrombosis. Among different hydrophilic\n\npolymers such…"
+    },
+    {
+      "id": "cal-040",
+      "corpus": "tissue",
+      "question": "What infection rate did silver-coated vascular grafts show two years after implantation in patients?",
+      "answerable": false,
+      "top_score": 0.28648881999879927,
+      "configured_decision": "insufficient",
+      "top_page": 7,
+      "top_text": "Calcification of prosthetic vascular conduits is a frequent complication of inadequate biocompatibility. A study reported that of 40 failed PTFE bypass grafts, 68% revealed calcifications within 1 mo…"
+    },
+    {
+      "id": "cal-041",
+      "corpus": "tissue",
+      "question": "How did nanogels affect liver enzyme levels in long-term primate studies?",
+      "answerable": false,
+      "top_score": 0.007954548592344252,
+      "configured_decision": "insufficient",
+      "top_page": 10,
+      "top_text": "This nano-system was designed to respond to the oxidative environment of ischemic tissues, ensuring targeted and sustained release of the therapeutic genes. In a mouse model of hindlimb ischemia, int…"
+    },
+    {
+      "id": "cal-042",
+      "corpus": "tissue",
+      "question": "Which sterilization method was used for the chitosan hydrogels, and did it change their swelling?",
+      "answerable": false,
+      "top_score": 0.8661152338569326,
+      "configured_decision": "sufficient",
+      "top_page": 1,
+      "top_text": "Access to biocompatible hydrogels with tuneable properties is of great interest. Here we report the practical synthesis and characterisation of a series of photo-crosslinked chitosan hydrogels from n…"
+    },
+    {
+      "id": "cal-043",
+      "corpus": "tissue",
+      "question": "What is the elastic modulus of electrospun silk fibroin vascular grafts?",
+      "answerable": false,
+      "top_score": 0.00623563955708925,
+      "configured_decision": "insufficient",
+      "top_page": 4,
+      "top_text": "Synthetic blood vessels must be sufficiently elastic and compliant to prevent mechanical mismatch and resistance to long-term fatigue. In addition, they must have sufficient suture retention strength…"
+    },
+    {
+      "id": "cal-018",
+      "corpus": "scaffolds",
+      "question": "What toughness did scaffolds reach with a 20% PLGA coating compared with uncoated ones?",
+      "answerable": true,
+      "top_score": 0.9976341754067892,
+      "configured_decision": "sufficient",
+      "top_page": 12,
+      "top_text": "Furthermore, by enhancing the PLGA coating concentration, the more fraction of the scaffold is coated and the struts become thicker, improving further the mechanical behaviors of the scaffolds. In th…"
+    },
+    {
+      "id": "cal-019",
+      "corpus": "scaffolds",
+      "question": "How much did the coating change the compressive strength relative to the bare scaffold?",
+      "answerable": true,
+      "top_score": 0.9945811989821322,
+      "configured_decision": "sufficient",
+      "top_page": 12,
+      "top_text": "Furthermore, by enhancing the PLGA coating concentration, the more fraction of the scaffold is coated and the struts become thicker, improving further the mechanical behaviors of the scaffolds. In th…"
+    },
+    {
+      "id": "cal-020",
+      "corpus": "scaffolds",
+      "question": "Which PLGA concentration gave the strongest scaffolds in compression?",
+      "answerable": true,
+      "top_score": 0.9193715905651708,
+      "configured_decision": "sufficient",
+      "top_page": 12,
+      "top_text": "Furthermore, by enhancing the PLGA coating concentration, the more fraction of the scaffold is coated and the struts become thicker, improving further the mechanical behaviors of the scaffolds. In th…"
+    },
+    {
+      "id": "cal-021",
+      "corpus": "scaffolds",
+      "question": "How much of each polymer coating had degraded after 32 weeks?",
+      "answerable": true,
+      "top_score": 0.9244514673637377,
+      "configured_decision": "sufficient",
+      "top_page": 15,
+      "top_text": "The degradation rate of scaffolds, an essential parameter affecting the tissue regeneration process, can be controlled via polymer coatings. Tissue engineering scaffolds, in particular bioceramic one…"
+    },
+    {
+      "id": "cal-022",
+      "corpus": "scaffolds",
+      "question": "How quickly was the drug released from uncoated scaffolds?",
+      "answerable": true,
+      "top_score": 0.9942022524381546,
+      "configured_decision": "sufficient",
+      "top_page": 24,
+      "top_text": "However, after PLGA coating, the duration of the burst release is declined notably, and a sustained drug delivery is achieved. It is worth noting that the amount of the drug released from the PLGA-ca…"
+    },
+    {
+      "id": "cal-023",
+      "corpus": "scaffolds",
+      "question": "What is the glass transition temperature range of the PLGA copolymer?",
+      "answerable": true,
+      "top_score": 0.9979205597452152,
+      "configured_decision": "sufficient",
+      "top_page": 6,
+      "top_text": "1). The copolymer shows proper biocompatibility, biodegradability, delivery behavior, and a glass transition temperature from 40 °C to 60 °C. The degradation of PLGA happens by the autocatalytic hydr…"
+    },
+    {
+      "id": "cal-024",
+      "corpus": "scaffolds",
+      "question": "How porous were scaffolds with hollow channels compared with solid scaffolds after sintering?",
+      "answerable": true,
+      "top_score": 0.9981344506507157,
+      "configured_decision": "sufficient",
+      "top_page": 9,
+      "top_text": "<mark>An XRD pattern of the sintered scaffold is presented in Fig. 3a. As expected, the pattern is consistent with the presence of single-phase diopside</mark>\n\n<mark>(PDF#72-1497), indicating that t…"
+    },
+    {
+      "id": "cal-025",
+      "corpus": "scaffolds",
+      "question": "How much did the printed parts shrink vertically during sintering?",
+      "answerable": true,
+      "top_score": 0.9882782460980253,
+      "configured_decision": "sufficient",
+      "top_page": 10,
+      "top_text": "<mark>and 1.369 ± 0.045 g/cm</mark><sup>3</sup> <mark>, respectively. Despite shrinkage during sintering, scaffolds still maintained their designed geometries. Specifically, the shrinkage was 35.58 ±…"
+    },
+    {
+      "id": "cal-026",
+      "corpus": "scaffolds",
+      "question": "Which outer strut shapes gave the highest bending strength?",
+      "answerable": true,
+      "top_score": 0.995651416356918,
+      "configured_decision": "sufficient",
+      "top_page": 12,
+      "top_text": "<mark>to Out-s, 38.01 ± 4.28 vs. 36.93 ± 4.70 MPa·cm</mark><sup>3</sup> <mark>/g, respectively.</mark>\n\n<mark>For hollow-strut scaffolds with nonsquare outer geometry, mechanical performance was gene…"
+    },
+    {
+      "id": "cal-027",
+      "corpus": "scaffolds",
+      "question": "What were the diameters of the coaxial nozzle outlet and its mandrel?",
+      "answerable": true,
+      "top_score": 0.9868829578112318,
+      "configured_decision": "sufficient",
+      "top_page": 3,
+      "top_text": "<mark>To produce struts with desired dimensions and different cross-sections, customized nozzles with various outlet configurations were required. Fig. 1 shows schematically the design of nozzles. Th…"
+    },
+    {
+      "id": "cal-028",
+      "corpus": "scaffolds",
+      "question": "At what strain does the ceramic paste stop behaving like a solid and start to flow?",
+      "answerable": true,
+      "top_score": 0.030925030921686823,
+      "configured_decision": "insufficient",
+      "top_page": 8,
+      "top_text": "<mark>A low-high-low shear strain 3-step switching test was applied to simulate the robocasting procedure. It is found that both Cu-DIO slurry and Pluronic F127 rapidly transitioned into the liquid-l…"
+    },
+    {
+      "id": "cal-029",
+      "corpus": "scaffolds",
+      "question": "How does the spacing between printed rods set the porosity and pore size?",
+      "answerable": true,
+      "top_score": 0.9836255389007532,
+      "configured_decision": "sufficient",
+      "top_page": 6,
+      "top_text": "The average porosity was calculated using the measured diameter of the printed rods and their spacing. The microstructure and composition of the printed parts were analyzed by X‐ray diffraction (D500…"
+    },
+    {
+      "id": "cal-030",
+      "corpus": "scaffolds",
+      "question": "Why must the printing speed stay within a limited range during robocasting?",
+      "answerable": true,
+      "top_score": 0.7086721601060881,
+      "configured_decision": "sufficient",
+      "top_page": 4,
+      "top_text": "denatured ethanol (water content <0.1%) to control the viscosity of the slurry and the evaporation kinetics and homogenized in a ball mill with alumina balls for 1 h. The final quality of the ink was…"
+    },
+    {
+      "id": "cal-031",
+      "corpus": "scaffolds",
+      "question": "What formed on the hybrid scaffolds after three weeks in simulated body fluid?",
+      "answerable": true,
+      "top_score": 0.9505888423693379,
+      "configured_decision": "sufficient",
+      "top_page": 17,
+      "top_text": "As it is confirmed by the DSC analysis, the long treatment at 37°C promotes densification and this process is enhanced in SBF (Fig. 8). The moisture plasticizes the polymer chains favoring their rear…"
+    },
+    {
+      "id": "cal-032",
+      "corpus": "scaffolds",
+      "question": "Why is the polylactide used in the inks amorphous?",
+      "answerable": true,
+      "top_score": 0.2596047850726634,
+      "configured_decision": "insufficient",
+      "top_page": 3,
+      "top_text": "The inorganic component of the materials is either hydroxyapatite (HA), an osteoconductive calcium phosphate closely related to the inorganic component of bone, or a bioactive silica‐based glass. Sin…"
+    },
+    {
+      "id": "cal-033",
+      "corpus": "scaffolds",
+      "question": "How high can the ceramic content of the inks be, and how does that compare with bone?",
+      "answerable": true,
+      "top_score": 0.37153820031434076,
+      "configured_decision": "insufficient",
+      "top_page": 7,
+      "top_text": "The process used in the preparation of the inks is based on the dissolution of the polymers in methylene chloride, like the standard procedure used for the preparation of biodegradable polymer and HA…"
+    },
+    {
+      "id": "cal-044",
+      "corpus": "scaffolds",
+      "question": "How much new bone grew into the robocast hybrid scaffolds after 12 weeks in a rabbit femur defect?",
+      "answerable": false,
+      "top_score": 0.0962269235865903,
+      "configured_decision": "insufficient",
+      "top_page": 16,
+      "top_text": "<mark>The work presented here is motivated by prospects for improving patient outcomes in recovery from large-scale bone defects stemming from congenital malformations, tumors or infections. To effec…"
+    },
+    {
+      "id": "cal-045",
+      "corpus": "scaffolds",
+      "question": "How many loading cycles can hollow-strut diopside scaffolds survive under cyclic compression?",
+      "answerable": false,
+      "top_score": 0.883154722623559,
+      "configured_decision": "sufficient",
+      "top_page": 17,
+      "top_text": "We have shown here that hollow-strut scaffolds with continuous channels in a simple woodpile structure with high porosity of around 84% significantly exceed the mechanical performance of cancellous b…"
+    },
+    {
+      "id": "cal-046",
+      "corpus": "scaffolds",
+      "question": "How does gamma sterilization change the molecular weight of PLGA coatings?",
+      "answerable": false,
+      "top_score": 0.538389902025009,
+      "configured_decision": "sufficient",
+      "top_page": 16,
+      "top_text": "The results show that pH for the PLGA-coated samples increases slightly after initiating degradation. Consequently, it was concluded that the PLGA\n\nA. Maadani, F. Davoodian, E. Salahinejad, _Effects …"
+    },
+    {
+      "id": "cal-047",
+      "corpus": "scaffolds",
+      "question": "How much did the robocast scaffolds' compressive strength drop after six months in simulated body fluid?",
+      "answerable": false,
+      "top_score": 0.351670293415693,
+      "configured_decision": "insufficient",
+      "top_page": 11,
+      "top_text": "9) while their surface becomes rougher.\n\nFigure 7: (a) Scanning electron micrographs of a PLA scaffold after 20 days in SBF. Note the presence of micron size pores homogeneously dispersed on the poly…"
+    },
+    {
+      "id": "cal-048",
+      "corpus": "scaffolds",
+      "question": "What is the thermal conductivity of sintered diopside bioceramics?",
+      "answerable": false,
+      "top_score": 0.5045530422272235,
+      "configured_decision": "sufficient",
+      "top_page": 9,
+      "top_text": "<mark>An XRD pattern of the sintered scaffold is presented in Fig. 3a. As expected, the pattern is consistent with the presence of single-phase diopside</mark>\n\n<mark>(PDF#72-1497), indicating that t…"
+    },
+    {
+      "id": "cal-049",
+      "corpus": "scaffolds",
+      "question": "How did patients respond to PLGA-coated scaffolds in spinal fusion clinical trials?",
+      "answerable": false,
+      "top_score": 0.6700841835174255,
+      "configured_decision": "sufficient",
+      "top_page": 28,
+      "top_text": "decline the pH level of the medium, giving rise to the resorption of the precipitated calcium phosphate.\n\nSadiasa et al. [65] assessed the bioactivity of PLGA/BCP-coated BCP/ZrO2 scaffolds. In this r…"
+    },
+    {
+      "id": "cal-050",
+      "corpus": "scaffolds",
+      "question": "What does PLGA dip coating cost per scaffold in US dollars?",
+      "answerable": false,
+      "top_score": 0.3695949949861507,
+      "configured_decision": "insufficient",
+      "top_page": 9,
+      "top_text": "Fig. 2. Setup of dip coating (a) and electrospinning (b).\n\nComparing these two main methods, dip-coating is a straightforward, inexpensive, and versatile route by which the thickness of the deposited…"
+    },
+    {
+      "id": "cal-051",
+      "corpus": "scaffolds",
+      "question": "Which growth factor was incorporated into the hollow-strut scaffolds to promote vascularization?",
+      "answerable": false,
+      "top_score": 0.9262816248761324,
+      "configured_decision": "sufficient",
+      "top_page": 2,
+      "top_text": "<mark>Large bone defects as a result of congenital malformations, tumors, and infections continue to pose serious clinical challenges. One promising approach towards the treatment of such defects is …"
+    },
+    {
+      "id": "cal-052",
+      "corpus": "scaffolds",
+      "question": "How long does a PLGA coating take to fully degrade inside the human body?",
+      "answerable": false,
+      "top_score": 0.5808076254766179,
+      "configured_decision": "sufficient",
+      "top_page": 17,
+      "top_text": "In conclusion, PLGA is a promising candidate for coating of scaffolds from the biodegradation viewpoint. This polymer controls the degradation rate of the substrate by, first, reducing the pore size …"
+    },
+    {
+      "id": "cal-053",
+      "corpus": "scaffolds",
+      "question": "How did human mesenchymal stem cells differentiate on the robocast PLA/hydroxyapatite scaffolds?",
+      "answerable": false,
+      "top_score": 0.2996207878876327,
+      "configured_decision": "insufficient",
+      "top_page": 18,
+      "top_text": "Kang et al. [42] investigated rat bone marrow stromal cells (rBMSCs) proliferation and differentiation on TCP scaffolds coated with PLGA. As turned out in Fig. 4, cells tend to proliferate and differ…"
+    }
+  ],
+  "summary": {
+    "suggested": {
+      "threshold": 0.8883,
+      "balanced_accuracy": 0.7780303030303031,
+      "false_abstentions": 13,
+      "false_answers": 1
+    },
+    "configured": {
+      "threshold": 0.5,
+      "balanced_accuracy": 0.6439393939393939,
+      "false_abstentions": 7,
+      "false_answers": 10
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "note": "Benchmark v1 corpora. PDFs are not committed: tissue papers go in scripts/data/papers/, the arXiv papers are downloaded from source_url into scripts/data/embedding_comparison/. Paths are relative to backend/.",
+  "corpora": {
+    "tissue": {
+      "dir": "scripts/data/papers",
+      "papers": [
+        {
+          "file": "Advancements_in_Surface_Modification.pdf"
+        },
+        {
+          "file": "Hydrogels_for_Biomedical_Applications.pdf"
+        },
+        {
+          "file": "Tissue_Regeneration.pdf"
+        }
+      ]
+    },
+    "scaffolds": {
+      "dir": "scripts/data/embedding_comparison",
+      "papers": [
+        {
+          "file": "2602.00146.pdf",
+          "source_url": "https://arxiv.org/pdf/2602.00146v1"
+        },
+        {
+          "file": "2303.11051.pdf",
+          "source_url": "https://arxiv.org/pdf/2303.11051v1"
+        },
+        {
+          "file": "1804.02375.pdf",
+          "source_url": "https://arxiv.org/pdf/1804.02375v1"
+        }
+      ]
+    }
+  }
+}

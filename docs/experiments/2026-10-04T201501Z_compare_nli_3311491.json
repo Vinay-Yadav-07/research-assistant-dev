@@ -1,0 +1,2436 @@
+{
+  "experiment": "compare_nli",
+  "date": "2026-10-04T20:15:01+00:00",
+  "git_commit": "3311491d357c8717f967752f9e7e3830494d376a",
+  "git_dirty": false,
+  "models": {
+    "nli": [
+      "cross-encoder/nli-deberta-v3-xsmall",
+      "cross-encoder/nli-deberta-v3-base"
+    ]
+  },
+  "settings": {
+    "embedding_provider": "fake",
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "embedding_dimension": 384,
+    "embedding_batch_size": 16,
+    "reranker_provider": "fake",
+    "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "reranker_max_length": 512,
+    "reranker_batch_size": 16,
+    "nli_provider": "fake",
+    "nli_model": "cross-encoder/nli-deberta-v3-xsmall",
+    "nli_max_length": 512,
+    "nli_batch_size": 16,
+    "parser_provider": "fake",
+    "dense_top_k": 30,
+    "lexical_top_k": 30,
+    "rrf_k": 60,
+    "rerank_candidates": 20,
+    "retrieval_top_k": 8,
+    "sufficiency_fast_pass_score": 0.97,
+    "sufficiency_check_chunks": 8,
+    "llm_strong_provider": "fake",
+    "llm_strong_model": "gemini-3.5-flash-lite",
+    "chunk_min_tokens": 350,
+    "chunk_max_tokens": 450,
+    "chunk_overlap_ratio": 0.12,
+    "chunk_merge_below_tokens": 80,
+    "chunk_hard_max_tokens": 510,
+    "compatibility_chunks": 4,
+    "compatibility_max_pages": 3,
+    "compatibility_threshold": 0.83,
+    "ingestion_concurrency": 1,
+    "local_inference_concurrency": 1
+  },
+  "parameters": {
+    "threads": 2,
+    "window_words": 120,
+    "contradiction_score": 0.5,
+    "configured_bands": [
+      0.9,
+      0.0
+    ],
+    "pairs": 102,
+    "labels": {
+      "supported": 34,
+      "partial": 34,
+      "unsupported": 34
+    },
+    "verified_pairs": 0
+  },
+  "dataset": "verifier_pairs_v1.jsonl",
+  "hardware": {
+    "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "machine": "x86_64",
+    "processor": null,
+    "cpu_count": 16,
+    "python": "3.11.16",
+    "torch_threads": 2,
+    "torch_threads_set": 2
+  },
+  "results": [
+    {
+      "id": "vp-001-s",
+      "item": "cal-001",
+      "label": "supported",
+      "claim": "At least half of ePTFE and polyethylene terephthalate vascular grafts fail within 10 years.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.2651,
+        "contradiction": 0.1404
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.9597,
+        "contradiction": 0.0143
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0354,
+        "contradiction": 0.0001
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.9948,
+        "contradiction": 0.0002
+      }
+    },
+    {
+      "id": "vp-001-p",
+      "item": "cal-001",
+      "label": "partial",
+      "claim": "At least half of ePTFE and polyethylene terephthalate vascular grafts fail within 10 years, mostly because of infection.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1219,
+        "contradiction": 0.14
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0398,
+        "contradiction": 0.0195
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0005,
+        "contradiction": 0.0002
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0002,
+        "contradiction": 0.0037
+      }
+    },
+    {
+      "id": "vp-001-u",
+      "item": "cal-001",
+      "label": "unsupported",
+      "claim": "About 10% of ePTFE vascular grafts fail within 10 years.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.103,
+        "contradiction": 0.4349
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.008,
+        "contradiction": 0.982
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0005,
+        "contradiction": 0.9971
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0003,
+        "contradiction": 0.9985
+      }
+    },
+    {
+      "id": "vp-002-s",
+      "item": "cal-002",
+      "label": "supported",
+      "claim": "Synthetic grafts make re-intervention inevitable in pediatric patients because the grafts cannot grow.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1065,
+        "contradiction": 0.0723
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.1597,
+        "contradiction": 0.0129
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.004,
+        "contradiction": 0.0
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0028,
+        "contradiction": 0.0007
+      }
+    },
+    {
+      "id": "vp-002-p",
+      "item": "cal-002",
+      "label": "partial",
+      "claim": "Synthetic grafts make re-intervention inevitable in pediatric patients because they cannot grow, so children typically need a new operation within five years.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0715,
+        "contradiction": 0.0692
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0074,
+        "contradiction": 0.008
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0008,
+        "contradiction": 0.0001
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0003,
+        "contradiction": 0.0003
+      }
+    },
+    {
+      "id": "vp-002-u",
+      "item": "cal-002",
+      "label": "unsupported",
+      "claim": "Synthetic vascular grafts grow with pediatric patients, so re-intervention is rarely needed.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0101,
+        "contradiction": 0.8458
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0008,
+        "contradiction": 0.9859
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0001,
+        "contradiction": 0.9988
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0002,
+        "contradiction": 0.9996
+      }
+    },
+    {
+      "id": "vp-003-s",
+      "item": "cal-003",
+      "label": "supported",
+      "claim": "Fibrinogen is typically the first plasma protein adsorbed onto an implant surface.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.2177,
+        "contradiction": 0.2965
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.9602,
+        "contradiction": 0.1991
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.9893,
+        "contradiction": 0.0003
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.9958,
+        "contradiction": 0.3499
+      }
+    },
+    {
+      "id": "vp-003-p",
+      "item": "cal-003",
+      "label": "partial",
+      "claim": "Fibrinogen is typically the first plasma protein adsorbed onto an implant surface, within the first second of blood contact.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1178,
+        "contradiction": 0.2487
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.022,
+        "contradiction": 0.0789
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0005,
+        "contradiction": 0.0002
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0006,
+        "contradiction": 0.0015
+      }
+    },
+    {
+      "id": "vp-003-u",
+      "item": "cal-003",
+      "label": "unsupported",
+      "claim": "Albumin is typically the first plasma protein adsorbed onto an implant surface.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1712,
+        "contradiction": 0.3761
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.263,
+        "contradiction": 0.1842
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.9741,
+        "contradiction": 0.006
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.8494,
+        "contradiction": 0.112
+      }
+    },
+    {
+      "id": "vp-004-s",
+      "item": "cal-004",
+      "label": "supported",
+      "claim": "Of 40 failed PTFE bypass grafts, 68% showed calcification within one month of implantation.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1157,
+        "contradiction": 0.0856
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.7471,
+        "contradiction": 0.0201
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0003,
+        "contradiction": 0.0001
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.5309,
+        "contradiction": 0.0019
+      }
+    },
+    {
+      "id": "vp-004-p",
+      "item": "cal-004",
+      "label": "partial",
+      "claim": "Of 40 failed PTFE bypass grafts, 68% showed calcification within one month, mostly at the distal anastomosis.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0687,
+        "contradiction": 0.0705
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0012,
+        "contradiction": 0.0232
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0002,
+        "contradiction": 0.0001
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0002,
+        "contradiction": 0.0006
+      }
+    },
+    {
+      "id": "vp-004-u",
+      "item": "cal-004",
+      "label": "unsupported",
+      "claim": "Of 40 failed PTFE bypass grafts, 18% showed calcification within one year of implantation.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0285,
+        "contradiction": 0.3456
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0008,
+        "contradiction": 0.8653
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0003,
+        "contradiction": 0.4862
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0002,
+        "contradiction": 0.9936
+      }
+    },
+    {
+      "id": "vp-005-s",
+      "item": "cal-005",
+      "label": "supported",
+      "claim": "PEG coatings suit only short-term applications because the PEG layer is depleted and degraded by oxidation in vivo.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1795,
+        "contradiction": 0.1403
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.8422,
+        "contradiction": 0.9784
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0196,
+        "contradiction": 0.0002
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.966,
+        "contradiction": 0.9895
+      }
+    },
+    {
+      "id": "vp-005-p",
+      "item": "cal-005",
+      "label": "partial",
+      "claim": "PEG coatings suit only short-term applications because the PEG layer is depleted within two weeks in vivo.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1066,
+        "contradiction": 0.1508
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.012,
+        "contradiction": 0.9356
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0007,
+        "contradiction": 0.0003
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0004,
+        "contradiction": 0.9918
+      }
+    },
+    {
+      "id": "vp-005-u",
+      "item": "cal-005",
+      "label": "unsupported",
+      "claim": "PEG coatings remain stable in long-term in vivo tests, which makes them ideal for permanent implants.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0672,
+        "contradiction": 0.4005
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0156,
+        "contradiction": 0.9992
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0,
+        "contradiction": 0.9608
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0001,
+        "contradiction": 0.9999
+      }
+    },
+    {
+      "id": "vp-006-s",
+      "item": "cal-006",
+      "label": "supported",
+      "claim": "An MPC-coated poly(ester urethane)urea graft implanted in rat aortas reduced platelet adhesion tenfold compared with uncoated grafts.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0405,
+        "contradiction": 0.0217
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0139,
+        "contradiction": 0.009
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0199,
+        "contradiction": 0.0
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.9948,
+        "contradiction": 0.0001
+      }
+    },
+    {
+      "id": "vp-006-p",
+      "item": "cal-006",
+      "label": "partial",
+      "claim": "An MPC-coated graft implanted in rat aortas reduced platelet adhesion tenfold and fully remodelled into a native-like artery.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.043,
+        "contradiction": 0.0315
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0121,
+        "contradiction": 0.0053
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0007,
+        "contradiction": 0.0006
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.2521,
+        "contradiction": 0.3324
+      }
+    },
+    {
+      "id": "vp-006-u",
+      "item": "cal-006",
+      "label": "unsupported",
+      "claim": "An MPC coating doubled platelet adhesion on rat aortic grafts.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0244,
+        "contradiction": 0.3429
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0003,
+        "contradiction": 0.9907
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0004,
+        "contradiction": 0.0005
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0001,
+        "contradiction": 0.9987
+      }
+    },
+    {
+      "id": "vp-007-s",
+      "item": "cal-007",
+      "label": "supported",
+      "claim": "For lubricant-infused coronary catheters, CVD silanization gave better resistance to thrombosis than liquid phase deposition.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1349,
+        "contradiction": 0.1104
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.9517,
+        "contradiction": 0.01
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0598,
+        "contradiction": 0.0021
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.9947,
+        "contradiction": 0.0009
+      }
+    },
+    {
+      "id": "vp-007-p",
+      "item": "cal-007",
+      "label": "partial",
+      "claim": "For lubricant-infused coronary catheters, CVD silanization gave better resistance to thrombosis than liquid phase deposition and was also cheaper.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0439,
+        "contradiction": 0.0602
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.001,
+        "contradiction": 0.0025
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0002,
+        "contradiction": 0.0003
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0005,
+        "contradiction": 0.0009
+      }
+    },
+    {
+      "id": "vp-007-u",
+      "item": "cal-007",
+      "label": "unsupported",
+      "claim": "For lubricant-infused coronary catheters, liquid phase deposition gave better resistance to thrombosis than CVD.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0367,
+        "contradiction": 0.6338
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0047,
+        "contradiction": 0.9907
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0009,
+        "contradiction": 0.9944
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0044,
+        "contradiction": 0.9971
+      }
+    },
+    {
+      "id": "vp-008-s",
+      "item": "cal-008",
+      "label": "supported",
+      "claim": "In rats, lubricant-infused ePTFE grafts reduced Staphylococcus aureus adhesion by 99% compared with untreated grafts.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.006,
+        "contradiction": 0.0279
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.9232,
+        "contradiction": 0.0095
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0003,
+        "contradiction": 0.0002
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.9788,
+        "contradiction": 0.0003
+      }
+    },
+    {
+      "id": "vp-008-p",
+      "item": "cal-008",
+      "label": "partial",
+      "claim": "In rats, lubricant-infused ePTFE grafts reduced Staphylococcus aureus adhesion by 99% and prevented infection in every animal.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0026,
+        "contradiction": 0.0245
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0012,
+        "contradiction": 0.0115
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0003,
+        "contradiction": 0.0003
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0004,
+        "contradiction": 0.0009
+      }
+    },
+    {
+      "id": "vp-008-u",
+      "item": "cal-008",
+      "label": "unsupported",
+      "claim": "In rats, lubricant-infused ePTFE grafts reduced Escherichia coli adhesion by 50%.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0016,
+        "contradiction": 0.0181
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0007,
+        "contradiction": 0.0117
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0001,
+        "contradiction": 0.0003
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0002,
+        "contradiction": 0.0015
+      }
+    },
+    {
+      "id": "vp-009-s",
+      "item": "cal-009",
+      "label": "supported",
+      "claim": "Norbornene-chitosan hydrogels reached their maximum swelling ratio, about 55, under acidic conditions.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1572,
+        "contradiction": 0.3369
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.6814,
+        "contradiction": 0.1104
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0036,
+        "contradiction": 0.0023
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0052,
+        "contradiction": 0.0271
+      }
+    },
+    {
+      "id": "vp-009-p",
+      "item": "cal-009",
+      "label": "partial",
+      "claim": "Norbornene-chitosan hydrogels reached their maximum swelling under acidic conditions, and salts did not affect their swelling.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0125,
+        "contradiction": 0.9191
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0308,
+        "contradiction": 0.9967
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0002,
+        "contradiction": 0.9872
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0004,
+        "contradiction": 0.9883
+      }
+    },
+    {
+      "id": "vp-009-u",
+      "item": "cal-009",
+      "label": "unsupported",
+      "claim": "Norbornene-chitosan hydrogels swelled most under basic conditions.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1711,
+        "contradiction": 0.2685
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0322,
+        "contradiction": 0.936
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0036,
+        "contradiction": 0.022
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.002,
+        "contradiction": 0.8069
+      }
+    },
+    {
+      "id": "vp-010-s",
+      "item": "cal-010",
+      "label": "supported",
+      "claim": "SEM showed honeycomb-like structures in the chitosan hydrogels, with polydisperse pores of about 20 to 120 µm.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1366,
+        "contradiction": 0.1
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.185,
+        "contradiction": 0.1511
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0016,
+        "contradiction": 0.0019
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0021,
+        "contradiction": 0.0017
+      }
+    },
+    {
+      "id": "vp-010-p",
+      "item": "cal-010",
+      "label": "partial",
+      "claim": "SEM showed honeycomb-like structures with pores of about 20 to 120 µm, which were unaffected by drying the samples.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0941,
+        "contradiction": 0.38
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0507,
+        "contradiction": 0.1592
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0001,
+        "contradiction": 0.9976
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0001,
+        "contradiction": 0.9984
+      }
+    },
+    {
+      "id": "vp-010-u",
+      "item": "cal-010",
+      "label": "unsupported",
+      "claim": "SEM showed a dense, non-porous structure in the chitosan hydrogels.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0075,
+        "contradiction": 0.9336
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0095,
+        "contradiction": 0.9929
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0,
+        "contradiction": 0.9989
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0002,
+        "contradiction": 0.9995
+      }
+    },
+    {
+      "id": "vp-011-s",
+      "item": "cal-011",
+      "label": "supported",
+      "claim": "Hydrogels crosslinked with the short HS-PEG2-SH had a storage modulus up to 10 times greater than those crosslinked with HS-PEG40-SH or CS-SH.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.7049,
+        "contradiction": 0.0486
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.9802,
+        "contradiction": 0.1135
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.9883,
+        "contradiction": 0.0011
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.9967,
+        "contradiction": 0.0004
+      }
+    },
+    {
+      "id": "vp-011-p",
+      "item": "cal-011",
+      "label": "partial",
+      "claim": "Hydrogels crosslinked with HS-PEG2-SH had a storage modulus up to 10 times greater than the others and were also the most stretchable.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.056,
+        "contradiction": 0.1744
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0039,
+        "contradiction": 0.0097
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0005,
+        "contradiction": 0.0013
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0003,
+        "contradiction": 0.0009
+      }
+    },
+    {
+      "id": "vp-011-u",
+      "item": "cal-011",
+      "label": "unsupported",
+      "claim": "Hydrogels crosslinked with HS-PEG40-SH were the stiffest.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.064,
+        "contradiction": 0.3357
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0069,
+        "contradiction": 0.3942
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0019,
+        "contradiction": 0.0022
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0025,
+        "contradiction": 0.0092
+      }
+    },
+    {
+      "id": "vp-012-s",
+      "item": "cal-012",
+      "label": "supported",
+      "claim": "The chitosan hydrogels could be formed in situ on pork skin and stayed adhered while stored in PBS for up to 4 days.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0764,
+        "contradiction": 0.1273
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.2278,
+        "contradiction": 0.0446
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0003,
+        "contradiction": 0.0005
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.9932,
+        "contradiction": 0.0009
+      }
+    },
+    {
+      "id": "vp-012-p",
+      "item": "cal-012",
+      "label": "partial",
+      "claim": "The chitosan hydrogels could be formed in situ on pork skin, stayed adhered for up to 4 days, and adhered to human skin in a clinical test.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0413,
+        "contradiction": 0.138
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0013,
+        "contradiction": 0.0178
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0002,
+        "contradiction": 0.0004
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0002,
+        "contradiction": 0.0006
+      }
+    },
+    {
+      "id": "vp-012-u",
+      "item": "cal-012",
+      "label": "unsupported",
+      "claim": "The chitosan hydrogels could not adhere to skin.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0011,
+        "contradiction": 0.9769
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0002,
+        "contradiction": 0.9987
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0,
+        "contradiction": 0.1415
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0,
+        "contradiction": 0.9997
+      }
+    },
+    {
+      "id": "vp-013-s",
+      "item": "cal-013",
+      "label": "supported",
+      "claim": "Adding 0.25 w/v% collagen to the chitosan hydrogels raised fibroblast viability above 90% for up to 6 days.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0519,
+        "contradiction": 0.0477
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0394,
+        "contradiction": 0.0062
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0028,
+        "contradiction": 0.0014
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0331,
+        "contradiction": 0.0047
+      }
+    },
+    {
+      "id": "vp-013-p",
+      "item": "cal-013",
+      "label": "partial",
+      "claim": "Adding collagen to the chitosan hydrogels raised fibroblast viability above 90% for up to 6 days and doubled BeWo cell proliferation.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0083,
+        "contradiction": 0.2527
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.001,
+        "contradiction": 0.8976
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0003,
+        "contradiction": 0.0021
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0002,
+        "contradiction": 0.0441
+      }
+    },
+    {
+      "id": "vp-013-u",
+      "item": "cal-013",
+      "label": "unsupported",
+      "claim": "Adding collagen to the chitosan hydrogels reduced fibroblast viability below 50%.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.007,
+        "contradiction": 0.7679
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0068,
+        "contradiction": 0.8899
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0,
+        "contradiction": 0.9996
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0009,
+        "contradiction": 0.9997
+      }
+    },
+    {
+      "id": "vp-014-s",
+      "item": "cal-014",
+      "label": "supported",
+      "claim": "Microgels typically range from 1 to 100 μm in size.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.339,
+        "contradiction": 0.172
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.9068,
+        "contradiction": 0.0431
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.9897,
+        "contradiction": 0.0001
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.9975,
+        "contradiction": 0.0011
+      }
+    },
+    {
+      "id": "vp-014-p",
+      "item": "cal-014",
+      "label": "partial",
+      "claim": "Microgels typically range from 1 to 100 μm in size and are always made by microfluidics.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1233,
+        "contradiction": 0.2373
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0196,
+        "contradiction": 0.1569
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0007,
+        "contradiction": 0.0006
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0002,
+        "contradiction": 0.0053
+      }
+    },
+    {
+      "id": "vp-014-u",
+      "item": "cal-014",
+      "label": "unsupported",
+      "claim": "Microgels typically range from 1 to 100 nm in size.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.3009,
+        "contradiction": 0.2112
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.7966,
+        "contradiction": 0.0891
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.9906,
+        "contradiction": 0.0001
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.997,
+        "contradiction": 0.001
+      }
+    },
+    {
+      "id": "vp-015-s",
+      "item": "cal-015",
+      "label": "supported",
+      "claim": "A hyaluronic acid hydrogel containing VEGF nanomedicines released VEGF for up to 35 days.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0138,
+        "contradiction": 0.3394
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0245,
+        "contradiction": 0.0644
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0006,
+        "contradiction": 0.0005
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0902,
+        "contradiction": 0.0004
+      }
+    },
+    {
+      "id": "vp-015-p",
+      "item": "cal-015",
+      "label": "partial",
+      "claim": "A hyaluronic acid hydrogel containing VEGF nanomedicines released VEGF for up to 35 days and restored full cardiac function in pigs.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0021,
+        "contradiction": 0.2093
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0006,
+        "contradiction": 0.0407
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0003,
+        "contradiction": 0.0009
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0002,
+        "contradiction": 0.0004
+      }
+    },
+    {
+      "id": "vp-015-u",
+      "item": "cal-015",
+      "label": "unsupported",
+      "claim": "A hyaluronic acid hydrogel released VEGF for only 3 days.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0015,
+        "contradiction": 0.6451
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0009,
+        "contradiction": 0.7052
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0001,
+        "contradiction": 0.0048
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0002,
+        "contradiction": 0.9129
+      }
+    },
+    {
+      "id": "vp-016-s",
+      "item": "cal-016",
+      "label": "supported",
+      "claim": "Nanogels face rapid clearance by the reticuloendothelial system.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0022,
+        "contradiction": 0.5461
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0065,
+        "contradiction": 0.9448
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0003,
+        "contradiction": 0.0003
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0009,
+        "contradiction": 0.0007
+      }
+    },
+    {
+      "id": "vp-016-p",
+      "item": "cal-016",
+      "label": "partial",
+      "claim": "Nanogels face rapid clearance by the reticuloendothelial system, mainly through the kidneys.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0014,
+        "contradiction": 0.396
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0009,
+        "contradiction": 0.954
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0001,
+        "contradiction": 0.0005
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0001,
+        "contradiction": 0.0006
+      }
+    },
+    {
+      "id": "vp-016-u",
+      "item": "cal-016",
+      "label": "unsupported",
+      "claim": "Nanogels circulate for a long time because they evade the reticuloendothelial system.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0011,
+        "contradiction": 0.6961
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0005,
+        "contradiction": 0.8071
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0001,
+        "contradiction": 0.0035
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0002,
+        "contradiction": 0.0052
+      }
+    },
+    {
+      "id": "vp-017-s",
+      "item": "cal-017",
+      "label": "supported",
+      "claim": "In mice, osteogenic microgels closed over 95% of critical-sized calvarial defects by week 12.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1207,
+        "contradiction": 0.457
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.3444,
+        "contradiction": 0.389
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.9948,
+        "contradiction": 0.0001
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.998,
+        "contradiction": 0.0004
+      }
+    },
+    {
+      "id": "vp-017-p",
+      "item": "cal-017",
+      "label": "partial",
+      "claim": "In mice, osteogenic microgels closed over 95% of critical-sized calvarial defects by week 12, faster than autologous bone grafts.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.116,
+        "contradiction": 0.3242
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0377,
+        "contradiction": 0.0487
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0011,
+        "contradiction": 0.0002
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0007,
+        "contradiction": 0.0004
+      }
+    },
+    {
+      "id": "vp-017-u",
+      "item": "cal-017",
+      "label": "unsupported",
+      "claim": "In mice, osteogenic microgels closed about 40% of critical-sized defects by week 12.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0124,
+        "contradiction": 0.8809
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0018,
+        "contradiction": 0.9861
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0004,
+        "contradiction": 0.9978
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0002,
+        "contradiction": 0.999
+      }
+    },
+    {
+      "id": "vp-018-s",
+      "item": "cal-018",
+      "label": "supported",
+      "claim": "Raising the PLGA coating concentration from 5% to 20% increased scaffold toughness from 0.94 to 2.18 MPa.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0721,
+        "contradiction": 0.0163
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.9914,
+        "contradiction": 0.0244
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0705,
+        "contradiction": 0.0001
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.9977,
+        "contradiction": 0.0006
+      }
+    },
+    {
+      "id": "vp-018-p",
+      "item": "cal-018",
+      "label": "partial",
+      "claim": "Raising the PLGA coating concentration from 5% to 20% increased scaffold toughness from 0.94 to 2.18 MPa without changing porosity.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0135,
+        "contradiction": 0.0127
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0026,
+        "contradiction": 0.0216
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0003,
+        "contradiction": 0.0002
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0004,
+        "contradiction": 0.001
+      }
+    },
+    {
+      "id": "vp-018-u",
+      "item": "cal-018",
+      "label": "unsupported",
+      "claim": "Scaffolds coated with 20% PLGA had a toughness of 0.94 MPa, lower than those coated with 5%.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0313,
+        "contradiction": 0.8119
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0114,
+        "contradiction": 0.9632
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0004,
+        "contradiction": 0.9982
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0004,
+        "contradiction": 0.9987
+      }
+    },
+    {
+      "id": "vp-019-s",
+      "item": "cal-019",
+      "label": "supported",
+      "claim": "Kang et al. found a compressive strength of 4.19 MPa for PLGA-coated β-TCP scaffolds versus 2.90 MPa for bare ones.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0124,
+        "contradiction": 0.0343
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.9925,
+        "contradiction": 0.4336
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0005,
+        "contradiction": 0.0004
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.9985,
+        "contradiction": 0.0066
+      }
+    },
+    {
+      "id": "vp-019-p",
+      "item": "cal-019",
+      "label": "partial",
+      "claim": "Kang et al. found a compressive strength of 4.19 MPa for coated scaffolds versus 2.90 MPa for bare ones, a gain that lasted through 12 weeks of degradation.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0031,
+        "contradiction": 0.0167
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0004,
+        "contradiction": 0.0157
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0004,
+        "contradiction": 0.0003
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0004,
+        "contradiction": 0.0004
+      }
+    },
+    {
+      "id": "vp-019-u",
+      "item": "cal-019",
+      "label": "unsupported",
+      "claim": "PLGA coating lowered the compressive strength of β-TCP scaffolds from 4.19 to 2.90 MPa.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0055,
+        "contradiction": 0.2422
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0021,
+        "contradiction": 0.9908
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0005,
+        "contradiction": 0.7974
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0005,
+        "contradiction": 0.9995
+      }
+    },
+    {
+      "id": "vp-020-s",
+      "item": "cal-020",
+      "label": "supported",
+      "claim": "Among the fabricated scaffolds, those coated with 12.5% PLGA had the highest compressive strength.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.2656,
+        "contradiction": 0.1819
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.9779,
+        "contradiction": 0.0379
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0202,
+        "contradiction": 0.009
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.9342,
+        "contradiction": 0.9975
+      }
+    },
+    {
+      "id": "vp-020-p",
+      "item": "cal-020",
+      "label": "partial",
+      "claim": "Scaffolds coated with 12.5% PLGA had the highest compressive strength, about 10 MPa.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0996,
+        "contradiction": 0.3403
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0061,
+        "contradiction": 0.203
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0024,
+        "contradiction": 0.0185
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0004,
+        "contradiction": 0.9902
+      }
+    },
+    {
+      "id": "vp-020-u",
+      "item": "cal-020",
+      "label": "unsupported",
+      "claim": "Scaffolds coated with 30% PLGA had the highest compressive strength.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0213,
+        "contradiction": 0.7734
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0022,
+        "contradiction": 0.9587
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0002,
+        "contradiction": 0.5429
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0001,
+        "contradiction": 0.9914
+      }
+    },
+    {
+      "id": "vp-021-s",
+      "item": "cal-021",
+      "label": "supported",
+      "claim": "After 32 weeks, 100 wt% of the gelatin coating and 97 wt% of the PLGA coating had degraded, compared with 63 wt% of the PCL coating.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0712,
+        "contradiction": 0.1163
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0164,
+        "contradiction": 0.0073
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.1938,
+        "contradiction": 0.0015
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.9213,
+        "contradiction": 0.0009
+      }
+    },
+    {
+      "id": "vp-021-p",
+      "item": "cal-021",
+      "label": "partial",
+      "claim": "After 32 weeks, 97 wt% of the PLGA coating had degraded, faster than the gelatin coating.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0719,
+        "contradiction": 0.2414
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.002,
+        "contradiction": 0.0133
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0018,
+        "contradiction": 0.0009
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0002,
+        "contradiction": 0.0138
+      }
+    },
+    {
+      "id": "vp-021-u",
+      "item": "cal-021",
+      "label": "unsupported",
+      "claim": "After 32 weeks, only 20 wt% of the PLGA coating had degraded.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0071,
+        "contradiction": 0.841
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0004,
+        "contradiction": 0.9957
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0004,
+        "contradiction": 0.7882
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0001,
+        "contradiction": 0.9997
+      }
+    },
+    {
+      "id": "vp-022-s",
+      "item": "cal-022",
+      "label": "supported",
+      "claim": "Uncoated vancomycin-loaded bredigite scaffolds released 94.7% of their drug during the first nine hours.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.163,
+        "contradiction": 0.1262
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.1118,
+        "contradiction": 0.6118
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0025,
+        "contradiction": 0.0012
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.3237,
+        "contradiction": 0.003
+      }
+    },
+    {
+      "id": "vp-022-p",
+      "item": "cal-022",
+      "label": "partial",
+      "claim": "Uncoated vancomycin-loaded bredigite scaffolds released 94.7% of their drug during the first nine hours, which was toxic to cells.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0691,
+        "contradiction": 0.0617
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0069,
+        "contradiction": 0.0217
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0011,
+        "contradiction": 0.0007
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0001,
+        "contradiction": 0.0017
+      }
+    },
+    {
+      "id": "vp-022-u",
+      "item": "cal-022",
+      "label": "unsupported",
+      "claim": "Uncoated scaffolds released only 10% of their drug during the first nine hours.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1035,
+        "contradiction": 0.2769
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0645,
+        "contradiction": 0.3504
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0008,
+        "contradiction": 0.9349
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0008,
+        "contradiction": 0.9936
+      }
+    },
+    {
+      "id": "vp-023-s",
+      "item": "cal-023",
+      "label": "supported",
+      "claim": "PLGA has a glass transition temperature between 40 °C and 60 °C.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0762,
+        "contradiction": 0.0194
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.9315,
+        "contradiction": 0.0235
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0009,
+        "contradiction": 0.0001
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.9912,
+        "contradiction": 0.0004
+      }
+    },
+    {
+      "id": "vp-023-p",
+      "item": "cal-023",
+      "label": "partial",
+      "claim": "PLGA has a glass transition temperature between 40 °C and 60 °C regardless of its monomer ratio.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0776,
+        "contradiction": 0.0476
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0244,
+        "contradiction": 0.9362
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0009,
+        "contradiction": 0.0025
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0008,
+        "contradiction": 0.9963
+      }
+    },
+    {
+      "id": "vp-023-u",
+      "item": "cal-023",
+      "label": "unsupported",
+      "claim": "PLGA has a glass transition temperature of about 120 °C.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0335,
+        "contradiction": 0.0228
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.004,
+        "contradiction": 0.9639
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0002,
+        "contradiction": 0.0007
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0001,
+        "contradiction": 0.9989
+      }
+    },
+    {
+      "id": "vp-024-s",
+      "item": "cal-024",
+      "label": "supported",
+      "claim": "After sintering, scaffolds with hollow channels had a porosity of about 84%, compared with 73% for solid scaffolds.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.3676,
+        "contradiction": 0.1069
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.9485,
+        "contradiction": 0.0071
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.1152,
+        "contradiction": 0.0005
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.998,
+        "contradiction": 0.004
+      }
+    },
+    {
+      "id": "vp-024-p",
+      "item": "cal-024",
+      "label": "partial",
+      "claim": "After sintering, scaffolds with hollow channels had a porosity of about 84%, compared with 73% for solid scaffolds, which doubled cell infiltration.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1351,
+        "contradiction": 0.0996
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0499,
+        "contradiction": 0.0168
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0004,
+        "contradiction": 0.0004
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0001,
+        "contradiction": 0.0259
+      }
+    },
+    {
+      "id": "vp-024-u",
+      "item": "cal-024",
+      "label": "unsupported",
+      "claim": "After sintering, scaffolds with hollow channels had a lower porosity than solid scaffolds.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0049,
+        "contradiction": 0.967
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0503,
+        "contradiction": 0.9964
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0002,
+        "contradiction": 0.998
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0007,
+        "contradiction": 0.9993
+      }
+    },
+    {
+      "id": "vp-025-s",
+      "item": "cal-025",
+      "label": "supported",
+      "claim": "During sintering the scaffolds shrank by about 44.5% in the Z direction.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1542,
+        "contradiction": 0.1784
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.6675,
+        "contradiction": 0.1523
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0031,
+        "contradiction": 0.0021
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.9954,
+        "contradiction": 0.0009
+      }
+    },
+    {
+      "id": "vp-025-p",
+      "item": "cal-025",
+      "label": "partial",
+      "claim": "During sintering the scaffolds shrank by about 44.5% in the Z direction, which cracked most of the struts.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1006,
+        "contradiction": 0.2536
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0436,
+        "contradiction": 0.0484
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0002,
+        "contradiction": 0.0031
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0001,
+        "contradiction": 0.0032
+      }
+    },
+    {
+      "id": "vp-025-u",
+      "item": "cal-025",
+      "label": "unsupported",
+      "claim": "During sintering the scaffolds shrank by about 10% in the Z direction.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0973,
+        "contradiction": 0.1827
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.1616,
+        "contradiction": 0.7017
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.001,
+        "contradiction": 0.007
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0035,
+        "contradiction": 0.994
+      }
+    },
+    {
+      "id": "vp-026-s",
+      "item": "cal-026",
+      "label": "supported",
+      "claim": "Hollow-strut scaffolds with Out-t and Out-s outer shapes had relatively high bending strengths of 36.1 and 38.8 MPa.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0501,
+        "contradiction": 0.0813
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0097,
+        "contradiction": 0.7004
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.6901,
+        "contradiction": 0.0039
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0031,
+        "contradiction": 0.9887
+      }
+    },
+    {
+      "id": "vp-026-p",
+      "item": "cal-026",
+      "label": "partial",
+      "claim": "Hollow-strut scaffolds with Out-t and Out-s outer shapes had bending strengths of 36.1 and 38.8 MPa, higher than the solid strut scaffold.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0515,
+        "contradiction": 0.3068
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0092,
+        "contradiction": 0.8591
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.1139,
+        "contradiction": 0.7453
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0012,
+        "contradiction": 0.9951
+      }
+    },
+    {
+      "id": "vp-026-u",
+      "item": "cal-026",
+      "label": "unsupported",
+      "claim": "Scaffolds with Out-p and Out-h outer shapes had the highest bending strengths.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0068,
+        "contradiction": 0.8794
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0121,
+        "contradiction": 0.9393
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.1686,
+        "contradiction": 0.3673
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0023,
+        "contradiction": 0.9974
+      }
+    },
+    {
+      "id": "vp-027-s",
+      "item": "cal-027",
+      "label": "supported",
+      "claim": "The basic coaxial nozzle had a round outlet of 1.70 mm diameter and a round mandrel of 0.65 mm diameter.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1137,
+        "contradiction": 0.6298
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.5752,
+        "contradiction": 0.8699
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.9763,
+        "contradiction": 0.0016
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0022,
+        "contradiction": 0.0088
+      }
+    },
+    {
+      "id": "vp-027-p",
+      "item": "cal-027",
+      "label": "partial",
+      "claim": "The basic coaxial nozzle had a 1.70 mm outlet and a 0.65 mm mandrel and was machined from stainless steel.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0696,
+        "contradiction": 0.592
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0234,
+        "contradiction": 0.7964
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0006,
+        "contradiction": 0.0012
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0007,
+        "contradiction": 0.0035
+      }
+    },
+    {
+      "id": "vp-027-u",
+      "item": "cal-027",
+      "label": "unsupported",
+      "claim": "The basic coaxial nozzle had a round outlet of 0.65 mm diameter and a round mandrel of 1.70 mm diameter.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0286,
+        "contradiction": 0.8859
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0676,
+        "contradiction": 0.8593
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0055,
+        "contradiction": 0.9892
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0018,
+        "contradiction": 0.9974
+      }
+    },
+    {
+      "id": "vp-028-s",
+      "item": "cal-028",
+      "label": "supported",
+      "claim": "The slurry changed from solid-like to liquid-like behaviour at around 5% shear strain.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.2759,
+        "contradiction": 0.1884
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.9769,
+        "contradiction": 0.9641
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0074,
+        "contradiction": 0.0035
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.9968,
+        "contradiction": 0.9977
+      }
+    },
+    {
+      "id": "vp-028-p",
+      "item": "cal-028",
+      "label": "partial",
+      "claim": "The slurry changed from solid-like to liquid-like behaviour at around 5% shear strain and could not recover its solid-like state afterwards.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0113,
+        "contradiction": 0.8873
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0018,
+        "contradiction": 0.9775
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0003,
+        "contradiction": 0.9975
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0001,
+        "contradiction": 0.9998
+      }
+    },
+    {
+      "id": "vp-028-u",
+      "item": "cal-028",
+      "label": "unsupported",
+      "claim": "The slurry stayed solid-like up to 200% shear strain.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.075,
+        "contradiction": 0.5179
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0018,
+        "contradiction": 0.9943
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0011,
+        "contradiction": 0.9932
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0001,
+        "contradiction": 0.9999
+      }
+    },
+    {
+      "id": "vp-029-s",
+      "item": "cal-029",
+      "label": "supported",
+      "claim": "A rod spacing of 0.5 mm gave a porosity of 55% and pores of about 200 µm, while 1 mm gave 75% porosity and pores of about 500 µm.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0033,
+        "contradiction": 0.162
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0697,
+        "contradiction": 0.1727
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0008,
+        "contradiction": 0.0016
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0057,
+        "contradiction": 0.0039
+      }
+    },
+    {
+      "id": "vp-029-p",
+      "item": "cal-029",
+      "label": "partial",
+      "claim": "A rod spacing of 0.5 mm gave a porosity of 55% and the highest compressive strength.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0017,
+        "contradiction": 0.1035
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.003,
+        "contradiction": 0.0946
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0003,
+        "contradiction": 0.0015
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0006,
+        "contradiction": 0.0036
+      }
+    },
+    {
+      "id": "vp-029-u",
+      "item": "cal-029",
+      "label": "unsupported",
+      "claim": "A rod spacing of 0.5 mm gave a porosity of 75% and pores of about 500 µm.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0033,
+        "contradiction": 0.6011
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0149,
+        "contradiction": 0.8515
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0003,
+        "contradiction": 0.9963
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0004,
+        "contradiction": 0.9974
+      }
+    },
+    {
+      "id": "vp-030-s",
+      "item": "cal-030",
+      "label": "supported",
+      "claim": "Below about 5 mm/s the paste dries in the printing nozzle and clogs it, while above 20 mm/s the lines become uneven and discontinuous.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0043,
+        "contradiction": 0.0018
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0035,
+        "contradiction": 0.0035
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0006,
+        "contradiction": 0.0002
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0011,
+        "contradiction": 0.0012
+      }
+    },
+    {
+      "id": "vp-030-p",
+      "item": "cal-030",
+      "label": "partial",
+      "claim": "Below about 5 mm/s the paste dries in the printing nozzle and clogs it, so the authors printed at 50 mm/s.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0025,
+        "contradiction": 0.0017
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0019,
+        "contradiction": 0.0058
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0005,
+        "contradiction": 0.0001
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0003,
+        "contradiction": 0.0006
+      }
+    },
+    {
+      "id": "vp-030-u",
+      "item": "cal-030",
+      "label": "unsupported",
+      "claim": "The printing speed had no effect on the quality of the printed lines.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0015,
+        "contradiction": 0.0181
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0038,
+        "contradiction": 0.8479
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0001,
+        "contradiction": 0.7985
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0,
+        "contradiction": 0.9982
+      }
+    },
+    {
+      "id": "vp-031-s",
+      "item": "cal-031",
+      "label": "supported",
+      "claim": "Scaffolds containing bioactive glasses developed an apatite layer on their surface after 20 days in simulated body fluid.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0079,
+        "contradiction": 0.0167
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.4867,
+        "contradiction": 0.0152
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.001,
+        "contradiction": 0.0001
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0006,
+        "contradiction": 0.0007
+      }
+    },
+    {
+      "id": "vp-031-p",
+      "item": "cal-031",
+      "label": "partial",
+      "claim": "Scaffolds containing bioactive glasses developed an apatite layer after 20 days in simulated body fluid and induced bone growth in rabbits.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0014,
+        "contradiction": 0.0093
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0007,
+        "contradiction": 0.0215
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0005,
+        "contradiction": 0.0002
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0003,
+        "contradiction": 0.0006
+      }
+    },
+    {
+      "id": "vp-031-u",
+      "item": "cal-031",
+      "label": "unsupported",
+      "claim": "Scaffolds containing bioactive glasses dissolved completely after 20 days in simulated body fluid.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0003,
+        "contradiction": 0.9743
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0004,
+        "contradiction": 0.9924
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0,
+        "contradiction": 0.9794
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0001,
+        "contradiction": 0.9955
+      }
+    },
+    {
+      "id": "vp-032-s",
+      "item": "cal-032",
+      "label": "supported",
+      "claim": "The as-received PLA is amorphous because it contains 14% of the D isomer.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1733,
+        "contradiction": 0.2858
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.844,
+        "contradiction": 0.7018
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.003,
+        "contradiction": 0.2573
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.9867,
+        "contradiction": 0.1418
+      }
+    },
+    {
+      "id": "vp-032-p",
+      "item": "cal-032",
+      "label": "partial",
+      "claim": "The as-received PLA is amorphous because it contains 14% of the D isomer, and its glass transition temperature did not change in simulated body fluid.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0307,
+        "contradiction": 0.8827
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.025,
+        "contradiction": 0.9903
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0002,
+        "contradiction": 0.9978
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0004,
+        "contradiction": 0.9966
+      }
+    },
+    {
+      "id": "vp-032-u",
+      "item": "cal-032",
+      "label": "unsupported",
+      "claim": "The as-received PLA is highly crystalline because it is pure L-lactide.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0322,
+        "contradiction": 0.7908
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0126,
+        "contradiction": 0.9897
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0,
+        "contradiction": 0.9996
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0001,
+        "contradiction": 0.9997
+      }
+    },
+    {
+      "id": "vp-033-s",
+      "item": "cal-033",
+      "label": "supported",
+      "claim": "The hybrid scaffolds reached inorganic contents as high as 70 wt%, very close to the mineral content of cortical bone.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0056,
+        "contradiction": 0.0008
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0262,
+        "contradiction": 0.0128
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0004,
+        "contradiction": 0.0002
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.9368,
+        "contradiction": 0.0003
+      }
+    },
+    {
+      "id": "vp-033-p",
+      "item": "cal-033",
+      "label": "partial",
+      "claim": "The hybrid scaffolds reached inorganic contents as high as 70 wt% and were the stiffest scaffolds ever reported.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0015,
+        "contradiction": 0.0012
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0005,
+        "contradiction": 0.0191
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0003,
+        "contradiction": 0.0003
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0003,
+        "contradiction": 0.0022
+      }
+    },
+    {
+      "id": "vp-033-u",
+      "item": "cal-033",
+      "label": "unsupported",
+      "claim": "The inks could hold at most 20 wt% ceramic, far below the mineral content of bone.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0022,
+        "contradiction": 0.0084
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0031,
+        "contradiction": 0.8543
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0002,
+        "contradiction": 0.0222
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0003,
+        "contradiction": 0.9994
+      }
+    },
+    {
+      "id": "vp-042-s",
+      "item": "cal-042",
+      "label": "supported",
+      "claim": "Precursor solutions containing the photoinitiator could be sterilised in an autoclave without structural changes seen by 1H NMR.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.1458,
+        "contradiction": 0.117
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.9819,
+        "contradiction": 0.1858
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0004,
+        "contradiction": 0.0002
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.9841,
+        "contradiction": 0.0025
+      }
+    },
+    {
+      "id": "vp-042-p",
+      "item": "cal-042",
+      "label": "partial",
+      "claim": "The precursor solutions could be sterilised in an autoclave, and autoclaving did not change the hydrogels' swelling.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0917,
+        "contradiction": 0.1463
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.8697,
+        "contradiction": 0.7077
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0003,
+        "contradiction": 0.0003
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0061,
+        "contradiction": 0.0022
+      }
+    },
+    {
+      "id": "vp-042-u",
+      "item": "cal-042",
+      "label": "unsupported",
+      "claim": "The chitosan hydrogels were sterilised with gamma irradiation.",
+      "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+        "entailment": 0.0358,
+        "contradiction": 0.3391
+      },
+      "cross-encoder/nli-deberta-v3-xsmall|windows": {
+        "entailment": 0.0008,
+        "contradiction": 0.9151
+      },
+      "cross-encoder/nli-deberta-v3-base|chunk": {
+        "entailment": 0.0001,
+        "contradiction": 0.0008
+      },
+      "cross-encoder/nli-deberta-v3-base|windows": {
+        "entailment": 0.0003,
+        "contradiction": 0.0259
+      }
+    }
+  ],
+  "summary": {
+    "cross-encoder/nli-deberta-v3-xsmall|chunk": {
+      "nli_pairs": 102,
+      "ms_per_claim": 794,
+      "ms_per_nli_pair": 794,
+      "roc_auc": 0.74,
+      "truncated_pairs": 0,
+      "configured": {
+        "supported_score": 0.9,
+        "unsupported_score": 0.0,
+        "auto_supported": 0,
+        "false_supported": 0,
+        "false_unsupported": 0,
+        "auto_rejected": 0,
+        "judged": 102,
+        "supported_total": 34,
+        "other_total": 68
+      },
+      "calibrated": {
+        "supported_score": 0.31,
+        "unsupported_score": 0.0,
+        "auto_supported": 3,
+        "false_supported": 0,
+        "false_unsupported": 0,
+        "auto_rejected": 0,
+        "judged": 99,
+        "supported_total": 34,
+        "other_total": 68
+      }
+    },
+    "cross-encoder/nli-deberta-v3-xsmall|windows": {
+      "nli_pairs": 288,
+      "ms_per_claim": 607,
+      "ms_per_nli_pair": 215,
+      "roc_auc": 0.91,
+      "truncated_pairs": 0,
+      "configured": {
+        "supported_score": 0.9,
+        "unsupported_score": 0.0,
+        "auto_supported": 12,
+        "false_supported": 0,
+        "false_unsupported": 0,
+        "auto_rejected": 0,
+        "judged": 90,
+        "supported_total": 34,
+        "other_total": 68
+      },
+      "calibrated": {
+        "supported_score": 0.8,
+        "unsupported_score": 0.0,
+        "auto_supported": 12,
+        "false_supported": 0,
+        "false_unsupported": 0,
+        "auto_rejected": 0,
+        "judged": 90,
+        "supported_total": 34,
+        "other_total": 68
+      }
+    },
+    "cross-encoder/nli-deberta-v3-base|chunk": {
+      "nli_pairs": 102,
+      "ms_per_claim": 3138,
+      "ms_per_nli_pair": 3138,
+      "roc_auc": 0.823,
+      "truncated_pairs": 0,
+      "configured": {
+        "supported_score": 0.9,
+        "unsupported_score": 0.0,
+        "auto_supported": 5,
+        "false_supported": 2,
+        "false_unsupported": 0,
+        "auto_rejected": 0,
+        "judged": 95,
+        "supported_total": 34,
+        "other_total": 68
+      },
+      "calibrated": {
+        "supported_score": 1.0,
+        "unsupported_score": 0.0,
+        "auto_supported": 0,
+        "false_supported": 0,
+        "false_unsupported": 0,
+        "auto_rejected": 0,
+        "judged": 102,
+        "supported_total": 34,
+        "other_total": 68
+      }
+    },
+    "cross-encoder/nli-deberta-v3-base|windows": {
+      "nli_pairs": 288,
+      "ms_per_claim": 2452,
+      "ms_per_nli_pair": 868,
+      "roc_auc": 0.956,
+      "truncated_pairs": 0,
+      "configured": {
+        "supported_score": 0.9,
+        "unsupported_score": 0.0,
+        "auto_supported": 18,
+        "false_supported": 1,
+        "false_unsupported": 0,
+        "auto_rejected": 0,
+        "judged": 83,
+        "supported_total": 34,
+        "other_total": 68
+      },
+      "calibrated": {
+        "supported_score": 1.0,
+        "unsupported_score": 0.0,
+        "auto_supported": 0,
+        "false_supported": 0,
+        "false_unsupported": 0,
+        "auto_rejected": 0,
+        "judged": 102,
+        "supported_total": 34,
+        "other_total": 68
+      }
+    }
+  }
+}
